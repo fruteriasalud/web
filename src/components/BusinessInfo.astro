@@ -8,22 +8,22 @@ import { negocio } from '../data/negocio';
 
   <dl class="m-0 grid gap-4 text-sm">
     <div>
-      <dt class="font-bold text-ink">Facebook</dt>
+      <dt class="font-bold text-ink">Teléfono</dt>
       <dd class="m-0 mt-1">
-        <a class="font-semibold text-berry" href={contacto.facebook} target="_blank" rel="noopener noreferrer">
-          {negocio.nombre} en Facebook
+        <a class="text-base font-bold text-berry hover:underline" href={`tel:${contacto.telefonoTel}`}>
+          {contacto.telefono}
         </a>
       </dd>
     </div>
 
-    {
-      contacto.telefono && (
-        <div>
-          <dt class="font-bold text-ink">Teléfono</dt>
-          <dd class="m-0 mt-1 text-muted">{contacto.telefono}</dd>
-        </div>
-      )
-    }
+    <div>
+      <dt class="font-bold text-ink">Facebook</dt>
+      <dd class="m-0 mt-1">
+        <a class="font-semibold text-berry hover:underline" href={contacto.facebook} target="_blank" rel="noopener noreferrer">
+          {negocio.nombre} en Facebook
+        </a>
+      </dd>
+    </div>
 
     <div>
       <dt class="font-bold text-ink">Horario</dt>
@@ -32,6 +32,6 @@ import { negocio } from '../data/negocio';
   </dl>
 
   <p class="mt-5 mb-0 text-xs leading-relaxed text-muted">
-    Teléfono, WhatsApp y email están en preparación. Mientras tanto, escríbenos por Facebook o visítanos en el mercado.
+    ¿Prefieres escribir? Puedes contactarnos por Facebook o visitarnos directamente en el mercado.
   </p>
 </div>

@@ -5,20 +5,12 @@ import CategoryCard from '../components/CategoryCard.astro';
 import CTABanner from '../components/CTABanner.astro';
 import LocationCard from '../components/LocationCard.astro';
 import Section from '../components/Section.astro';
-import SeasonChip from '../components/SeasonChip.astro';
 import { categorias } from '../data/categorias';
 import { negocio } from '../data/negocio';
 import Layout from '../layouts/Layout.astro';
 import { createLocalBusinessJsonLd } from '../lib/seo';
 
 const badges = ['🍃 Selección diaria', '🗓️ Producto de temporada', '🤝 Atención de mercado'];
-
-const temporadas = [
-  { nombre: 'Primavera', icono: '🌱' },
-  { nombre: 'Verano', icono: '🍑' },
-  { nombre: 'Otoño', icono: '🍂' },
-  { nombre: 'Invierno', icono: '🍊' },
-];
 ---
 
 <Layout
@@ -42,9 +34,14 @@ const temporadas = [
         </h1>
         <p class="mt-6 max-w-xl text-lg leading-relaxed text-muted">{negocio.descripcion}</p>
         <div class="mt-8 flex flex-wrap gap-3">
-          <Button href="/contacto/">Cómo llegar</Button>
-          <Button href="/productos/" variant="secondary">Ver productos</Button>
+          <Button href={`tel:${negocio.contacto.telefonoTel}`}>Llamar ahora</Button>
+          <Button href={negocio.googleMaps} variant="secondary" target="_blank" rel="noopener noreferrer">
+            Cómo llegar
+          </Button>
         </div>
+        <p class="mt-5">
+          <a class="text-sm font-bold text-berry hover:underline" href="/productos/">Ver productos →</a>
+        </p>
         <div class="mt-9 flex flex-wrap gap-2.5">
           {
             badges.map((badge) => (
@@ -73,46 +70,44 @@ const temporadas = [
     <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
       {categorias.map((categoria) => <CategoryCard {...categoria} />)}
     </div>
-  </Section>
-
-  <Section
-    eyebrow="Temporada"
-    title="El producto cambia con el mercado"
-    description="Trabajamos con lo que ofrece cada época del año. Consulta en tienda la selección disponible en cada momento."
-  >
-    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      {temporadas.map((temporada) => <SeasonChip temporada={temporada.nombre} icono={temporada.icono} />)}
-    </div>
-    <div class="mt-8">
-      <Button href="/temporada/" variant="secondary">Ver temporada →</Button>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <Button href="/productos/" variant="secondary">Ver catálogo completo</Button>
+      <Button href="/temporada/" variant="secondary">Ver temporada</Button>
     </div>
   </Section>
 
-  <Section tone="lilac">
+  <Section tone="lilac" eyebrow="Quiénes somos" title="Comercio de barrio, trato de mercado">
     <div class="grid gap-10 lg:grid-cols-2 lg:items-center">
       <div>
-        <p class="m-0 mb-2 text-sm font-bold uppercase tracking-wide text-berry">Cercanía</p>
-        <h2 class="m-0 text-3xl font-black leading-tight text-ink sm:text-4xl">Comercio de barrio, trato de mercado</h2>
+        <p class="m-0 text-base leading-relaxed text-ink/80">{negocio.sobreNosotros.texto}</p>
         <ul class="m-0 mt-6 grid gap-3 p-0 text-base text-ink/80">
           <li class="flex list-none items-start gap-3">
-            <span class="text-xl">🤝</span>
+            <span class="text-xl" aria-hidden="true">🤝</span>
             <span>Atención cercana en cada visita al puesto.</span>
           </li>
           <li class="flex list-none items-start gap-3">
-            <span class="text-xl">🧺</span>
+            <span class="text-xl" aria-hidden="true">🧺</span>
             <span>Selección diaria pensada para tu cocina.</span>
           </li>
           <li class="flex list-none items-start gap-3">
-            <span class="text-xl">🏘️</span>
+            <span class="text-xl" aria-hidden="true">🏘️</span>
             <span>La confianza de comprar en tu mercado de barrio.</span>
           </li>
         </ul>
+        <div class="mt-7">
+          <Button href="/contacto/" variant="secondary">Visítanos en el mercado</Button>
+        </div>
       </div>
 
       <div class="relative mx-auto w-full max-w-xs">
         <Blob class="-z-10 -right-6 -bottom-6 h-32 w-32 bg-berry/20" />
-        <div class="blob-shape-alt flex aspect-square items-center justify-center bg-white p-10 shadow-lg ring-1 ring-white/60">
-          <img class="h-32 w-32" src={negocio.logo} alt={negocio.nombre} width="360" height="360" />
+        <div
+          class="blob-shape-alt flex aspect-square flex-col items-center justify-center gap-2 bg-white p-10 text-center shadow-lg ring-1 ring-white/60"
+          role="img"
+          aria-label="Espacio reservado para una foto real del puesto de Frutería Salud"
+        >
+          <span class="text-5xl" aria-hidden="true">🏪</span>
+          <span class="text-xs font-semibold text-muted">Puestos 47, 48 y 49</span>
         </div>
       </div>
     </div>
@@ -124,16 +119,16 @@ const temporadas = [
     title="Visítanos en el Mercado de Abastos Tiro de Línea"
     description="Estamos en pleno barrio de Tiro de Línea, en el corazón del mercado de abastos."
   >
-    <LocationCard />
+    <LocationCard showCallButton />
   </Section>
 
   <Section
     tone="green"
     eyebrow="Encargos"
     title="¿Necesitas encargar producto?"
-    description="Resolvemos encargos según disponibilidad. Consulta condiciones y canales directamente en el puesto."
+    description="Resolvemos encargos según disponibilidad. Llámanos o pásate por el puesto para confirmar tu pedido."
   >
-    <Button href="/encargos/">Ver cómo funciona</Button>
+    <Button href="/encargos/">Consultar encargos</Button>
   </Section>
 
   <Section>
@@ -142,8 +137,10 @@ const temporadas = [
       title="Ven a conocernos al mercado"
       description="Fruta y verdura fresca, seleccionada cada día en el Mercado de Abastos Tiro de Línea."
     >
-      <Button href="/contacto/" variant="secondary">Cómo llegar</Button>
-      <Button href={negocio.facebook} variant="ghost-light">Síguenos en Facebook</Button>
+      <Button href="/contacto/" variant="secondary">Visítanos en el mercado</Button>
+      <Button href={negocio.facebook} variant="ghost-light" target="_blank" rel="noopener noreferrer">
+        Síguenos en Facebook
+      </Button>
     </CTABanner>
   </Section>
 </Layout>

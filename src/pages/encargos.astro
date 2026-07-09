@@ -7,39 +7,45 @@ import Layout from '../layouts/Layout.astro';
 const pasos = [
   {
     numero: '1',
-    icono: '💬',
-    titulo: 'Canal de pedido',
-    texto: 'Pendiente de confirmar teléfono, WhatsApp, email u otro canal oficial.',
+    icono: '🍏',
+    titulo: 'Elige o consulta producto',
+    texto: 'Piensa qué necesitas: fruta, verdura o algo concreto de temporada.',
   },
   {
     numero: '2',
-    icono: '🗓️',
-    titulo: 'Disponibilidad',
-    texto: 'La disponibilidad de producto debe confirmarse según temporada y mercado.',
+    icono: '📞',
+    titulo: 'Llama o visita el puesto',
+    texto: 'Cuéntanos tu encargo por teléfono o directamente en los puestos 47, 48 y 49.',
   },
   {
     numero: '3',
+    icono: '✅',
+    titulo: 'Confirmamos disponibilidad',
+    texto: 'Te decimos si tenemos el producto y en qué cantidad según el día.',
+  },
+  {
+    numero: '4',
     icono: '🧺',
-    titulo: 'Recogida',
-    texto: 'Información pendiente de confirmar en los puestos 47, 48 y 49.',
+    titulo: 'Recoge en el mercado',
+    texto: 'Pasas a recoger tu encargo cuando te venga bien en el Mercado de Abastos Tiro de Línea.',
   },
 ];
 ---
 
 <Layout
   title="Encargos"
-  description="Información base sobre encargos en Frutería Salud. Condiciones, canales y disponibilidad pendientes de confirmar."
+  description="Cómo hacer un encargo en Frutería Salud: consulta por teléfono o en el puesto, confirmamos disponibilidad y recoges en el mercado."
   canonical="/encargos/"
 >
   <Section
     eyebrow="Encargos"
-    title="Compra preparada con información prudente"
-    description="Esta página queda lista para explicar el proceso cuando la frutería confirme canales, horarios, cantidades y condiciones."
+    title="Encarga tu producto en cuatro pasos"
+    description="Resolvemos los encargos por teléfono o en el propio puesto, según el producto disponible cada día."
   >
-    <div class="grid gap-5 md:grid-cols-3">
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
       {
         pasos.map((paso) => (
-          <article class="relative rounded-2xl border border-line bg-white p-6">
+          <article class="relative flex flex-col rounded-2xl border border-line bg-white p-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
             <div class="flex items-center gap-3">
               <span class="flex h-10 w-10 items-center justify-center rounded-full bg-berry-soft text-sm font-black text-berry-dark">
                 {paso.numero}
@@ -56,14 +62,19 @@ const pasos = [
     </div>
 
     <div class="mt-9 flex flex-wrap gap-3">
-      <Button href={negocio.facebook}>Consultar por Facebook</Button>
+      <Button href={`tel:${negocio.contacto.telefonoTel}`}>Llamar ahora</Button>
       <Button href="/contacto/" variant="secondary">Cómo llegar</Button>
+      <Button href={negocio.facebook} variant="secondary">Escríbenos por Facebook</Button>
     </div>
   </Section>
 
   <Section tone="lilac" title="Encargos sujetos a disponibilidad">
     <p class="m-0 max-w-3xl text-ink/80">
-      Todos los encargos dependen del producto disponible cada día en el mercado. Consulta cantidades, plazos y condiciones directamente en el puesto antes de confirmar tu pedido.
+      Todos los encargos dependen del producto disponible cada día en el mercado. Llámanos al
+      <a class="font-bold text-berry-dark underline" href={`tel:${negocio.contacto.telefonoTel}`}>
+        {negocio.contacto.telefono}
+      </a>
+      para confirmar cantidades, plazos y condiciones antes de tu visita.
     </p>
   </Section>
 </Layout>

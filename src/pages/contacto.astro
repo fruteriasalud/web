@@ -1,15 +1,16 @@
 ---
+import Button from '../components/Button.astro';
 import BusinessInfo from '../components/BusinessInfo.astro';
+import CTABanner from '../components/CTABanner.astro';
 import LocationCard from '../components/LocationCard.astro';
 import Section from '../components/Section.astro';
-import { contacto } from '../data/contacto';
 import { negocio } from '../data/negocio';
 import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout
   title="Contacto y ubicación"
-  description="Ubicación de Frutería Salud en el Mercado de Abastos Tiro de Línea, puestos 47, 48 y 49, Sevilla."
+  description="Llama, escríbenos por Facebook o visítanos en el Mercado de Abastos Tiro de Línea, puestos 47, 48 y 49, Sevilla."
   canonical="/contacto/"
 >
   <Section
@@ -23,15 +24,15 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </Section>
 
-  {
-    contacto.pendientes.length > 0 && (
-      <Section tone="lilac" title="Datos pendientes de confirmar">
-        <ul class="m-0 grid gap-3 p-0 sm:grid-cols-2">
-          {contacto.pendientes.map((item) => (
-            <li class="list-none rounded-2xl border border-line bg-white/70 p-4 text-sm font-semibold text-ink">{item}</li>
-          ))}
-        </ul>
-      </Section>
-    )
-  }
+  <Section tone="paper">
+    <CTABanner
+      eyebrow="Habla con nosotros"
+      title="¿Tienes alguna duda o quieres encargar producto?"
+      description="Llámanos directamente o pásate por el puesto: te atendemos encantados."
+    >
+      <Button href={`tel:${negocio.contacto.telefonoTel}`}>Llamar ahora</Button>
+      <Button href="/encargos/" variant="secondary">Consultar encargos</Button>
+      <Button href={negocio.googleMaps} variant="ghost-light">Cómo llegar</Button>
+    </CTABanner>
+  </Section>
 </Layout>

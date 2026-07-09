@@ -1,0 +1,40 @@
+---
+import Section from '../components/Section.astro';
+import { negocio } from '../data/negocio';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Política de privacidad"
+  description="Política de privacidad de Frutería Salud."
+  canonical="/privacidad/"
+  noindex
+>
+  <Section eyebrow="Información legal" title="Política de privacidad">
+    <div class="mb-8 rounded-2xl border border-lilac-deep/40 bg-lilac/40 p-5 text-sm font-semibold text-ink">
+      Contenido provisional. Esta política debe completarse y revisarse conforme al RGPD y la LOPDGDD antes de la
+      publicación final del sitio.
+    </div>
+
+    <div class="max-w-3xl space-y-5 text-sm leading-relaxed text-muted">
+      <h2 class="m-0 text-lg font-black text-ink">Responsable</h2>
+      <p class="m-0 mt-2">
+        {negocio.nombre}, con actividad en {negocio.direccion.mercado}, {negocio.direccion.ciudad}. Puedes
+        contactarnos llamando al {negocio.contacto.telefono}.
+      </p>
+
+      <h2 class="m-0 text-lg font-black text-ink">Datos que trata este sitio web</h2>
+      <p class="m-0 mt-2">
+        Esta web es informativa y no dispone de formularios que recojan datos personales ni de sistemas de venta
+        online. Si en el futuro se incorpora algún formulario o canal de contacto que recoja datos, esta política se
+        actualizará para detallar la finalidad, la base legal y el plazo de conservación de esos datos.
+      </p>
+
+      <h2 class="m-0 text-lg font-black text-ink">Derechos de las personas usuarias</h2>
+      <p class="m-0 mt-2">
+        Cualquier persona puede ejercer sus derechos de acceso, rectificación, supresión y demás derechos reconocidos
+        por la normativa de protección de datos. El canal formal para ejercerlos está pendiente de confirmar.
+      </p>
+    </div>
+  </Section>
+</Layout>

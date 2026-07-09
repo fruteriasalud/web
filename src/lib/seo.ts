@@ -9,6 +9,7 @@ export type SeoProps = {
   image?: string;
   type?: 'website' | 'article';
   jsonLd?: JsonLdValue;
+  noindex?: boolean;
 };
 
 export const siteUrl = negocio.siteUrl.replace(/\/$/, '');

@@ -1,11 +1,12 @@
 ---
 import Button from '../components/Button.astro';
+import CatalogCard from '../components/CatalogCard.astro';
 import CategoryCard from '../components/CategoryCard.astro';
 import CTABanner from '../components/CTABanner.astro';
-import ProductCard from '../components/ProductCard.astro';
 import Section from '../components/Section.astro';
+import { catalogo } from '../data/catalogo';
 import { categorias } from '../data/categorias';
-import { productos } from '../data/productos';
+import { negocio } from '../data/negocio';
 import Layout from '../layouts/Layout.astro';
 ---
 
@@ -17,7 +18,7 @@ import Layout from '../layouts/Layout.astro';
   <Section
     eyebrow="Productos"
     title="Fruta, verdura y producto fresco"
-    description="Categorías con selección diaria de mercado. La disponibilidad concreta depende de la temporada y se confirma en tienda."
+    description="Así organizamos el puesto cada día. La disponibilidad concreta depende de la temporada y se confirma en tienda."
   >
     <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
       {categorias.map((categoria) => <CategoryCard {...categoria} />)}
@@ -26,12 +27,12 @@ import Layout from '../layouts/Layout.astro';
 
   <Section
     tone="paper"
-    eyebrow="Selección inicial"
-    title="Producto de mercado"
-    description="Listado base preparado para ampliarse con productos concretos cuando estén confirmados por la frutería."
+    eyebrow="Catálogo habitual"
+    title="Lo que sueles encontrar en nuestro puesto"
+    description="Una muestra de los productos más habituales. Los productos pueden variar según temporada y mercado."
   >
-    <div class="grid gap-4 md:grid-cols-2">
-      {productos.map((producto) => <ProductCard {...producto} />)}
+    <div class="grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
+      {catalogo.map((producto) => <CatalogCard {...producto} />)}
     </div>
   </Section>
 
@@ -39,8 +40,9 @@ import Layout from '../layouts/Layout.astro';
     <CTABanner
       eyebrow="¿Buscas algo concreto?"
       title="Consulta disponibilidad en tienda"
-      description="La selección exacta cambia según el día y la temporada."
+      description="La selección exacta cambia según el día y la temporada. Podemos confirmártelo por teléfono."
     >
+      <Button href={`tel:${negocio.contacto.telefonoTel}`}>Llamar ahora</Button>
       <Button href="/temporada/" variant="secondary">Ver temporada</Button>
       <Button href="/contacto/" variant="ghost-light">Cómo llegar</Button>
     </CTABanner>

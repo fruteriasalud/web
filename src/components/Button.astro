@@ -4,9 +4,10 @@ type Props = {
   variant?: 'primary' | 'secondary' | 'ghost-light';
   label?: string;
   class?: string;
+  [key: string]: unknown;
 };
 
-const { href, variant = 'primary', label, class: className = '' } = Astro.props as Props;
+const { href, variant = 'primary', label, class: className = '', ...rest } = Astro.props as Props;
 
 const variantClass = {
   primary: 'bg-berry text-white hover:bg-berry-dark',
@@ -22,6 +23,7 @@ const variantClass = {
     className,
   ]}
   href={href}
+  {...rest}
 >
   <slot>{label}</slot>
 </a>

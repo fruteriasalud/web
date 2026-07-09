@@ -1,0 +1,33 @@
+---
+import Section from '../components/Section.astro';
+import { negocio } from '../data/negocio';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Política de cookies" description="Política de cookies de Frutería Salud." canonical="/cookies/" noindex>
+  <Section eyebrow="Información legal" title="Política de cookies">
+    <div class="mb-8 rounded-2xl border border-lilac-deep/40 bg-lilac/40 p-5 text-sm font-semibold text-ink">
+      Contenido provisional. Esta política debe revisarse y completarse antes de la publicación final del sitio,
+      especialmente si se incorporan cookies de analítica o publicidad en el futuro.
+    </div>
+
+    <div class="max-w-3xl space-y-5 text-sm leading-relaxed text-muted">
+      <h2 class="m-0 text-lg font-black text-ink">¿Qué son las cookies?</h2>
+      <p class="m-0 mt-2">
+        Las cookies son pequeños archivos que un sitio web puede guardar en tu navegador para recordar información
+        sobre tu visita.
+      </p>
+
+      <h2 class="m-0 text-lg font-black text-ink">Cookies utilizadas en este sitio</h2>
+      <p class="m-0 mt-2">
+        Esta versión de la web de {negocio.nombre} no instala cookies de analítica ni de publicidad. Si en el futuro
+        se incorporan, se solicitará el consentimiento correspondiente y se detallarán aquí su finalidad y duración.
+      </p>
+
+      <h2 class="m-0 text-lg font-black text-ink">Más información</h2>
+      <p class="m-0 mt-2">
+        Para cualquier duda sobre esta política puedes llamarnos al {negocio.contacto.telefono}.
+      </p>
+    </div>
+  </Section>
+</Layout>

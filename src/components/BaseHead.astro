@@ -9,6 +9,7 @@ const {
   image = negocio.imagenSocial,
   type = 'website',
   jsonLd,
+  noindex = false,
 } = Astro.props as SeoProps;
 
 const pageTitle = formatTitle(title);
@@ -21,7 +22,7 @@ const jsonLdContent = stringifyJsonLd(jsonLd);
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="generator" content={Astro.generator} />
 <meta name="description" content={description} />
-<meta name="robots" content="index, follow" />
+<meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow'} />
 <link rel="canonical" href={canonicalUrl} />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="icon" href="/favicon.ico" />

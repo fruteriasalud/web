@@ -5,10 +5,8 @@ export const contacto = {
   googleMaps: negocio.googleMaps,
   facebook: negocio.facebook,
   telefono: negocio.contacto.telefono,
+  telefonoTel: negocio.contacto.telefonoTel,
   whatsapp: negocio.contacto.whatsapp,
   email: negocio.contacto.email,
   horarioTexto: negocio.horario.texto,
-  pendientes: negocio.pendienteConfirmar.filter((item) =>
-    ['Teléfono', 'WhatsApp', 'Email', 'Horario exacto'].includes(item),
-  ),
 } as const;

@@ -10,7 +10,7 @@ const isActivePath = (href: string) => (href === '/' ? currentPath === '/' : cur
 <header class="sticky top-0 z-50 border-b border-line/80 bg-paper/85 backdrop-blur">
   <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3">
     <a class="inline-flex items-center gap-2.5 no-underline" href="/" aria-label={`${negocio.nombre} - inicio`}>
-      <img class="h-10 w-10 sm:h-11 sm:w-11" src={negocio.logo} alt="" width="88" height="88" />
+      <img class="h-10 w-10 sm:h-11 sm:w-11" src={negocio.logo} alt={`Logo de ${negocio.nombre}`} width="88" height="88" />
       <span class="text-lg font-black tracking-tight text-ink sm:text-xl">
         Frutería <span class="text-berry">Salud</span>
       </span>

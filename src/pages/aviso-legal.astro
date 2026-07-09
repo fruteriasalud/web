@@ -1,0 +1,41 @@
+---
+import Section from '../components/Section.astro';
+import { negocio } from '../data/negocio';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Aviso legal" description="Aviso legal de Frutería Salud." canonical="/aviso-legal/" noindex>
+  <Section eyebrow="Información legal" title="Aviso legal">
+    <div class="mb-8 rounded-2xl border border-lilac-deep/40 bg-lilac/40 p-5 text-sm font-semibold text-ink">
+      Contenido provisional. Este texto debe completarse y revisarse con los datos fiscales y legales definitivos de
+      Frutería Salud antes de la publicación final del sitio.
+    </div>
+
+    <div class="max-w-3xl space-y-5 text-sm leading-relaxed text-muted">
+      <h2 class="m-0 text-lg font-black text-ink">Titular del sitio web</h2>
+      <p class="m-0 mt-2">
+        {negocio.nombre}, con actividad en {negocio.direccion.mercado}, {negocio.direccion.calle},{' '}
+        {negocio.direccion.codigoPostal} {negocio.direccion.ciudad}. Los datos fiscales completos (razón social, NIF y
+        registro correspondiente) están pendientes de incorporar a este aviso legal.
+      </p>
+
+      <h2 class="m-0 text-lg font-black text-ink">Objeto</h2>
+      <p class="m-0 mt-2">
+        Este sitio web tiene carácter informativo sobre la actividad comercial de {negocio.nombre} y no incluye venta
+        online ni procesa pagos.
+      </p>
+
+      <h2 class="m-0 text-lg font-black text-ink">Propiedad intelectual</h2>
+      <p class="m-0 mt-2">
+        Los contenidos, marca y logotipos de {negocio.nombre} son propiedad de su titular. Queda pendiente de
+        confirmar el detalle completo de condiciones de uso.
+      </p>
+
+      <h2 class="m-0 text-lg font-black text-ink">Contacto</h2>
+      <p class="m-0 mt-2">
+        Puedes contactar con {negocio.nombre} llamando al {negocio.contacto.telefono} o visitando el puesto en el
+        Mercado de Abastos Tiro de Línea.
+      </p>
+    </div>
+  </Section>
+</Layout>

@@ -23,13 +23,19 @@ export const negocio = {
     zona: 'Tiro de Línea',
   },
   contacto: {
-    telefono: null,
+    telefono: '954 61 80 45',
+    telefonoTel: '+34954618045',
     whatsapp: null,
     email: null,
   },
   horario: {
-    texto: 'Horario pendiente de confirmar.',
+    texto: 'Horario habitual de mercado. Te recomendamos llamar antes de tu visita para confirmarlo.',
     openingHoursSpecification: [],
+  },
+  sobreNosotros: {
+    titulo: 'Quiénes somos',
+    texto:
+      'Somos una frutería familiar del Mercado de Abastos Tiro de Línea. Cada día seleccionamos fruta y verdura fresca pensando en la cocina de nuestros clientes, con la atención cercana propia de un puesto de mercado de toda la vida.',
   },
   seo: {
     titleTemplate: '%s | Frutería Salud',
@@ -37,12 +43,12 @@ export const negocio = {
     defaultDescription:
       'Frutería Salud, frutería local familiar en el Mercado de Abastos Tiro de Línea de Sevilla. Fruta, verdura y producto fresco de temporada.',
   },
+  // Uso interno del equipo, no debe renderizarse en páginas públicas.
   pendienteConfirmar: [
     'Dominio final de producción',
-    'Teléfono',
     'WhatsApp',
     'Email',
-    'Horario exacto',
+    'Horario exacto por día',
     'Servicios de encargos y condiciones',
     'Reparto a domicilio',
     'Métodos de pago',

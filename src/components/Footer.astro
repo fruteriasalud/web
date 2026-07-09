@@ -9,7 +9,7 @@ const year = new Date().getFullYear();
   <div class="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-[1.3fr_1fr_1fr]">
     <div>
       <a href="/" class="inline-flex items-center gap-2.5 no-underline" aria-label={`${negocio.nombre} - inicio`}>
-        <img class="h-11 w-11" src="/logo/logo-fruteria-salud-transparente.png" alt="" width="88" height="88" />
+        <img class="h-11 w-11" src="/logo/logo-fruteria-salud-transparente.png" alt={`Logo de ${negocio.nombre}`} width="88" height="88" />
         <span class="text-lg font-black tracking-tight text-white">Frutería Salud</span>
       </a>
       <p class="m-0 mt-4 max-w-sm text-sm leading-relaxed text-white/70">{negocio.descripcion}</p>
@@ -53,6 +53,11 @@ const year = new Date().getFullYear();
   </div>
 
   <div class="border-t border-white/10 px-5 py-5 text-center text-xs text-white/50">
-    © {year} {negocio.nombre} · Mercado de Abastos Tiro de Línea, Sevilla
+    <p class="m-0">© {year} {negocio.nombre} · Mercado de Abastos Tiro de Línea, Sevilla</p>
+    <p class="m-0 mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
+      <a class="text-white/50 no-underline hover:text-white hover:underline" href="/aviso-legal/">Aviso legal</a>
+      <a class="text-white/50 no-underline hover:text-white hover:underline" href="/privacidad/">Privacidad</a>
+      <a class="text-white/50 no-underline hover:text-white hover:underline" href="/cookies/">Cookies</a>
+    </p>
   </div>
 </footer>
