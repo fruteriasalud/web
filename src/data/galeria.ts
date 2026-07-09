@@ -7,7 +7,7 @@ export const galeria = [
     src: '/images/galeria/fruta-surtida.svg',
     alt: 'Ilustración de una caja con fruta variada: manzanas, naranjas, plátano y uvas',
     titulo: 'Fruta fresca de temporada',
-    caption: 'Selección diaria de fruta en el puesto. Imagen provisional a la espera de fotos reales del género.',
+    caption: 'Selección diaria de fruta en el puesto según mercado y temporada.',
     categoria: 'producto',
   },
   {
@@ -31,15 +31,15 @@ export const galeria = [
     src: '/images/galeria/preparacion-pedidos.svg',
     alt: 'Ilustración de una caja de encargo preparándose junto a una lista de comprobación',
     titulo: 'Preparación de encargos',
-    caption: 'Preparamos cada encargo con atención antes de la recogida o entrega.',
+    caption: 'Preparamos cada encargo con atención antes de la recogida o de una entrega a consultar.',
     categoria: 'puesto',
   },
   {
     id: 'reparto-vehiculo-1',
     src: '/images/galeria/reparto-vehiculo-1.svg',
-    alt: 'Ilustración de una furgoneta de reparto vista de lado',
-    titulo: 'Vehículo de reparto',
-    caption: 'Imagen provisional del vehículo de reparto y logística de pedidos.',
+    alt: 'Ilustración de apoyo logístico para pedidos con una furgoneta vista de lado',
+    titulo: 'Entregas a consultar',
+    caption: 'La entrega de pedidos se valora caso por caso y está sujeta a disponibilidad.',
     categoria: 'logistica',
   },
   {
@@ -47,7 +47,7 @@ export const galeria = [
     src: '/images/galeria/reparto-vehiculo-2.svg',
     alt: 'Ilustración de un triciclo de carga con caja de producto',
     titulo: 'Logística y transporte',
-    caption: 'Apoyo en el transporte de producto y pedidos por el barrio.',
+    caption: 'Apoyo visual para explicar recogidas y entregas a consultar por teléfono.',
     categoria: 'logistica',
   },
   {

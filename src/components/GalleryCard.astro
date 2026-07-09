@@ -8,7 +8,7 @@ type Props = {
   headingLevel?: 'h2' | 'h3' | 'p';
 };
 
-const { src, alt, titulo, caption, provisional = true, headingLevel = 'p' } = Astro.props as Props;
+const { src, alt, titulo, caption, provisional = false, headingLevel = 'p' } = Astro.props as Props;
 const HeadingTag = headingLevel;
 ---
 

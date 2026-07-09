@@ -42,3 +42,9 @@ Los logos oficiales están disponibles en:
 - `/public/logo/logo-fondo-blanco.png` → logo con fondo blanco.
 
 Usar preferentemente `/logo/logo-principal.png` en la cabecera.
+
+## Contenido visual y páginas
+
+- La página `/empresa/` explica la estructura del negocio, pedidos, encargos y logística con lenguaje prudente.
+- Las imágenes de `/public/images/galeria/` son ilustraciones SVG locales provisionales, pensadas para sustituirse por fotografías reales del puesto, producto y logística cuando estén disponibles.
+- La información de entregas o reparto está pendiente de confirmación operativa; no publicar zonas, vehículos, horarios o condiciones cerradas sin datos reales.

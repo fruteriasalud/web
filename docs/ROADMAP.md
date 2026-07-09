@@ -25,6 +25,12 @@
 - Accesibilidad
 - Optimización imágenes
 - Build final
+- Página `/empresa/`, galería provisional y mensajes de pedidos/reparto revisados con datos no inventados
+
+## Pendiente de contenido real
+
+- Sustituir las ilustraciones SVG de `public/images/galeria/` por fotos reales del puesto y producto cuando existan.
+- Confirmar condiciones reales de pedidos, entregas o reparto antes de publicar zonas, vehículos, horarios o métodos de pago.
 
 ## Fase 5
 

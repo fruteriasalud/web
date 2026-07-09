@@ -15,6 +15,8 @@ La carpeta final para subir al hosting será:
 dist/
 ```
 
+El build copia también los assets estáticos de `public/`, incluyendo logos, favicons, `robots.txt`, `_htaccess.example` y las ilustraciones SVG de `public/images/galeria/`.
+
 ## Hosting clásico
 
 Subir el contenido de `dist/` al directorio público del hosting, normalmente:
@@ -37,6 +39,6 @@ Antes de publicar como web final:
 
 ## Comprobaciones posteriores
 
-- Verificar `/`, `/productos/`, `/temporada/`, `/encargos/`, `/contacto/`, `/aviso-legal/`, `/privacidad/`, `/cookies/`, `/robots.txt` y `/sitemap.xml`.
+- Verificar `/`, `/productos/`, `/temporada/`, `/encargos/`, `/contacto/`, `/empresa/`, `/aviso-legal/`, `/privacidad/`, `/cookies/`, `/robots.txt` y `/sitemap.xml`.
 - Confirmar que `robots.txt` apunta al dominio final con HTTPS.
 - Revisar las páginas legales antes de publicar si ya existen datos fiscales definitivos.
