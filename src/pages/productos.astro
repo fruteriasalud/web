@@ -1,0 +1,39 @@
+---
+import Section from '../components/Section.astro';
+import { categorias } from '../data/categorias';
+import { productos } from '../data/productos';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Productos"
+  description="Frutas, verduras y producto fresco de temporada en Frutería Salud, Mercado de Abastos Tiro de Línea de Sevilla."
+  canonical="/productos/"
+>
+  <Section
+    eyebrow="Productos"
+    title="Fruta, verdura y producto fresco"
+    description="Listado base preparado para ampliar con productos concretos cuando estén confirmados por la frutería."
+  >
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {categorias.map((categoria) => (
+        <article class="rounded-lg border border-[var(--color-line)] bg-white p-5">
+          <h2 class="m-0 text-xl font-black">{categoria.nombre}</h2>
+          <p class="mb-0 mt-2 text-sm text-[var(--color-muted)]">{categoria.descripcion}</p>
+        </article>
+      ))}
+    </div>
+  </Section>
+
+  <Section tone="paper" title="Selección inicial">
+    <div class="grid gap-4 md:grid-cols-2">
+      {productos.map((producto) => (
+        <article class="rounded-lg border border-[var(--color-line)] bg-white p-5">
+          <p class="m-0 text-xs font-bold uppercase tracking-wide text-[var(--color-leaf)]">{producto.categoria}</p>
+          <h2 class="m-0 mt-2 text-xl font-black">{producto.nombre}</h2>
+          <p class="mb-0 mt-2 text-[var(--color-muted)]">{producto.descripcion}</p>
+        </article>
+      ))}
+    </div>
+  </Section>
+</Layout>

@@ -1,0 +1,32 @@
+---
+import { contacto } from '../data/contacto';
+import { negocio } from '../data/negocio';
+---
+
+<div class="grid gap-4 md:grid-cols-2">
+  <article class="rounded-lg border border-[var(--color-line)] bg-white p-5">
+    <h2 class="m-0 mb-3 text-xl font-black">Dónde estamos</h2>
+    <p class="m-0 text-[var(--color-muted)]">{contacto.direccion.texto}</p>
+    <a class="mt-4 inline-block font-bold text-[var(--color-berry)]" href={contacto.googleMaps} target="_blank" rel="noopener noreferrer">
+      Abrir ubicación
+    </a>
+  </article>
+
+  <article class="rounded-lg border border-[var(--color-line)] bg-white p-5">
+    <h2 class="m-0 mb-3 text-xl font-black">Contacto</h2>
+    <dl class="m-0 grid gap-2 text-sm">
+      <div>
+        <dt class="font-bold">Facebook</dt>
+        <dd class="m-0"><a href={contacto.facebook} target="_blank" rel="noopener noreferrer">{negocio.nombre} en Facebook</a></dd>
+      </div>
+      <div>
+        <dt class="font-bold">Teléfono</dt>
+        <dd class="m-0 text-[var(--color-muted)]">Pendiente de confirmar</dd>
+      </div>
+      <div>
+        <dt class="font-bold">Horario</dt>
+        <dd class="m-0 text-[var(--color-muted)]">{contacto.horarioTexto}</dd>
+      </div>
+    </dl>
+  </article>
+</div>

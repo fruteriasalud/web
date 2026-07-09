@@ -1,0 +1,36 @@
+---
+import Button from '../components/Button.astro';
+import Section from '../components/Section.astro';
+import { negocio } from '../data/negocio';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Encargos"
+  description="Información base sobre encargos en Frutería Salud. Condiciones, canales y disponibilidad pendientes de confirmar."
+  canonical="/encargos/"
+>
+  <Section
+    eyebrow="Encargos"
+    title="Compra preparada con información prudente"
+    description="La página queda lista para explicar el proceso cuando la frutería confirme canales, horarios, cantidades y condiciones."
+  >
+    <div class="grid gap-4 md:grid-cols-3">
+      <article class="rounded-lg border border-[var(--color-line)] bg-white p-5">
+        <h2 class="m-0 text-xl font-black">Canal de pedido</h2>
+        <p class="mb-0 mt-2 text-[var(--color-muted)]">Pendiente de confirmar teléfono, WhatsApp, email u otro canal oficial.</p>
+      </article>
+      <article class="rounded-lg border border-[var(--color-line)] bg-white p-5">
+        <h2 class="m-0 text-xl font-black">Disponibilidad</h2>
+        <p class="mb-0 mt-2 text-[var(--color-muted)]">La disponibilidad de producto debe confirmarse según temporada y mercado.</p>
+      </article>
+      <article class="rounded-lg border border-[var(--color-line)] bg-white p-5">
+        <h2 class="m-0 text-xl font-black">Recogida</h2>
+        <p class="mb-0 mt-2 text-[var(--color-muted)]">Información pendiente de confirmar en los puestos 47, 48 y 49.</p>
+      </article>
+    </div>
+    <div class="mt-8">
+      <Button href={negocio.facebook}>Consultar Facebook</Button>
+    </div>
+  </Section>
+</Layout>

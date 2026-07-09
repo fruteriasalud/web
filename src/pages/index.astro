@@ -1,11 +1,60 @@
 ---
-import Welcome from '../components/Welcome.astro';
+import BusinessInfo from '../components/BusinessInfo.astro';
+import Button from '../components/Button.astro';
+import Section from '../components/Section.astro';
+import { productos } from '../data/productos';
+import { negocio } from '../data/negocio';
 import Layout from '../layouts/Layout.astro';
+import { createLocalBusinessJsonLd } from '../lib/seo';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const destacados = productos.filter((producto) => producto.destacado);
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+  title={negocio.seo.defaultTitle}
+  description={negocio.seo.defaultDescription}
+  canonical="/"
+  jsonLd={createLocalBusinessJsonLd()}
+>
+  <Section tone="paper">
+    <div class="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+      <div>
+        <p class="m-0 mb-3 text-sm font-bold uppercase tracking-wide text-[var(--color-leaf)]">
+          Mercado de Abastos Tiro de Línea
+        </p>
+        <h1 class="m-0 max-w-3xl text-4xl font-black leading-tight sm:text-5xl">
+          {negocio.claim}
+        </h1>
+        <p class="mt-5 max-w-2xl text-lg text-[var(--color-muted)]">
+          {negocio.descripcion}
+        </p>
+        <div class="mt-7 flex flex-wrap gap-3">
+          <Button href="/productos/">Ver productos</Button>
+          <Button href="/contacto/" variant="secondary">Cómo llegar</Button>
+        </div>
+      </div>
+      <div class="rounded-lg border border-[var(--color-line)] bg-[var(--color-cream)] p-6">
+        <img class="mx-auto max-h-44 w-auto" src={negocio.logo} alt={negocio.nombre} width="360" height="140" />
+      </div>
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="Producto fresco"
+    title="Base preparada para mostrar la selección diaria"
+    description="El catálogo queda centralizado en datos para poder ampliar productos, categorías y ofertas sin rehacer las páginas."
+  >
+    <div class="grid gap-4 sm:grid-cols-2">
+      {destacados.map((producto) => (
+        <article class="rounded-lg border border-[var(--color-line)] bg-white p-5">
+          <h2 class="m-0 text-xl font-black">{producto.nombre}</h2>
+          <p class="mb-0 mt-2 text-[var(--color-muted)]">{producto.descripcion}</p>
+        </article>
+      ))}
+    </div>
+  </Section>
+
+  <Section tone="green" eyebrow="Contacto" title="Frutería local en Sevilla">
+    <BusinessInfo />
+  </Section>
 </Layout>

@@ -1,0 +1,21 @@
+---
+type Props = {
+  href: string;
+  variant?: 'primary' | 'secondary';
+  label?: string;
+};
+
+const { href, variant = 'primary', label } = Astro.props as Props;
+---
+
+<a
+  class:list={[
+    'inline-flex min-h-11 items-center justify-center rounded-full px-5 py-2.5 text-sm font-bold no-underline transition-colors',
+    variant === 'primary'
+      ? 'bg-[var(--color-berry)] text-white hover:bg-[var(--color-berry-dark)]'
+      : 'border border-[var(--color-line)] bg-white text-[var(--color-berry)] hover:border-[var(--color-berry)]',
+  ]}
+  href={href}
+>
+  <slot>{label}</slot>
+</a>

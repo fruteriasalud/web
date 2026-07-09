@@ -1,0 +1,34 @@
+---
+import Section from '../components/Section.astro';
+import { productos } from '../data/productos';
+import Layout from '../layouts/Layout.astro';
+
+const temporada = productos.filter((producto) => producto.categoria === 'temporada' || producto.destacado);
+---
+
+<Layout
+  title="Temporada"
+  description="Producto fresco de temporada en Frutería Salud. La disponibilidad se confirma en tienda según mercado y época del año."
+  canonical="/temporada/"
+>
+  <Section
+    eyebrow="Temporada"
+    title="Producto que cambia con el mercado"
+    description="Esta página queda preparada para destacar frutas y verduras de temporada sin afirmar disponibilidad no confirmada."
+  >
+    <div class="grid gap-4 md:grid-cols-3">
+      {temporada.map((producto) => (
+        <article class="rounded-lg border border-[var(--color-line)] bg-white p-5">
+          <h2 class="m-0 text-xl font-black">{producto.nombre}</h2>
+          <p class="mb-0 mt-2 text-[var(--color-muted)]">{producto.descripcion}</p>
+        </article>
+      ))}
+    </div>
+  </Section>
+
+  <Section tone="lilac" title="Pendiente de confirmar">
+    <p class="m-0 max-w-3xl text-[var(--color-muted)]">
+      Antes de publicar productos concretos de temporada, conviene confirmar disponibilidad, fechas aproximadas y fotografías reales con Frutería Salud.
+    </p>
+  </Section>
+</Layout>

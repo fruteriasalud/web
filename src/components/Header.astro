@@ -1,0 +1,42 @@
+---
+import { navegacionPrincipal } from '../data/navegacion';
+import { negocio } from '../data/negocio';
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="border-b border-[var(--color-line)] bg-[var(--color-paper)]">
+  <div class="mx-auto flex max-w-6xl flex-col gap-4 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
+    <a class="inline-flex w-fit items-center gap-3 no-underline" href="/" aria-label={`${negocio.nombre} - inicio`}>
+      <img class="h-14 w-auto" src={negocio.logo} alt={negocio.nombre} width="220" height="86" />
+    </a>
+
+    <nav aria-label="Navegación principal">
+      <ul class="flex flex-wrap gap-x-4 gap-y-2 p-0 text-sm font-semibold text-[var(--color-muted)]">
+        {
+          navegacionPrincipal.map((item) => {
+            const isActive =
+              item.href === '/' ? currentPath === '/' : currentPath.startsWith(item.href);
+
+            return (
+              <li class="list-none">
+                <a
+                  class:list={[
+                    'rounded-full px-3 py-2 no-underline transition-colors',
+                    isActive
+                      ? 'bg-[var(--color-leaf-soft)] text-[var(--color-leaf)]'
+                      : 'hover:bg-white hover:text-[var(--color-berry)]',
+                  ]}
+                  href={item.href}
+                  aria-current={isActive ? 'page' : undefined}
+                >
+                  {item.label}
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
