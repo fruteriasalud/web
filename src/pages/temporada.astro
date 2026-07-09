@@ -1,9 +1,20 @@
 ---
+import Button from '../components/Button.astro';
+import CTABanner from '../components/CTABanner.astro';
+import ProductCard from '../components/ProductCard.astro';
 import Section from '../components/Section.astro';
+import SeasonChip from '../components/SeasonChip.astro';
 import { productos } from '../data/productos';
 import Layout from '../layouts/Layout.astro';
 
-const temporada = productos.filter((producto) => producto.categoria === 'temporada' || producto.destacado);
+const temporadas = [
+  { nombre: 'Primavera', icono: '🌱' },
+  { nombre: 'Verano', icono: '🍑' },
+  { nombre: 'Otoño', icono: '🍂' },
+  { nombre: 'Invierno', icono: '🍊' },
+];
+
+const destacadosTemporada = productos.filter((producto) => producto.categoria === 'temporada' || producto.destacado);
 ---
 
 <Layout
@@ -14,21 +25,33 @@ const temporada = productos.filter((producto) => producto.categoria === 'tempora
   <Section
     eyebrow="Temporada"
     title="Producto que cambia con el mercado"
-    description="Esta página queda preparada para destacar frutas y verduras de temporada sin afirmar disponibilidad no confirmada."
+    description="Trabajamos con lo que ofrece cada época del año. Consulta en tienda la selección disponible en cada momento."
   >
-    <div class="grid gap-4 md:grid-cols-3">
-      {temporada.map((producto) => (
-        <article class="rounded-lg border border-[var(--color-line)] bg-white p-5">
-          <h2 class="m-0 text-xl font-black">{producto.nombre}</h2>
-          <p class="mb-0 mt-2 text-[var(--color-muted)]">{producto.descripcion}</p>
-        </article>
-      ))}
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {temporadas.map((temporada) => <SeasonChip temporada={temporada.nombre} icono={temporada.icono} />)}
     </div>
   </Section>
 
-  <Section tone="lilac" title="Pendiente de confirmar">
-    <p class="m-0 max-w-3xl text-[var(--color-muted)]">
+  <Section tone="lilac" eyebrow="Ahora en el puesto" title="Producto de temporada">
+    <div class="grid gap-4 md:grid-cols-3">
+      {destacadosTemporada.map((producto) => <ProductCard {...producto} />)}
+    </div>
+  </Section>
+
+  <Section tone="paper" title="Pendiente de confirmar">
+    <p class="m-0 max-w-3xl text-muted">
       Antes de publicar productos concretos de temporada, conviene confirmar disponibilidad, fechas aproximadas y fotografías reales con Frutería Salud.
     </p>
+  </Section>
+
+  <Section>
+    <CTABanner
+      eyebrow="Encargos"
+      title="¿Necesitas reservar producto de temporada?"
+      description="Los encargos quedan sujetos a disponibilidad. Consulta condiciones directamente en el puesto."
+    >
+      <Button href="/encargos/" variant="secondary">Ver encargos</Button>
+      <Button href="/contacto/" variant="ghost-light">Cómo llegar</Button>
+    </CTABanner>
   </Section>
 </Layout>

@@ -1,4 +1,8 @@
 ---
+import Button from '../components/Button.astro';
+import CategoryCard from '../components/CategoryCard.astro';
+import CTABanner from '../components/CTABanner.astro';
+import ProductCard from '../components/ProductCard.astro';
 import Section from '../components/Section.astro';
 import { categorias } from '../data/categorias';
 import { productos } from '../data/productos';
@@ -13,27 +17,32 @@ import Layout from '../layouts/Layout.astro';
   <Section
     eyebrow="Productos"
     title="Fruta, verdura y producto fresco"
-    description="Listado base preparado para ampliar con productos concretos cuando estén confirmados por la frutería."
+    description="Categorías con selección diaria de mercado. La disponibilidad concreta depende de la temporada y se confirma en tienda."
   >
-    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      {categorias.map((categoria) => (
-        <article class="rounded-lg border border-[var(--color-line)] bg-white p-5">
-          <h2 class="m-0 text-xl font-black">{categoria.nombre}</h2>
-          <p class="mb-0 mt-2 text-sm text-[var(--color-muted)]">{categoria.descripcion}</p>
-        </article>
-      ))}
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {categorias.map((categoria) => <CategoryCard {...categoria} />)}
     </div>
   </Section>
 
-  <Section tone="paper" title="Selección inicial">
+  <Section
+    tone="paper"
+    eyebrow="Selección inicial"
+    title="Producto de mercado"
+    description="Listado base preparado para ampliarse con productos concretos cuando estén confirmados por la frutería."
+  >
     <div class="grid gap-4 md:grid-cols-2">
-      {productos.map((producto) => (
-        <article class="rounded-lg border border-[var(--color-line)] bg-white p-5">
-          <p class="m-0 text-xs font-bold uppercase tracking-wide text-[var(--color-leaf)]">{producto.categoria}</p>
-          <h2 class="m-0 mt-2 text-xl font-black">{producto.nombre}</h2>
-          <p class="mb-0 mt-2 text-[var(--color-muted)]">{producto.descripcion}</p>
-        </article>
-      ))}
+      {productos.map((producto) => <ProductCard {...producto} />)}
     </div>
+  </Section>
+
+  <Section>
+    <CTABanner
+      eyebrow="¿Buscas algo concreto?"
+      title="Consulta disponibilidad en tienda"
+      description="La selección exacta cambia según el día y la temporada."
+    >
+      <Button href="/temporada/" variant="secondary">Ver temporada</Button>
+      <Button href="/contacto/" variant="ghost-light">Cómo llegar</Button>
+    </CTABanner>
   </Section>
 </Layout>

@@ -1,0 +1,34 @@
+---
+type Props = {
+  id: string;
+  nombre: string;
+  descripcion: string;
+};
+
+const { id, nombre, descripcion } = Astro.props as Props;
+
+const iconos: Record<string, string> = {
+  frutas: '🍎',
+  verduras: '🥬',
+  temporada: '🍇',
+  mercado: '🧺',
+};
+
+const acentos: Record<string, string> = {
+  frutas: 'bg-berry-soft text-berry-dark',
+  verduras: 'bg-leaf-soft text-leaf-dark',
+  temporada: 'bg-lilac text-berry-dark',
+  mercado: 'bg-cream text-leaf-dark',
+};
+
+const icono = iconos[id] ?? '🍏';
+const acento = acentos[id] ?? 'bg-cream text-leaf-dark';
+---
+
+<article class="group flex flex-col rounded-3xl border border-line bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg">
+  <div class:list={['mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl', acento]}>
+    {icono}
+  </div>
+  <h3 class="m-0 text-lg font-black text-ink">{nombre}</h3>
+  <p class="mb-0 mt-2 text-sm leading-relaxed text-muted">{descripcion}</p>
+</article>

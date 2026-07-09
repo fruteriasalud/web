@@ -1,0 +1,14 @@
+---
+type Props = {
+  fill?: string;
+  flip?: boolean;
+};
+
+const { fill = 'var(--color-paper)', flip = false } = Astro.props as Props;
+---
+
+<div aria-hidden="true" class:list={['pointer-events-none leading-[0]', flip && 'rotate-180']}>
+  <svg viewBox="0 0 1440 70" class="h-8 w-full sm:h-14" preserveAspectRatio="none">
+    <path fill={fill} d="M0,28 C240,70 480,0 720,14 C960,28 1200,70 1440,32 L1440,70 L0,70 Z"></path>
+  </svg>
+</div>

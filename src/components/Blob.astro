@@ -1,0 +1,9 @@
+---
+type Props = {
+  class?: string;
+};
+
+const { class: className = 'h-64 w-64 bg-berry/30' } = Astro.props as Props;
+---
+
+<div aria-hidden="true" class:list={['pointer-events-none absolute rounded-full blur-3xl', className]}></div>

@@ -1,0 +1,19 @@
+---
+import { categorias } from '../data/categorias';
+
+type Props = {
+  nombre: string;
+  descripcion: string;
+  categoria: string;
+  destacado?: boolean;
+};
+
+const { nombre, descripcion, categoria, destacado = false } = Astro.props as Props;
+const categoriaNombre = categorias.find((cat) => cat.id === categoria)?.nombre ?? categoria;
+---
+
+<article class:list={['relative flex flex-col rounded-2xl border p-5', destacado ? 'border-berry/25 bg-berry-soft/40' : 'border-line bg-white']}>
+  <p class:list={['m-0 text-xs font-bold uppercase tracking-wide', destacado ? 'text-berry' : 'text-leaf']}>{categoriaNombre}</p>
+  <h3 class="m-0 mt-2 text-xl font-black text-ink">{nombre}</h3>
+  <p class="mb-0 mt-2 text-sm leading-relaxed text-muted">{descripcion}</p>
+</article>

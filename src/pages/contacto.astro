@@ -1,5 +1,6 @@
 ---
 import BusinessInfo from '../components/BusinessInfo.astro';
+import LocationCard from '../components/LocationCard.astro';
 import Section from '../components/Section.astro';
 import { contacto } from '../data/contacto';
 import { negocio } from '../data/negocio';
@@ -16,12 +17,21 @@ import Layout from '../layouts/Layout.astro';
     title="Estamos en el Mercado de Abastos Tiro de Línea"
     description={negocio.direccion.texto}
   >
-    <BusinessInfo />
+    <div class="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+      <LocationCard />
+      <BusinessInfo />
+    </div>
   </Section>
 
-  <Section tone="paper" title="Datos pendientes de confirmar">
-    <ul class="m-0 grid gap-2 p-0 text-[var(--color-muted)]">
-      {contacto.pendientes.map((item) => <li class="list-none rounded-lg border border-[var(--color-line)] bg-white p-4">{item}</li>)}
-    </ul>
-  </Section>
+  {
+    contacto.pendientes.length > 0 && (
+      <Section tone="lilac" title="Datos pendientes de confirmar">
+        <ul class="m-0 grid gap-3 p-0 sm:grid-cols-2">
+          {contacto.pendientes.map((item) => (
+            <li class="list-none rounded-2xl border border-line bg-white/70 p-4 text-sm font-semibold text-ink">{item}</li>
+          ))}
+        </ul>
+      </Section>
+    )
+  }
 </Layout>

@@ -1,13 +1,24 @@
 ---
-import BusinessInfo from '../components/BusinessInfo.astro';
+import Blob from '../components/Blob.astro';
 import Button from '../components/Button.astro';
+import CategoryCard from '../components/CategoryCard.astro';
+import CTABanner from '../components/CTABanner.astro';
+import LocationCard from '../components/LocationCard.astro';
 import Section from '../components/Section.astro';
-import { productos } from '../data/productos';
+import SeasonChip from '../components/SeasonChip.astro';
+import { categorias } from '../data/categorias';
 import { negocio } from '../data/negocio';
 import Layout from '../layouts/Layout.astro';
 import { createLocalBusinessJsonLd } from '../lib/seo';
 
-const destacados = productos.filter((producto) => producto.destacado);
+const badges = ['🍃 Selección diaria', '🗓️ Producto de temporada', '🤝 Atención de mercado'];
+
+const temporadas = [
+  { nombre: 'Primavera', icono: '🌱' },
+  { nombre: 'Verano', icono: '🍑' },
+  { nombre: 'Otoño', icono: '🍂' },
+  { nombre: 'Invierno', icono: '🍊' },
+];
 ---
 
 <Layout
@@ -16,45 +27,123 @@ const destacados = productos.filter((producto) => producto.destacado);
   canonical="/"
   jsonLd={createLocalBusinessJsonLd()}
 >
-  <Section tone="paper">
-    <div class="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+  <section class="relative overflow-hidden px-5 pt-12 pb-16 sm:pt-16 sm:pb-24">
+    <Blob class="-top-24 -left-20 h-72 w-72 bg-berry/20" />
+    <Blob class="top-16 -right-24 h-80 w-80 bg-leaf/15" />
+    <Blob class="bottom-0 left-1/3 h-56 w-56 bg-lilac-deep/15" />
+
+    <div class="relative mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
       <div>
-        <p class="m-0 mb-3 text-sm font-bold uppercase tracking-wide text-[var(--color-leaf)]">
-          Mercado de Abastos Tiro de Línea
+        <p class="m-0 inline-block rounded-full border border-line bg-white/70 px-4 py-1.5 text-sm font-bold text-leaf backdrop-blur">
+          Mercado de Abastos Tiro de Línea · Sevilla
         </p>
-        <h1 class="m-0 max-w-3xl text-4xl font-black leading-tight sm:text-5xl">
+        <h1 class="m-0 mt-5 text-4xl font-black leading-[1.05] text-ink sm:text-5xl lg:text-6xl">
           {negocio.claim}
         </h1>
-        <p class="mt-5 max-w-2xl text-lg text-[var(--color-muted)]">
-          {negocio.descripcion}
-        </p>
-        <div class="mt-7 flex flex-wrap gap-3">
-          <Button href="/productos/">Ver productos</Button>
-          <Button href="/contacto/" variant="secondary">Cómo llegar</Button>
+        <p class="mt-6 max-w-xl text-lg leading-relaxed text-muted">{negocio.descripcion}</p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <Button href="/contacto/">Cómo llegar</Button>
+          <Button href="/productos/" variant="secondary">Ver productos</Button>
+        </div>
+        <div class="mt-9 flex flex-wrap gap-2.5">
+          {
+            badges.map((badge) => (
+              <span class="rounded-full border border-line bg-white/70 px-3.5 py-1.5 text-xs font-semibold text-muted backdrop-blur">
+                {badge}
+              </span>
+            ))
+          }
         </div>
       </div>
-      <div class="rounded-lg border border-[var(--color-line)] bg-[var(--color-cream)] p-6">
-        <img class="mx-auto max-h-44 w-auto" src={negocio.logo} alt={negocio.nombre} width="360" height="140" />
+
+      <div class="relative mx-auto w-full max-w-sm">
+        <div class="blob-shape relative flex aspect-square items-center justify-center bg-white p-10 shadow-xl ring-1 ring-line">
+          <img class="h-40 w-40 sm:h-48 sm:w-48" src={negocio.logo} alt={negocio.nombre} width="360" height="360" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Section
+    tone="paper"
+    eyebrow="Producto fresco"
+    title="Lo que encontrarás en nuestro puesto"
+    description="Categorías con selección diaria de mercado. La disponibilidad concreta depende de la temporada; consúltala en tienda."
+  >
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {categorias.map((categoria) => <CategoryCard {...categoria} />)}
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="Temporada"
+    title="El producto cambia con el mercado"
+    description="Trabajamos con lo que ofrece cada época del año. Consulta en tienda la selección disponible en cada momento."
+  >
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {temporadas.map((temporada) => <SeasonChip temporada={temporada.nombre} icono={temporada.icono} />)}
+    </div>
+    <div class="mt-8">
+      <Button href="/temporada/" variant="secondary">Ver temporada →</Button>
+    </div>
+  </Section>
+
+  <Section tone="lilac">
+    <div class="grid gap-10 lg:grid-cols-2 lg:items-center">
+      <div>
+        <p class="m-0 mb-2 text-sm font-bold uppercase tracking-wide text-berry">Cercanía</p>
+        <h2 class="m-0 text-3xl font-black leading-tight text-ink sm:text-4xl">Comercio de barrio, trato de mercado</h2>
+        <ul class="m-0 mt-6 grid gap-3 p-0 text-base text-ink/80">
+          <li class="flex list-none items-start gap-3">
+            <span class="text-xl">🤝</span>
+            <span>Atención cercana en cada visita al puesto.</span>
+          </li>
+          <li class="flex list-none items-start gap-3">
+            <span class="text-xl">🧺</span>
+            <span>Selección diaria pensada para tu cocina.</span>
+          </li>
+          <li class="flex list-none items-start gap-3">
+            <span class="text-xl">🏘️</span>
+            <span>La confianza de comprar en tu mercado de barrio.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="relative mx-auto w-full max-w-xs">
+        <Blob class="-z-10 -right-6 -bottom-6 h-32 w-32 bg-berry/20" />
+        <div class="blob-shape-alt flex aspect-square items-center justify-center bg-white p-10 shadow-lg ring-1 ring-white/60">
+          <img class="h-32 w-32" src={negocio.logo} alt={negocio.nombre} width="360" height="360" />
+        </div>
       </div>
     </div>
   </Section>
 
   <Section
-    eyebrow="Producto fresco"
-    title="Base preparada para mostrar la selección diaria"
-    description="El catálogo queda centralizado en datos para poder ampliar productos, categorías y ofertas sin rehacer las páginas."
+    tone="paper"
+    eyebrow="Ubicación"
+    title="Visítanos en el Mercado de Abastos Tiro de Línea"
+    description="Estamos en pleno barrio de Tiro de Línea, en el corazón del mercado de abastos."
   >
-    <div class="grid gap-4 sm:grid-cols-2">
-      {destacados.map((producto) => (
-        <article class="rounded-lg border border-[var(--color-line)] bg-white p-5">
-          <h2 class="m-0 text-xl font-black">{producto.nombre}</h2>
-          <p class="mb-0 mt-2 text-[var(--color-muted)]">{producto.descripcion}</p>
-        </article>
-      ))}
-    </div>
+    <LocationCard />
   </Section>
 
-  <Section tone="green" eyebrow="Contacto" title="Frutería local en Sevilla">
-    <BusinessInfo />
+  <Section
+    tone="green"
+    eyebrow="Encargos"
+    title="¿Necesitas encargar producto?"
+    description="Resolvemos encargos según disponibilidad. Consulta condiciones y canales directamente en el puesto."
+  >
+    <Button href="/encargos/">Ver cómo funciona</Button>
+  </Section>
+
+  <Section>
+    <CTABanner
+      eyebrow="Te esperamos"
+      title="Ven a conocernos al mercado"
+      description="Fruta y verdura fresca, seleccionada cada día en el Mercado de Abastos Tiro de Línea."
+    >
+      <Button href="/contacto/" variant="secondary">Cómo llegar</Button>
+      <Button href={negocio.facebook} variant="ghost-light">Síguenos en Facebook</Button>
+    </CTABanner>
   </Section>
 </Layout>

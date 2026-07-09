@@ -1,19 +1,25 @@
 ---
 type Props = {
   href: string;
-  variant?: 'primary' | 'secondary';
+  variant?: 'primary' | 'secondary' | 'ghost-light';
   label?: string;
+  class?: string;
 };
 
-const { href, variant = 'primary', label } = Astro.props as Props;
+const { href, variant = 'primary', label, class: className = '' } = Astro.props as Props;
+
+const variantClass = {
+  primary: 'bg-berry text-white hover:bg-berry-dark',
+  secondary: 'border border-line bg-white text-berry hover:border-berry',
+  'ghost-light': 'border border-white/50 bg-white/10 text-white hover:bg-white/20',
+}[variant];
 ---
 
 <a
   class:list={[
-    'inline-flex min-h-11 items-center justify-center rounded-full px-5 py-2.5 text-sm font-bold no-underline transition-colors',
-    variant === 'primary'
-      ? 'bg-[var(--color-berry)] text-white hover:bg-[var(--color-berry-dark)]'
-      : 'border border-[var(--color-line)] bg-white text-[var(--color-berry)] hover:border-[var(--color-berry)]',
+    'inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-bold no-underline transition-colors',
+    variantClass,
+    className,
   ]}
   href={href}
 >

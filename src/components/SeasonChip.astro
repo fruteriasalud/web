@@ -1,0 +1,16 @@
+---
+type Props = {
+  temporada: string;
+  icono: string;
+};
+
+const { temporada, icono } = Astro.props as Props;
+---
+
+<div class="flex items-center gap-3 rounded-full border border-line bg-white px-5 py-3">
+  <span class="text-xl" aria-hidden="true">{icono}</span>
+  <div>
+    <p class="m-0 text-sm font-black text-ink">{temporada}</p>
+    <p class="m-0 text-xs text-muted">Consulta disponibilidad en tienda</p>
+  </div>
+</div>

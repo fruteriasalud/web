@@ -3,30 +3,35 @@ import { contacto } from '../data/contacto';
 import { negocio } from '../data/negocio';
 ---
 
-<div class="grid gap-4 md:grid-cols-2">
-  <article class="rounded-lg border border-[var(--color-line)] bg-white p-5">
-    <h2 class="m-0 mb-3 text-xl font-black">Dónde estamos</h2>
-    <p class="m-0 text-[var(--color-muted)]">{contacto.direccion.texto}</p>
-    <a class="mt-4 inline-block font-bold text-[var(--color-berry)]" href={contacto.googleMaps} target="_blank" rel="noopener noreferrer">
-      Abrir ubicación
-    </a>
-  </article>
+<div class="rounded-3xl border border-line bg-white p-6 sm:p-8">
+  <h2 class="m-0 mb-5 text-xl font-black text-ink">Contacto y horario</h2>
 
-  <article class="rounded-lg border border-[var(--color-line)] bg-white p-5">
-    <h2 class="m-0 mb-3 text-xl font-black">Contacto</h2>
-    <dl class="m-0 grid gap-2 text-sm">
-      <div>
-        <dt class="font-bold">Facebook</dt>
-        <dd class="m-0"><a href={contacto.facebook} target="_blank" rel="noopener noreferrer">{negocio.nombre} en Facebook</a></dd>
-      </div>
-      <div>
-        <dt class="font-bold">Teléfono</dt>
-        <dd class="m-0 text-[var(--color-muted)]">Pendiente de confirmar</dd>
-      </div>
-      <div>
-        <dt class="font-bold">Horario</dt>
-        <dd class="m-0 text-[var(--color-muted)]">{contacto.horarioTexto}</dd>
-      </div>
-    </dl>
-  </article>
+  <dl class="m-0 grid gap-4 text-sm">
+    <div>
+      <dt class="font-bold text-ink">Facebook</dt>
+      <dd class="m-0 mt-1">
+        <a class="font-semibold text-berry" href={contacto.facebook} target="_blank" rel="noopener noreferrer">
+          {negocio.nombre} en Facebook
+        </a>
+      </dd>
+    </div>
+
+    {
+      contacto.telefono && (
+        <div>
+          <dt class="font-bold text-ink">Teléfono</dt>
+          <dd class="m-0 mt-1 text-muted">{contacto.telefono}</dd>
+        </div>
+      )
+    }
+
+    <div>
+      <dt class="font-bold text-ink">Horario</dt>
+      <dd class="m-0 mt-1 text-muted">{contacto.horarioTexto}</dd>
+    </div>
+  </dl>
+
+  <p class="mt-5 mb-0 text-xs leading-relaxed text-muted">
+    Teléfono, WhatsApp y email están en preparación. Mientras tanto, escríbenos por Facebook o visítanos en el mercado.
+  </p>
 </div>
