@@ -1,5 +1,4 @@
 ---
-import Button from './Button.astro';
 import { navegacionPrincipal } from '../data/navegacion';
 import { negocio } from '../data/negocio';
 
@@ -8,10 +7,10 @@ const isActivePath = (href: string) => (href === '/' ? currentPath === '/' : cur
 ---
 
 <header class="sticky top-0 z-50 border-b border-line/80 bg-paper/85 backdrop-blur">
-  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3">
-    <a class="inline-flex items-center gap-2.5 no-underline" href="/" aria-label={`${negocio.nombre} - inicio`}>
-      <img class="h-10 w-10 sm:h-11 sm:w-11" src={negocio.logo} alt={`Logo de ${negocio.nombre}`} width="88" height="88" />
-      <span class="text-lg font-black tracking-tight text-ink sm:text-xl">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-2.5 sm:px-5 sm:py-3">
+    <a class="inline-flex items-center gap-2 no-underline sm:gap-2.5" href="/" aria-label={`${negocio.nombre} - inicio`}>
+      <img class="h-9 w-9 sm:h-11 sm:w-11" src={negocio.logo} alt={`Logo de ${negocio.nombre}`} width="88" height="88" />
+      <span class="text-base font-black tracking-tight text-ink sm:text-xl">
         Frutería <span class="text-berry">Salud</span>
       </span>
     </a>
@@ -37,12 +36,17 @@ const isActivePath = (href: string) => (href === '/' ? currentPath === '/' : cur
       </ul>
     </nav>
 
-    <Button href="/contacto/" class="hidden md:inline-flex">Cómo llegar</Button>
+    <a
+      href="/contacto/"
+      class="btn-primary hidden items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-bold no-underline transition-colors md:inline-flex"
+    >
+      Cómo llegar
+    </a>
 
     <button
       id="menu-toggle"
       type="button"
-      class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-line text-ink md:hidden"
+      class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-line text-ink md:hidden"
       aria-expanded="false"
       aria-controls="mobile-menu"
       aria-label="Abrir menú de navegación"
@@ -75,7 +79,12 @@ const isActivePath = (href: string) => (href === '/' ? currentPath === '/' : cur
         ))
       }
       <li class="pt-2">
-        <Button href="/contacto/" class="w-full">Cómo llegar</Button>
+        <a
+          href="/contacto/"
+          class="btn-primary flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-base font-bold no-underline transition-colors"
+        >
+          Cómo llegar
+        </a>
       </li>
     </ul>
   </nav>

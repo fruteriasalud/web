@@ -51,16 +51,27 @@ body {
   box-sizing: border-box;
 }
 
-img,
-svg {
-  display: block;
-  max-width: 100%;
-}
+/*
+ * Estos resets viven en @layer base (la capa base de Tailwind v4) a propósito.
+ * Si se dejan sin capa (unlayered), el spec de CSS Cascade Layers les da
+ * prioridad absoluta sobre CUALQUIER utilidad de Tailwind (que vive en
+ * @layer utilities), sin importar especificidad ni orden. Eso rompía
+ * `text-berry`/`text-white` en los botones (heredaban el color de un
+ * ancestro vía `a { color: inherit }`) y rompía `.hidden` en los iconos
+ * del menú móvil (el icono de cerrar nunca se ocultaba por `svg { display: block }`).
+ */
+@layer base {
+  img,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
 
-a {
-  color: inherit;
-  text-decoration-thickness: 0.08em;
-  text-underline-offset: 0.18em;
+  a {
+    color: inherit;
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.18em;
+  }
 }
 
 main {
@@ -70,6 +81,42 @@ main {
 :focus-visible {
   outline: 3px solid color-mix(in srgb, var(--color-berry) 70%, white);
   outline-offset: 3px;
+}
+
+/*
+ * Clases de botón estables y explícitas, deliberadamente SIN capa (unlayered)
+ * y con `color: ... !important`. Así su contraste queda garantizado pase lo
+ * que pase con el orden de las capas de Tailwind o con estilos heredados de
+ * un contenedor (p. ej. el texto blanco de CTABanner). No fijan `display`
+ * a propósito, para no pelear con utilidades responsive como `hidden md:inline-flex`.
+ */
+.btn-primary {
+  background-color: var(--color-berry);
+  color: #fff !important;
+  border: 2px solid transparent;
+}
+.btn-primary:hover {
+  background-color: var(--color-berry-dark);
+}
+
+.btn-secondary {
+  background-color: #fff;
+  color: var(--color-berry-dark) !important;
+  border: 2px solid color-mix(in srgb, var(--color-berry) 30%, transparent);
+  box-shadow: 0 1px 2px rgba(38, 27, 32, 0.08);
+}
+.btn-secondary:hover {
+  background-color: var(--color-berry-soft);
+  border-color: var(--color-berry);
+}
+
+.btn-ghost-light {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff !important;
+  border: 2px solid #fff;
+}
+.btn-ghost-light:hover {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 /* Recursos decorativos reutilizables: sin imágenes, solo CSS. */

@@ -10,9 +10,9 @@ type Props = {
 const { href, variant = 'primary', label, class: className = '', ...rest } = Astro.props as Props;
 
 const variantClass = {
-  primary: 'bg-berry text-white hover:bg-berry-dark',
-  secondary: 'border-2 border-berry/30 bg-white text-berry shadow-sm hover:border-berry hover:bg-berry-soft',
-  'ghost-light': 'border-2 border-white bg-white/10 text-white hover:bg-white/20',
+  primary: 'btn-primary',
+  secondary: 'btn-secondary',
+  'ghost-light': 'btn-ghost-light',
 }[variant];
 ---
 
