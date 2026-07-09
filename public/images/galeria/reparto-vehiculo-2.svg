@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="reparto-vehiculo-2-title">
+  <title id="reparto-vehiculo-2-title">Ilustración de un triciclo de carga con caja de producto</title>
+  <defs>
+    <linearGradient id="rv2-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fff8ec"/>
+      <stop offset="100%" stop-color="#e5f2df"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#rv2-bg)"/>
+  <circle cx="150" cy="150" r="140" fill="#fbe3ea" opacity="0.5"/>
+
+  <!-- road -->
+  <rect x="0" y="470" width="800" height="20" fill="#eaded5"/>
+  <rect x="60" y="478" width="60" height="6" rx="3" fill="#ffffff"/>
+  <rect x="200" y="478" width="60" height="6" rx="3" fill="#ffffff"/>
+  <rect x="340" y="478" width="60" height="6" rx="3" fill="#ffffff"/>
+  <rect x="480" y="478" width="60" height="6" rx="3" fill="#ffffff"/>
+  <rect x="620" y="478" width="60" height="6" rx="3" fill="#ffffff"/>
+
+  <!-- cargo box -->
+  <g>
+    <rect x="180" y="320" width="180" height="120" rx="14" fill="#317a3d"/>
+    <rect x="180" y="320" width="180" height="120" rx="14" fill="none" stroke="#204f28" stroke-width="3"/>
+    <circle cx="230" cy="365" r="20" fill="#e5f2df"/>
+    <circle cx="280" cy="380" r="24" fill="#f5c344"/>
+    <circle cx="325" cy="360" r="18" fill="#e14b72"/>
+    <rect x="180" y="410" width="180" height="10" fill="#204f28" opacity="0.5"/>
+  </g>
+
+  <!-- frame -->
+  <path d="M360 400 L470 400 L520 300" stroke="#261b20" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <path d="M470 400 L470 300" stroke="#261b20" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <path d="M470 300 L560 300" stroke="#261b20" stroke-width="8" fill="none" stroke-linecap="round"/>
+
+  <!-- seat -->
+  <rect x="440" y="286" width="46" height="16" rx="8" fill="#83113d"/>
+
+  <!-- handlebar -->
+  <path d="M560 300 L560 260" stroke="#261b20" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <path d="M540 258 L590 258" stroke="#261b20" stroke-width="8" fill="none" stroke-linecap="round"/>
+
+  <!-- pedal crank -->
+  <circle cx="470" cy="400" r="22" fill="#eaded5" stroke="#261b20" stroke-width="6"/>
+
+  <!-- front wheel -->
+  <circle cx="560" cy="440" r="50" fill="none" stroke="#261b20" stroke-width="10"/>
+  <circle cx="560" cy="440" r="12" fill="#261b20"/>
+
+  <!-- rear wheels (cargo trike has two) -->
+  <circle cx="205" cy="440" r="46" fill="none" stroke="#261b20" stroke-width="10"/>
+  <circle cx="205" cy="440" r="11" fill="#261b20"/>
+  <circle cx="335" cy="440" r="46" fill="none" stroke="#261b20" stroke-width="10"/>
+  <circle cx="335" cy="440" r="11" fill="#261b20"/>
+</svg>

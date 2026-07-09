@@ -1,0 +1,155 @@
+---
+import Blob from '../components/Blob.astro';
+import Button from '../components/Button.astro';
+import CTABanner from '../components/CTABanner.astro';
+import GalleryCard from '../components/GalleryCard.astro';
+import Section from '../components/Section.astro';
+import { empresa } from '../data/empresa';
+import { galeria } from '../data/galeria';
+import { negocio } from '../data/negocio';
+import Layout from '../layouts/Layout.astro';
+
+const imagenPuesto = galeria.find((item) => item.id === 'puesto-mercado')!;
+const imagenEquipo = galeria.find((item) => item.id === 'equipo-negocio')!;
+const imagenPedidos = galeria.find((item) => item.id === 'preparacion-pedidos')!;
+const imagenReparto1 = galeria.find((item) => item.id === 'reparto-vehiculo-1')!;
+const imagenReparto2 = galeria.find((item) => item.id === 'reparto-vehiculo-2')!;
+const imagenFruta = galeria.find((item) => item.id === 'fruta-surtida')!;
+const imagenVerdura = galeria.find((item) => item.id === 'verduras-frescas')!;
+
+const badges = ['🏪 3 puestos en el mercado', '👨‍👩‍👧 Negocio familiar', '🧾 Encargos a consultar'];
+---
+
+<Layout
+  title="Empresa y reparto"
+  description="Quiénes somos, cómo trabajamos, cómo preparamos los encargos y qué sabemos hoy sobre reparto en Frutería Salud, Mercado de Abastos Tiro de Línea de Sevilla."
+  canonical="/empresa/"
+>
+  <section class="relative overflow-hidden px-5 pt-8 pb-10 sm:pt-16 sm:pb-20">
+    <Blob class="-top-24 -left-16 h-72 w-72 bg-leaf/15" />
+    <Blob class="top-10 -right-20 h-80 w-80 bg-berry/15" />
+    <Blob class="bottom-0 left-1/3 h-56 w-56 bg-lilac-deep/15" />
+
+    <div class="relative mx-auto max-w-3xl text-center">
+      <p class="m-0 inline-block rounded-full border border-line bg-white/70 px-4 py-1.5 text-sm font-bold text-leaf backdrop-blur">
+        {empresa.hero.eyebrow}
+      </p>
+      <h1 class="m-0 mt-4 text-3xl font-black leading-[1.1] text-ink sm:mt-5 sm:text-5xl sm:leading-[1.05]">
+        {empresa.hero.titulo}
+      </h1>
+      <p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted sm:mt-6 sm:text-lg">
+        {empresa.hero.descripcion}
+      </p>
+      <div class="mt-7 flex flex-col items-stretch gap-3 sm:mt-9 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center">
+        <Button class="w-full sm:w-auto" href={`tel:${negocio.contacto.telefonoTel}`}>Llamar ahora</Button>
+        <Button class="w-full sm:w-auto" href="/contacto/" variant="secondary">Contactar</Button>
+        <Button class="w-full sm:w-auto" href={negocio.googleMaps} variant="secondary" target="_blank" rel="noopener noreferrer">
+          Cómo llegar
+        </Button>
+      </div>
+      <div class="mt-7 flex flex-wrap items-center justify-center gap-2.5 sm:mt-9">
+        {
+          badges.map((badge) => (
+            <span class="rounded-full border border-line bg-white/70 px-3.5 py-1.5 text-xs font-semibold text-muted backdrop-blur">
+              {badge}
+            </span>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <Section tone="paper" eyebrow="Quiénes somos" title="Un negocio familiar dentro del mercado">
+    <div class="grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+      <p class="m-0 text-base leading-relaxed text-ink/80">{empresa.quienesSomos.texto}</p>
+      <GalleryCard src={imagenPuesto.src} alt={imagenPuesto.alt} titulo={imagenPuesto.titulo} caption={imagenPuesto.caption} headingLevel="h3" />
+    </div>
+  </Section>
+
+  <Section eyebrow="Cómo trabajamos" title="De la selección diaria a tu encargo">
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        empresa.comoTrabajamos.map((paso, index) => (
+          <article class="relative flex flex-col rounded-2xl border border-line bg-white p-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
+            <div class="flex items-center gap-3">
+              <span class="flex h-10 w-10 items-center justify-center rounded-full bg-berry-soft text-sm font-black text-berry-dark">
+                {index + 1}
+              </span>
+              <span class="text-2xl" aria-hidden="true">
+                {paso.icono}
+              </span>
+            </div>
+            <h3 class="m-0 mt-4 text-lg font-black text-ink">{paso.titulo}</h3>
+            <p class="mb-0 mt-2 text-sm leading-relaxed text-muted">{paso.texto}</p>
+          </article>
+        ))
+      }
+    </div>
+  </Section>
+
+  <Section tone="lilac" eyebrow="Estructura" title="Cómo está organizado el negocio">
+    <div class="grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+      <div class="grid gap-5 sm:grid-cols-2">
+        {
+          empresa.estructura.map((bloque) => (
+            <article class="flex flex-col rounded-2xl border border-white/60 bg-white/70 p-5 backdrop-blur">
+              <span class="text-2xl" aria-hidden="true">
+                {bloque.icono}
+              </span>
+              <h3 class="m-0 mt-3 text-base font-black text-ink">{bloque.titulo}</h3>
+              <p class="mb-0 mt-2 text-sm leading-relaxed text-ink/70">{bloque.texto}</p>
+            </article>
+          ))
+        }
+      </div>
+      <GalleryCard src={imagenEquipo.src} alt={imagenEquipo.alt} titulo={imagenEquipo.titulo} caption={imagenEquipo.caption} headingLevel="h3" />
+    </div>
+  </Section>
+
+  <Section tone="paper" eyebrow={empresa.pedidos.eyebrow} title={empresa.pedidos.titulo}>
+    <div class="grid gap-8 lg:grid-cols-[0.9fr_1fr] lg:items-center">
+      <GalleryCard src={imagenPedidos.src} alt={imagenPedidos.alt} titulo={imagenPedidos.titulo} caption={imagenPedidos.caption} headingLevel="h3" />
+      <div>
+        <p class="m-0 text-base leading-relaxed text-ink/80">{empresa.pedidos.texto}</p>
+        <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <Button class="w-full sm:w-auto" href="/encargos/">Consultar encargos</Button>
+          <Button class="w-full sm:w-auto" href={`tel:${negocio.contacto.telefonoTel}`} variant="secondary">Llamar ahora</Button>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <Section tone="green" eyebrow={empresa.logistica.eyebrow} title={empresa.logistica.titulo}>
+    <p class="m-0 max-w-3xl text-base leading-relaxed text-ink/80">{empresa.logistica.texto}</p>
+    <p class="m-0 mt-3 inline-block rounded-xl border border-leaf-dark/20 bg-white/70 px-4 py-3 text-sm font-semibold text-leaf-dark">
+      {empresa.logistica.nota}
+    </p>
+
+    <div class="mt-8 grid gap-5 sm:grid-cols-2">
+      <GalleryCard src={imagenReparto1.src} alt={imagenReparto1.alt} titulo={imagenReparto1.titulo} caption={imagenReparto1.caption} headingLevel="h3" />
+      <GalleryCard src={imagenReparto2.src} alt={imagenReparto2.alt} titulo={imagenReparto2.titulo} caption={imagenReparto2.caption} headingLevel="h3" />
+    </div>
+
+    <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+      <Button class="w-full sm:w-auto" href={`tel:${negocio.contacto.telefonoTel}`}>Consultar reparto por teléfono</Button>
+      <Button class="w-full sm:w-auto" href="/contacto/" variant="secondary">Ver ubicación</Button>
+    </div>
+  </Section>
+
+  <Section tone="paper" eyebrow="Producto" title="Así es nuestro día a día">
+    <div class="grid gap-5 sm:grid-cols-2">
+      <GalleryCard src={imagenFruta.src} alt={imagenFruta.alt} titulo={imagenFruta.titulo} caption={imagenFruta.caption} headingLevel="h3" />
+      <GalleryCard src={imagenVerdura.src} alt={imagenVerdura.alt} titulo={imagenVerdura.titulo} caption={imagenVerdura.caption} headingLevel="h3" />
+    </div>
+  </Section>
+
+  <Section>
+    <CTABanner eyebrow={empresa.ctaFinal.eyebrow} title={empresa.ctaFinal.titulo} description={empresa.ctaFinal.descripcion}>
+      <Button class="w-full sm:w-auto" href={`tel:${negocio.contacto.telefonoTel}`} variant="ghost-light">Llamar ahora</Button>
+      <Button class="w-full sm:w-auto" href="/contacto/" variant="ghost-light">Contactar</Button>
+      <Button class="w-full sm:w-auto" href={negocio.googleMaps} variant="ghost-light" target="_blank" rel="noopener noreferrer">
+        Ver ubicación
+      </Button>
+    </CTABanner>
+  </Section>
+</Layout>

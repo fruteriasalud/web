@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="fruta-surtida-title">
+  <title id="fruta-surtida-title">Ilustración de fruta surtida en una caja de mercado</title>
+  <defs>
+    <linearGradient id="fs-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fff8ec"/>
+      <stop offset="100%" stop-color="#e5f2df"/>
+    </linearGradient>
+    <linearGradient id="fs-crate" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c08a52"/>
+      <stop offset="100%" stop-color="#93602f"/>
+    </linearGradient>
+    <radialGradient id="fs-apple" cx="35%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#e14b72"/>
+      <stop offset="100%" stop-color="#b3134d"/>
+    </radialGradient>
+    <radialGradient id="fs-orange" cx="35%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#f7ae5c"/>
+      <stop offset="100%" stop-color="#e8892c"/>
+    </radialGradient>
+    <radialGradient id="fs-lime" cx="35%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#8fc46a"/>
+      <stop offset="100%" stop-color="#317a3d"/>
+    </radialGradient>
+    <radialGradient id="fs-grape" cx="35%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#cba3dd"/>
+      <stop offset="100%" stop-color="#8a5aa8"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#fs-bg)"/>
+  <circle cx="640" cy="110" r="150" fill="#fbe3ea" opacity="0.6"/>
+  <circle cx="90" cy="480" r="120" fill="#eadff3" opacity="0.5"/>
+
+  <!-- crate -->
+  <g>
+    <rect x="120" y="400" width="560" height="150" rx="18" fill="url(#fs-crate)"/>
+    <rect x="120" y="400" width="560" height="150" rx="18" fill="none" stroke="#5d3e1c" stroke-opacity="0.25" stroke-width="4"/>
+    <rect x="150" y="430" width="500" height="14" rx="7" fill="#7c5430"/>
+    <rect x="150" y="470" width="500" height="14" rx="7" fill="#7c5430"/>
+    <rect x="150" y="510" width="500" height="14" rx="7" fill="#7c5430"/>
+    <rect x="150" y="400" width="20" height="150" fill="#7c5430" opacity="0.5"/>
+    <rect x="630" y="400" width="20" height="150" fill="#7c5430" opacity="0.5"/>
+  </g>
+
+  <!-- banana -->
+  <path d="M180 400 C160 330 210 270 290 260 C300 258 306 268 298 274 C240 300 220 350 240 400 Z" fill="#f5c344"/>
+  <path d="M180 400 C160 330 210 270 290 260" fill="none" stroke="#c99a1f" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- apples -->
+  <g>
+    <circle cx="340" cy="340" r="66" fill="url(#fs-apple)"/>
+    <path d="M340 274 C336 260 348 254 356 258" fill="none" stroke="#204f28" stroke-width="6" stroke-linecap="round"/>
+    <ellipse cx="318" cy="316" rx="14" ry="20" fill="#ffffff" opacity="0.25"/>
+  </g>
+  <g>
+    <circle cx="452" cy="360" r="58" fill="url(#fs-apple)"/>
+    <path d="M452 302 C448 290 458 284 466 288" fill="none" stroke="#204f28" stroke-width="5" stroke-linecap="round"/>
+    <ellipse cx="432" cy="338" rx="12" ry="17" fill="#ffffff" opacity="0.25"/>
+  </g>
+
+  <!-- oranges -->
+  <g>
+    <circle cx="560" cy="330" r="60" fill="url(#fs-orange)"/>
+    <ellipse cx="538" cy="308" rx="13" ry="18" fill="#ffffff" opacity="0.3"/>
+  </g>
+  <g>
+    <circle cx="610" cy="400" r="46" fill="url(#fs-orange)"/>
+    <ellipse cx="593" cy="384" rx="10" ry="14" fill="#ffffff" opacity="0.3"/>
+  </g>
+
+  <!-- lime / pear tone -->
+  <g>
+    <ellipse cx="260" cy="380" rx="46" ry="54" fill="url(#fs-lime)"/>
+    <ellipse cx="245" cy="358" rx="10" ry="14" fill="#ffffff" opacity="0.25"/>
+  </g>
+
+  <!-- grapes cluster -->
+  <g fill="url(#fs-grape)">
+    <circle cx="480" cy="290" r="18"/>
+    <circle cx="500" cy="278" r="18"/>
+    <circle cx="500" cy="310" r="18"/>
+    <circle cx="520" cy="296" r="18"/>
+    <circle cx="490" cy="326" r="18"/>
+    <circle cx="510" cy="330" r="18"/>
+  </g>
+  <path d="M498 262 C500 248 512 244 518 250" fill="none" stroke="#317a3d" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- leaves accents -->
+  <path d="M400 250 C410 232 434 232 442 250 C426 258 412 258 400 250 Z" fill="#317a3d"/>
+</svg>

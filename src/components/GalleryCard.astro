@@ -1,0 +1,37 @@
+---
+type Props = {
+  src: string;
+  alt: string;
+  titulo: string;
+  caption?: string;
+  provisional?: boolean;
+  headingLevel?: 'h2' | 'h3' | 'p';
+};
+
+const { src, alt, titulo, caption, provisional = true, headingLevel = 'p' } = Astro.props as Props;
+const HeadingTag = headingLevel;
+---
+
+<figure class="group m-0 flex flex-col overflow-hidden rounded-3xl border border-line bg-white shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
+  <div class="relative aspect-[4/3] overflow-hidden bg-cream">
+    <img
+      class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+      src={src}
+      alt={alt}
+      width="800"
+      height="600"
+      loading="lazy"
+    />
+    {
+      provisional && (
+        <span class="absolute top-3 right-3 rounded-full bg-white/90 px-3 py-1 text-[11px] font-bold text-muted shadow-sm backdrop-blur">
+          Imagen provisional
+        </span>
+      )
+    }
+  </div>
+  <figcaption class="p-5">
+    <HeadingTag class="m-0 text-sm font-black text-ink">{titulo}</HeadingTag>
+    {caption && <p class="m-0 mt-1.5 text-xs leading-relaxed text-muted">{caption}</p>}
+  </figcaption>
+</figure>

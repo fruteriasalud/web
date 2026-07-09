@@ -3,14 +3,22 @@ import Blob from '../components/Blob.astro';
 import Button from '../components/Button.astro';
 import CategoryCard from '../components/CategoryCard.astro';
 import CTABanner from '../components/CTABanner.astro';
+import GalleryCard from '../components/GalleryCard.astro';
 import LocationCard from '../components/LocationCard.astro';
 import Section from '../components/Section.astro';
 import { categorias } from '../data/categorias';
+import { galeria } from '../data/galeria';
 import { negocio } from '../data/negocio';
 import Layout from '../layouts/Layout.astro';
 import { createLocalBusinessJsonLd } from '../lib/seo';
 
 const badges = ['🍃 Selección diaria', '🗓️ Producto de temporada', '🤝 Atención de mercado'];
+
+const imagenFruta = galeria.find((item) => item.id === 'fruta-surtida')!;
+const imagenVerdura = galeria.find((item) => item.id === 'verduras-frescas')!;
+const imagenPuesto = galeria.find((item) => item.id === 'puesto-mercado')!;
+const imagenPedidos = galeria.find((item) => item.id === 'preparacion-pedidos')!;
+const imagenEquipo = galeria.find((item) => item.id === 'equipo-negocio')!;
 ---
 
 <Layout
@@ -62,6 +70,17 @@ const badges = ['🍃 Selección diaria', '🗓️ Producto de temporada', '🤝
   </section>
 
   <Section
+    eyebrow="Cada día en el puesto"
+    title="Color, frescura y producto de mercado"
+    description="Fruta y verdura seleccionadas cada jornada. Estas imágenes son ilustraciones provisionales que iremos sustituyendo por fotos reales del género según lleguemos a fotografiarlo."
+  >
+    <div class="grid gap-5 sm:grid-cols-2">
+      <GalleryCard src={imagenFruta.src} alt={imagenFruta.alt} titulo={imagenFruta.titulo} caption={imagenFruta.caption} headingLevel="h3" />
+      <GalleryCard src={imagenVerdura.src} alt={imagenVerdura.alt} titulo={imagenVerdura.titulo} caption={imagenVerdura.caption} headingLevel="h3" />
+    </div>
+  </Section>
+
+  <Section
     tone="paper"
     eyebrow="Producto fresco"
     title="Lo que encontrarás en nuestro puesto"
@@ -101,15 +120,20 @@ const badges = ['🍃 Selección diaria', '🗓️ Producto de temporada', '🤝
 
       <div class="relative mx-auto w-full max-w-xs">
         <Blob class="-z-10 -right-6 -bottom-6 h-32 w-32 bg-berry/20" />
-        <div
-          class="blob-shape-alt flex aspect-square flex-col items-center justify-center gap-2 bg-white p-10 text-center shadow-lg ring-1 ring-white/60"
-          role="img"
-          aria-label="Puesto de Frutería Salud en el Mercado de Abastos Tiro de Línea"
-        >
-          <span class="text-5xl" aria-hidden="true">🏪</span>
-          <span class="text-xs font-semibold text-muted">Puestos 47, 48 y 49</span>
-        </div>
+        <GalleryCard src={imagenPuesto.src} alt={imagenPuesto.alt} titulo={imagenPuesto.titulo} caption={imagenPuesto.caption} headingLevel="h3" />
       </div>
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="Nuestro puesto"
+    title="Así es el día a día en Frutería Salud"
+    description="Preparación, atención y trato de mercado. Iremos cambiando estas ilustraciones por fotos reales del puesto en cuanto las tengamos."
+  >
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <GalleryCard src={imagenPuesto.src} alt={imagenPuesto.alt} titulo={imagenPuesto.titulo} caption={imagenPuesto.caption} headingLevel="h3" />
+      <GalleryCard src={imagenPedidos.src} alt={imagenPedidos.alt} titulo={imagenPedidos.titulo} caption={imagenPedidos.caption} headingLevel="h3" />
+      <GalleryCard src={imagenEquipo.src} alt={imagenEquipo.alt} titulo={imagenEquipo.titulo} caption={imagenEquipo.caption} headingLevel="h3" />
     </div>
   </Section>
 
@@ -120,6 +144,18 @@ const badges = ['🍃 Selección diaria', '🗓️ Producto de temporada', '🤝
     description="Estamos en pleno barrio de Tiro de Línea, en el corazón del mercado de abastos."
   >
     <LocationCard showCallButton />
+  </Section>
+
+  <Section
+    tone="lilac"
+    eyebrow="Empresa y reparto"
+    title="Hay una estructura real detrás del puesto"
+    description="Somos un negocio familiar organizado en tres puestos del mercado, con capacidad para atender pedidos de clientes habituales y de negocios. Conoce cómo trabajamos, cómo preparamos los encargos y qué sabemos hoy sobre reparto."
+  >
+    <div class="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+      <Button class="w-full sm:w-auto" href="/empresa/">Conoce la empresa</Button>
+      <Button class="w-full sm:w-auto" href={`tel:${negocio.contacto.telefonoTel}`} variant="secondary">Llamar ahora</Button>
+    </div>
   </Section>
 
   <Section
@@ -141,6 +177,7 @@ const badges = ['🍃 Selección diaria', '🗓️ Producto de temporada', '🤝
       description="Fruta y verdura fresca, seleccionada cada día en el Mercado de Abastos Tiro de Línea."
     >
       <Button class="w-full sm:w-auto" href="/contacto/" variant="secondary">Visítanos en el mercado</Button>
+      <Button class="w-full sm:w-auto" href="/empresa/" variant="ghost-light">Empresa y reparto</Button>
       <Button class="w-full sm:w-auto" href={negocio.facebook} variant="ghost-light" target="_blank" rel="noopener noreferrer">
         Síguenos en Facebook
       </Button>
