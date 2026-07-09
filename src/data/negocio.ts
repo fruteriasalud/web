@@ -24,7 +24,7 @@ export const negocio = {
   },
   contacto: {
     telefono: '954 61 80 45',
-    telefonoTel: '+34954618045',
+    telefonoTel: '954618045',
     whatsapp: null,
     email: null,
   },

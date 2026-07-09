@@ -1,0 +1,17 @@
+# Ejemplo para hosting Apache. No se activa automáticamente.
+# Para usarlo, revisar con el hosting y subirlo como .htaccess.
+
+RewriteEngine On
+
+# Forzar HTTPS.
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Canonicalizar dominio con www.
+RewriteCond %{HTTP_HOST} !^www\.fruteriasalud\.es$ [NC]
+RewriteRule ^ https://www.fruteriasalud.es%{REQUEST_URI} [L,R=301]
+
+# Sitio estático: servir archivos y directorios existentes.
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]

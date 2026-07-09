@@ -56,7 +56,7 @@ const isActivePath = (href: string) => (href === '/' ? currentPath === '/' : cur
     </button>
   </div>
 
-  <nav id="mobile-menu" class="hidden border-t border-line bg-paper md:hidden" aria-label="Navegación móvil">
+  <nav id="mobile-menu" class="hidden border-t border-line bg-paper md:hidden" aria-label="Navegación móvil" hidden>
     <ul class="m-0 flex list-none flex-col gap-1 p-5 text-base font-semibold text-muted">
       {
         navegacionPrincipal.map((item) => (
@@ -86,13 +86,32 @@ const isActivePath = (href: string) => (href === '/' ? currentPath === '/' : cur
   const menu = document.getElementById('mobile-menu');
   const iconOpen = document.getElementById('icon-menu-open');
   const iconClose = document.getElementById('icon-menu-close');
+  const menuLinks = menu?.querySelectorAll('a');
+
+  const setMenuOpen = (open) => {
+    toggle?.setAttribute('aria-expanded', String(open));
+    toggle?.setAttribute('aria-label', open ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
+    menu?.classList.toggle('hidden', !open);
+    if (menu) {
+      menu.hidden = !open;
+    }
+    iconOpen?.classList.toggle('hidden', open);
+    iconClose?.classList.toggle('hidden', !open);
+  };
 
   toggle?.addEventListener('click', () => {
     const expanded = toggle.getAttribute('aria-expanded') === 'true';
-    toggle.setAttribute('aria-expanded', String(!expanded));
-    toggle.setAttribute('aria-label', expanded ? 'Abrir menú de navegación' : 'Cerrar menú de navegación');
-    menu?.classList.toggle('hidden');
-    iconOpen?.classList.toggle('hidden');
-    iconClose?.classList.toggle('hidden');
+    setMenuOpen(!expanded);
+  });
+
+  menuLinks?.forEach((link) => {
+    link.addEventListener('click', () => setMenuOpen(false));
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && toggle?.getAttribute('aria-expanded') === 'true') {
+      setMenuOpen(false);
+      toggle.focus();
+    }
   });
 </script>
