@@ -47,3 +47,15 @@ npm run build
 ```
 
 Si falla, corregir antes de terminar.
+
+## Logos disponibles
+
+Los logos oficiales están disponibles en:
+
+- `/public/logo/logo-principal.png` → logo principal con fondo transparente.
+- `/public/logo/logo-fondo-blanco.png` → logo con fondo blanco.
+- `/public/logo/logo-fruteria-salud-transparente.png` → copia normalizada del logo transparente.
+- `/public/logo/logo-fruteria-salud-fondo-blanco.png` → copia normalizada del logo con fondo blanco.
+
+Para la cabecera de la web se debe priorizar el logo transparente.
+Si el logo contiene el texto “Mercado Tiro de Línea”, los agentes deben tratarlo como una versión provisional hasta crear o recibir una versión limpia sin ese texto.

@@ -33,3 +33,12 @@ Tomar como base el logo original de Frutería Salud, eliminando para la cabecera
 ## Estilo buscado
 
 Moderno, fresco, bonito, cercano y distinto a la típica web básica de comercio local.
+
+## Logos disponibles
+
+Los logos oficiales están disponibles en:
+
+- `/public/logo/logo-principal.png` → logo principal con fondo transparente.
+- `/public/logo/logo-fondo-blanco.png` → logo con fondo blanco.
+
+Usar preferentemente `/logo/logo-principal.png` en la cabecera.
