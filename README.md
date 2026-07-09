@@ -1,46 +1,35 @@
-# Astro Starter Kit: Basics
+# Frutería Salud Web
 
-```sh
-npm create astro@latest -- --template basics
+Web moderna para Frutería Salud, comercio local de frutas y verduras ubicado en Sevilla.
+
+## Objetivo
+
+Crear una web rápida, bonita, moderna, responsive y fácil de desplegar en hosting clásico.
+
+## Stack
+
+- Astro
+- TypeScript
+- Tailwind CSS
+- HTML/CSS estático como salida final
+
+## Hosting final
+
+La web se desplegará en hosting clásico subiendo el contenido generado en la carpeta `dist/` tras ejecutar:
+
+```bash
+npm run build
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Fuente principal de contenido
 
-## 🚀 Project Structure
+- Facebook: https://www.facebook.com/FruteriaSaludCom?locale=es_ES
+- Ubicación: https://maps.app.goo.gl/MUbiuF8D8oKDHpGs9
 
-Inside of your Astro project, you'll see the following folders and files:
+## Identidad visual
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+Tomar como base el logo original de Frutería Salud, eliminando para la cabecera la referencia a “Mercado Tiro de Línea”. Esa referencia sí puede aparecer en contacto, footer o ubicación.
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Estilo buscado
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Moderno, fresco, bonito, cercano y distinto a la típica web básica de comercio local.

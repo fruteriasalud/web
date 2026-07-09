@@ -1,0 +1,22 @@
+[
+  {
+    "nombre": "Frutas de temporada",
+    "descripcion": "Selección diaria de frutas frescas para cada momento del año.",
+    "categoria": "frutas"
+  },
+  {
+    "nombre": "Verduras frescas",
+    "descripcion": "Verduras escogidas para cocinar sano, rico y con producto de calidad.",
+    "categoria": "verduras"
+  },
+  {
+    "nombre": "Producto local y de mercado",
+    "descripcion": "Producto fresco con atención cercana desde el Mercado de Abastos Tiro de Línea.",
+    "categoria": "mercado"
+  },
+  {
+    "nombre": "Encargos para casa",
+    "descripcion": "Preparamos encargos para que tengas lista tu compra de fruta y verdura.",
+    "categoria": "encargos"
+  }
+]

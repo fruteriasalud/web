@@ -1,0 +1,12 @@
+[
+  {
+    "titulo": "Producto fresco cada día",
+    "descripcion": "La disponibilidad puede variar según temporada y mercado.",
+    "activo": true
+  },
+  {
+    "titulo": "Consulta productos y encargos",
+    "descripcion": "Contacta con la frutería para conocer productos disponibles y preparar tu compra.",
+    "activo": true
+  }
+]
