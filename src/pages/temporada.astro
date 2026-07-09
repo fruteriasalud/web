@@ -48,7 +48,7 @@ function productosDeTemporada(ids: readonly string[]) {
       title="¿Necesitas reservar producto de temporada?"
       description="Los encargos quedan sujetos a disponibilidad. Podemos confirmarte cantidades y plazos por teléfono."
     >
-      <Button class="w-full sm:w-auto" href={`tel:${negocio.contacto.telefonoTel}`}>Llamar ahora</Button>
+      <Button class="w-full sm:w-auto" href={`tel:${negocio.contacto.telefonoTel}`} variant="secondary">Llamar ahora</Button>
       <Button class="w-full sm:w-auto" href="/encargos/" variant="secondary">Ver encargos</Button>
       <Button class="w-full sm:w-auto" href="/contacto/" variant="ghost-light">Cómo llegar</Button>
     </CTABanner>
