@@ -84,7 +84,7 @@ export const catalogo = [
     nombre: 'Fruta de temporada',
     icono: '🍇',
     categoria: 'temporada',
-    descripcion: 'La selección cambia con el año; te contamos qué hay al llegar al puesto.',
+    descripcion: 'Cambia con el mercado y la época del año: pregúntanos al llegar al puesto qué está en su mejor momento.',
   },
 ] as const;
 

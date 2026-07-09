@@ -32,7 +32,7 @@ import Layout from '../layouts/Layout.astro';
     title="Lo que sueles encontrar en nuestro puesto"
     description="Una muestra de los productos más habituales. Los productos pueden variar según temporada y mercado."
   >
-    <div class="grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
+    <div class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       {catalogo.map((producto) => <CatalogCard {...producto} />)}
     </div>
   </Section>
@@ -43,9 +43,9 @@ import Layout from '../layouts/Layout.astro';
       title="Consulta disponibilidad en tienda"
       description="La selección exacta cambia según el día y la temporada. Podemos confirmártelo por teléfono."
     >
-      <Button href={`tel:${negocio.contacto.telefonoTel}`}>Llamar ahora</Button>
-      <Button href="/temporada/" variant="secondary">Ver temporada</Button>
-      <Button href="/contacto/" variant="ghost-light">Cómo llegar</Button>
+      <Button class="w-full sm:w-auto" href={`tel:${negocio.contacto.telefonoTel}`}>Llamar ahora</Button>
+      <Button class="w-full sm:w-auto" href="/temporada/" variant="secondary">Ver temporada</Button>
+      <Button class="w-full sm:w-auto" href="/contacto/" variant="ghost-light">Cómo llegar</Button>
     </CTABanner>
   </Section>
 </Layout>

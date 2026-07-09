@@ -29,11 +29,11 @@ import Layout from '../layouts/Layout.astro';
     <CTABanner
       eyebrow="Habla con nosotros"
       title="¿Tienes alguna duda o quieres encargar producto?"
-      description="Llámanos directamente o pásate por el puesto: te atendemos encantados."
+      description={`Llámanos al ${negocio.contacto.telefono} y consulta disponibilidad, o pásate directamente por el puesto: te atendemos encantados.`}
     >
-      <Button href={`tel:${negocio.contacto.telefonoTel}`}>Llamar ahora</Button>
-      <Button href="/encargos/" variant="secondary">Consultar encargos</Button>
-      <Button href={negocio.googleMaps} variant="ghost-light" target="_blank" rel="noopener noreferrer">
+      <Button class="w-full sm:w-auto" href={`tel:${negocio.contacto.telefonoTel}`}>Llamar ahora</Button>
+      <Button class="w-full sm:w-auto" href="/encargos/" variant="secondary">Consultar encargos</Button>
+      <Button class="w-full sm:w-auto" href={negocio.googleMaps} variant="ghost-light" target="_blank" rel="noopener noreferrer">
         Cómo llegar
       </Button>
     </CTABanner>

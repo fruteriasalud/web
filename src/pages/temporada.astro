@@ -33,7 +33,7 @@ function productosDeTemporada(ids: readonly string[]) {
   {
     temporadas.map((temporada, index) => (
       <Section tone={tonos[index % tonos.length]} eyebrow={temporada.nombre} title={`${temporada.icono} Producto de ${temporada.nombre.toLowerCase()}`} description={temporada.texto}>
-        <div class="grid gap-4 grid-cols-2 sm:grid-cols-4">
+        <div class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {productosDeTemporada(temporada.productos).map((producto) => (
             <CatalogCard {...producto} />
           ))}
@@ -48,9 +48,9 @@ function productosDeTemporada(ids: readonly string[]) {
       title="¿Necesitas reservar producto de temporada?"
       description="Los encargos quedan sujetos a disponibilidad. Podemos confirmarte cantidades y plazos por teléfono."
     >
-      <Button href={`tel:${negocio.contacto.telefonoTel}`}>Llamar ahora</Button>
-      <Button href="/encargos/" variant="secondary">Ver encargos</Button>
-      <Button href="/contacto/" variant="ghost-light">Cómo llegar</Button>
+      <Button class="w-full sm:w-auto" href={`tel:${negocio.contacto.telefonoTel}`}>Llamar ahora</Button>
+      <Button class="w-full sm:w-auto" href="/encargos/" variant="secondary">Ver encargos</Button>
+      <Button class="w-full sm:w-auto" href="/contacto/" variant="ghost-light">Cómo llegar</Button>
     </CTABanner>
   </Section>
 </Layout>

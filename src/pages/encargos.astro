@@ -62,10 +62,10 @@ const pasos = [
       }
     </div>
 
-    <div class="mt-9 flex flex-wrap gap-3">
-      <Button href={`tel:${negocio.contacto.telefonoTel}`}>Llamar ahora</Button>
-      <Button href="/contacto/" variant="secondary">Cómo llegar</Button>
-      <Button href={negocio.facebook} variant="secondary" target="_blank" rel="noopener noreferrer">
+    <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+      <Button class="w-full sm:w-auto" href={`tel:${negocio.contacto.telefonoTel}`}>Llamar ahora</Button>
+      <Button class="w-full sm:w-auto" href="/contacto/" variant="secondary">Cómo llegar</Button>
+      <Button class="w-full sm:w-auto" href={negocio.facebook} variant="secondary" target="_blank" rel="noopener noreferrer">
         Escríbenos por Facebook
       </Button>
     </div>
