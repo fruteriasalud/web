@@ -17,9 +17,10 @@ import Layout from '../layouts/Layout.astro';
     eyebrow="Contacto"
     title="Estamos en el Mercado de Abastos Tiro de Línea"
     description={negocio.direccion.texto}
+    headingLevel="h1"
   >
     <div class="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
-      <LocationCard />
+      <LocationCard headingLevel="h2" />
       <BusinessInfo />
     </div>
   </Section>
@@ -32,7 +33,9 @@ import Layout from '../layouts/Layout.astro';
     >
       <Button href={`tel:${negocio.contacto.telefonoTel}`}>Llamar ahora</Button>
       <Button href="/encargos/" variant="secondary">Consultar encargos</Button>
-      <Button href={negocio.googleMaps} variant="ghost-light">Cómo llegar</Button>
+      <Button href={negocio.googleMaps} variant="ghost-light" target="_blank" rel="noopener noreferrer">
+        Cómo llegar
+      </Button>
     </CTABanner>
   </Section>
 </Layout>

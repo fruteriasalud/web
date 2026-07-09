@@ -41,6 +41,7 @@ const pasos = [
     eyebrow="Encargos"
     title="Encarga tu producto en cuatro pasos"
     description="Resolvemos los encargos por teléfono o en el propio puesto, según el producto disponible cada día."
+    headingLevel="h1"
   >
     <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
       {
@@ -64,16 +65,18 @@ const pasos = [
     <div class="mt-9 flex flex-wrap gap-3">
       <Button href={`tel:${negocio.contacto.telefonoTel}`}>Llamar ahora</Button>
       <Button href="/contacto/" variant="secondary">Cómo llegar</Button>
-      <Button href={negocio.facebook} variant="secondary">Escríbenos por Facebook</Button>
+      <Button href={negocio.facebook} variant="secondary" target="_blank" rel="noopener noreferrer">
+        Escríbenos por Facebook
+      </Button>
     </div>
   </Section>
 
   <Section tone="lilac" title="Encargos sujetos a disponibilidad">
     <p class="m-0 max-w-3xl text-ink/80">
-      Todos los encargos dependen del producto disponible cada día en el mercado. Llámanos al
+      Todos los encargos dependen del producto disponible cada día en el mercado. Llámanos al{' '}
       <a class="font-bold text-berry-dark underline" href={`tel:${negocio.contacto.telefonoTel}`}>
         {negocio.contacto.telefono}
-      </a>
+      </a>{' '}
       para confirmar cantidades, plazos y condiciones antes de tu visita.
     </p>
   </Section>

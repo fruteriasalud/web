@@ -5,9 +5,11 @@ type Props = {
   description?: string;
   tone?: 'default' | 'paper' | 'green' | 'lilac';
   center?: boolean;
+  headingLevel?: 'h1' | 'h2';
 };
 
-const { eyebrow, title, description, tone = 'default', center = false } = Astro.props as Props;
+const { eyebrow, title, description, tone = 'default', center = false, headingLevel = 'h2' } = Astro.props as Props;
+const HeadingTag = headingLevel;
 
 const toneClass = {
   default: '',
@@ -23,7 +25,7 @@ const toneClass = {
       (eyebrow || title || description) && (
         <div class:list={['mb-10 max-w-3xl', center && 'mx-auto text-center']}>
           {eyebrow && <p class="m-0 mb-2 text-sm font-bold uppercase tracking-wide text-leaf">{eyebrow}</p>}
-          {title && <h2 class="m-0 text-3xl font-black leading-tight text-ink sm:text-4xl">{title}</h2>}
+          {title && <HeadingTag class="m-0 text-3xl font-black leading-tight text-ink sm:text-4xl">{title}</HeadingTag>}
           {description && (
             <p class:list={['mt-4 max-w-2xl text-base text-muted', center && 'mx-auto']}>{description}</p>
           )}

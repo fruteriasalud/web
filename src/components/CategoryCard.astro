@@ -3,9 +3,11 @@ type Props = {
   id: string;
   nombre: string;
   descripcion: string;
+  headingLevel?: 'h2' | 'h3';
 };
 
-const { id, nombre, descripcion } = Astro.props as Props;
+const { id, nombre, descripcion, headingLevel = 'h3' } = Astro.props as Props;
+const HeadingTag = headingLevel;
 
 const iconos: Record<string, string> = {
   frutas: '🍎',
@@ -29,6 +31,6 @@ const acento = acentos[id] ?? 'bg-cream text-leaf-dark';
   <div class:list={['mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl', acento]} aria-hidden="true">
     {icono}
   </div>
-  <h3 class="m-0 text-lg font-black text-ink">{nombre}</h3>
+  <HeadingTag class="m-0 text-lg font-black text-ink">{nombre}</HeadingTag>
   <p class="mb-0 mt-2 text-sm leading-relaxed text-muted">{descripcion}</p>
 </article>

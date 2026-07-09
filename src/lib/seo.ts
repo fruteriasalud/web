@@ -61,7 +61,7 @@ export function createLocalBusinessJsonLd() {
   };
 
   if (negocio.contacto.telefono) {
-    data.telephone = negocio.contacto.telefono;
+    data.telephone = negocio.contacto.telefonoTel;
   }
 
   if (negocio.horario.openingHoursSpecification.length > 0) {

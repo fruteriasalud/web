@@ -19,9 +19,10 @@ import Layout from '../layouts/Layout.astro';
     eyebrow="Productos"
     title="Fruta, verdura y producto fresco"
     description="Así organizamos el puesto cada día. La disponibilidad concreta depende de la temporada y se confirma en tienda."
+    headingLevel="h1"
   >
     <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-      {categorias.map((categoria) => <CategoryCard {...categoria} />)}
+      {categorias.map((categoria) => <CategoryCard {...categoria} headingLevel="h2" />)}
     </div>
   </Section>
 
