@@ -12,7 +12,7 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout
   title="Productos"
-  description="Frutas, verduras y producto fresco de temporada en Frutería Salud, Mercado de Abastos Tiro de Línea de Sevilla."
+  description="Frutas y verduras del puesto de Frutería Salud, Mercado de Abastos Tiro de Línea de Sevilla."
   canonical="/productos/"
 >
   <Section
@@ -30,7 +30,7 @@ import Layout from '../layouts/Layout.astro';
     tone="paper"
     eyebrow="Catálogo habitual"
     title="Lo que sueles encontrar en nuestro puesto"
-    description="Una muestra de los productos más habituales. Los productos pueden variar según temporada y mercado."
+    description="Una muestra de los productos más habituales. Lo que hay cambia según lo que llega cada semana."
   >
     <div class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       {catalogo.map((producto) => <CatalogCard {...producto} />)}
@@ -40,12 +40,11 @@ import Layout from '../layouts/Layout.astro';
   <Section>
     <CTABanner
       eyebrow="¿Buscas algo concreto?"
-      title="Consulta disponibilidad en tienda"
-      description="La selección exacta cambia según el día y la temporada. Podemos confirmártelo por teléfono."
+      title="Llámanos antes y te decimos si lo tenemos"
+      description="Lo que hay hoy puede no ser lo mismo que mañana."
     >
       <Button class="w-full sm:w-auto" href={`tel:${negocio.contacto.telefonoTel}`} variant="secondary">Llamar ahora</Button>
       <Button class="w-full sm:w-auto" href="/temporada/" variant="secondary">Ver temporada</Button>
-      <Button class="w-full sm:w-auto" href="/contacto/" variant="ghost-light">Cómo llegar</Button>
     </CTABanner>
   </Section>
 </Layout>

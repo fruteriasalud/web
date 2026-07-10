@@ -3,7 +3,7 @@ export const negocio = {
   nombreLegal: 'Frutería Salud',
   claim: 'Fruta y verdura fresca en Sevilla',
   descripcion:
-    'Frutería local familiar en el Mercado de Abastos Tiro de Línea, con fruta, verdura y producto fresco de temporada.',
+    'Frutería familiar en los puestos 47, 48 y 49 del Mercado de Abastos Tiro de Línea, Sevilla.',
   idioma: 'es-ES',
   siteUrl: 'https://www.fruteriasalud.es',
   logo: '/logo/logo-principal.png',
@@ -35,13 +35,13 @@ export const negocio = {
   sobreNosotros: {
     titulo: 'Quiénes somos',
     texto:
-      'Somos una frutería familiar del Mercado de Abastos Tiro de Línea. Cada día seleccionamos fruta y verdura fresca pensando en la cocina de nuestros clientes, con la atención cercana propia de un puesto de mercado de toda la vida.',
+      'Somos una frutería familiar en los puestos 47, 48 y 49 del Mercado de Abastos Tiro de Línea. Lo que hay hoy puede no ser lo mismo que mañana: pásate y te recomendamos lo que esté mejor ese día.',
   },
   seo: {
     titleTemplate: '%s | Frutería Salud',
     defaultTitle: 'Frutería Salud | Fruta y verdura fresca en Sevilla',
     defaultDescription:
-      'Frutería Salud, frutería local familiar en el Mercado de Abastos Tiro de Línea de Sevilla. Fruta, verdura y producto fresco de temporada.',
+      'Frutería Salud, negocio familiar en los puestos 47, 48 y 49 del Mercado de Abastos Tiro de Línea, Sevilla.',
   },
   // Uso interno del equipo, no debe renderizarse en páginas públicas.
   pendienteConfirmar: [

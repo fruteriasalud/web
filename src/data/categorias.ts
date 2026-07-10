@@ -2,21 +2,21 @@ export const categorias = [
   {
     id: 'frutas',
     nombre: 'Frutas',
-    descripcion: 'Fruta fresca de temporada, según disponibilidad diaria del mercado.',
+    descripcion: 'Lo que hay cambia casi cada semana según el mercado.',
   },
   {
     id: 'verduras',
     nombre: 'Verduras y hortalizas',
-    descripcion: 'Verduras y hortalizas para cocina diaria, seleccionadas según temporada.',
+    descripcion: 'Verdura para el puchero, la sartén o la ensalada de diario.',
   },
   {
     id: 'temporada',
     nombre: 'Producto de temporada',
-    descripcion: 'Selección variable con producto fresco del momento.',
+    descripcion: 'Lo que está en su mejor momento ahora mismo.',
   },
   {
     id: 'mercado',
     nombre: 'Producto de mercado',
-    descripcion: 'Producto fresco con atención cercana en el Mercado de Abastos Tiro de Línea.',
+    descripcion: 'Ven al puesto y te recomendamos lo que esté mejor ese día.',
   },
 ] as const;

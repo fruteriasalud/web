@@ -26,7 +26,7 @@ export const temporadas = [
     id: 'invierno',
     nombre: 'Invierno',
     icono: '🍊',
-    texto: 'Cítricos en su mejor momento y hortalizas de raíz para platos de cuchara.',
+    texto: 'Cítricos en su mejor momento y hortalizas de raíz para el guiso de cada día.',
     productos: ['naranjas', 'zanahorias', 'patatas', 'fruta-temporada'],
   },
 ] as const;

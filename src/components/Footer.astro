@@ -28,10 +28,17 @@ const year = new Date().getFullYear();
 
     <div>
       <h2 class="m-0 mb-4 text-sm font-bold uppercase tracking-wide text-leaf-soft">Dónde estamos</h2>
-      <p class="m-0 text-sm leading-relaxed text-white/70">{negocio.direccion.mercado}</p>
-      <p class="m-0 mt-1 text-sm leading-relaxed text-white/70">Puestos {negocio.direccion.puestos}</p>
+      <p class="m-0 text-sm font-bold leading-relaxed text-white">
+        Puestos {negocio.direccion.puestos} · {negocio.direccion.mercado}
+      </p>
       <p class="m-0 mt-1 text-sm leading-relaxed text-white/70">{negocio.direccion.calle}, {negocio.direccion.ciudad}</p>
-      <a class="mt-4 inline-block text-sm font-bold text-white no-underline hover:underline" href={negocio.googleMaps} target="_blank" rel="noopener noreferrer">
+      <a
+        class="mt-4 inline-flex items-center gap-2 text-base font-bold text-white no-underline hover:underline"
+        href={`tel:${negocio.contacto.telefonoTel}`}
+      >
+        📞 {negocio.contacto.telefono}
+      </a>
+      <a class="mt-3 block text-sm font-bold text-white no-underline hover:underline" href={negocio.googleMaps} target="_blank" rel="noopener noreferrer">
         Ver en Google Maps →
       </a>
     </div>

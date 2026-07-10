@@ -12,13 +12,9 @@ import { negocio } from '../data/negocio';
 import Layout from '../layouts/Layout.astro';
 import { createLocalBusinessJsonLd } from '../lib/seo';
 
-const badges = ['🍃 Selección diaria', '🗓️ Producto de temporada', '🤝 Atención de mercado'];
+const badges = ['🌅 Cambia cada mañana', '📍 Puestos 47, 48 y 49', '📞 Llama y te decimos qué hay'];
 
-const imagenFruta = galeria.find((item) => item.id === 'fruta-surtida')!;
-const imagenVerdura = galeria.find((item) => item.id === 'verduras-frescas')!;
 const imagenPuesto = galeria.find((item) => item.id === 'puesto-mercado')!;
-const imagenPedidos = galeria.find((item) => item.id === 'preparacion-pedidos')!;
-const imagenEquipo = galeria.find((item) => item.id === 'equipo-negocio')!;
 ---
 
 <Layout
@@ -40,7 +36,9 @@ const imagenEquipo = galeria.find((item) => item.id === 'equipo-negocio')!;
         <h1 class="m-0 mt-4 text-3xl font-black leading-[1.1] text-ink sm:mt-5 sm:text-5xl sm:leading-[1.05] lg:text-6xl">
           {negocio.claim}
         </h1>
-        <p class="mt-4 max-w-xl text-base leading-relaxed text-muted sm:mt-6 sm:text-lg">{negocio.descripcion}</p>
+        <p class="mt-4 max-w-xl text-base leading-relaxed text-muted sm:mt-6 sm:text-lg">
+          Estamos dentro del Mercado de Abastos Tiro de Línea. Llámanos o ven al puesto y te decimos qué hay mejor hoy.
+        </p>
         <div class="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap">
           <Button class="w-full sm:w-auto" href={`tel:${negocio.contacto.telefonoTel}`}>Llamar ahora</Button>
           <Button class="w-full sm:w-auto" href={negocio.googleMaps} variant="secondary" target="_blank" rel="noopener noreferrer">
@@ -61,30 +59,26 @@ const imagenEquipo = galeria.find((item) => item.id === 'equipo-negocio')!;
         </div>
       </div>
 
-      <div class="relative mx-auto w-full max-w-[220px] sm:max-w-sm">
-        <div class="blob-shape relative flex aspect-square items-center justify-center bg-white p-6 shadow-xl ring-1 ring-line sm:p-10">
-          <img class="h-24 w-24 sm:h-40 sm:w-40 lg:h-48 lg:w-48" src={negocio.logo} alt={negocio.nombre} width="360" height="360" />
+      <div class="relative mx-auto w-full max-w-[240px] pb-4 sm:max-w-sm">
+        <div class="blob-shape bg-dot-grid relative flex aspect-square items-center justify-center overflow-hidden bg-leaf-soft shadow-xl ring-1 ring-line">
+          <div class="absolute inset-0 bg-gradient-to-br from-leaf-soft via-leaf-soft/40 to-transparent"></div>
+          <div class="relative flex flex-col items-center gap-3">
+            <span class="text-5xl sm:text-6xl" aria-hidden="true">🍊</span>
+            <img class="h-12 w-12 opacity-80 sm:h-14 sm:w-14" src={negocio.logo} alt={negocio.nombre} width="120" height="120" />
+          </div>
         </div>
+        <span class="absolute -bottom-1 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-white px-4 py-1.5 text-xs font-bold text-muted shadow-sm ring-1 ring-line">
+          Foto real del puesto, próximamente
+        </span>
       </div>
     </div>
   </section>
 
   <Section
-    eyebrow="Cada día en el puesto"
-    title="Color, frescura y producto de mercado"
-    description="Fruta y verdura seleccionadas cada jornada, con disponibilidad variable según mercado y temporada."
-  >
-    <div class="grid gap-5 sm:grid-cols-2">
-      <GalleryCard src={imagenFruta.src} alt={imagenFruta.alt} titulo={imagenFruta.titulo} caption={imagenFruta.caption} headingLevel="h3" />
-      <GalleryCard src={imagenVerdura.src} alt={imagenVerdura.alt} titulo={imagenVerdura.titulo} caption={imagenVerdura.caption} headingLevel="h3" />
-    </div>
-  </Section>
-
-  <Section
     tone="paper"
     eyebrow="Producto fresco"
     title="Lo que encontrarás en nuestro puesto"
-    description="Categorías con selección diaria de mercado. La disponibilidad concreta depende de la temporada; consúltala en tienda."
+    description="Cada mañana cambia el género. Ven al puesto y te recomendamos lo que esté mejor ese día."
   >
     <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
       {categorias.map((categoria) => <CategoryCard {...categoria} />)}
@@ -95,26 +89,27 @@ const imagenEquipo = galeria.find((item) => item.id === 'equipo-negocio')!;
     </div>
   </Section>
 
-  <Section tone="lilac" eyebrow="Quiénes somos" title="Comercio de barrio, trato de mercado">
+  <Section tone="lilac" eyebrow="Quiénes somos" title="Frutería familiar en el mercado">
     <div class="grid gap-10 lg:grid-cols-2 lg:items-center">
       <div>
         <p class="m-0 text-base leading-relaxed text-ink/80">{negocio.sobreNosotros.texto}</p>
         <ul class="m-0 mt-6 grid gap-3 p-0 text-base text-ink/80">
           <li class="flex list-none items-start gap-3">
-            <span class="text-xl" aria-hidden="true">🤝</span>
-            <span>Atención cercana en cada visita al puesto.</span>
+            <span class="text-xl" aria-hidden="true">📍</span>
+            <span>Estamos en los puestos 47, 48 y 49.</span>
           </li>
           <li class="flex list-none items-start gap-3">
-            <span class="text-xl" aria-hidden="true">🧺</span>
-            <span>Selección diaria pensada para tu cocina.</span>
+            <span class="text-xl" aria-hidden="true">🌅</span>
+            <span>Cada mañana cambia el género.</span>
           </li>
           <li class="flex list-none items-start gap-3">
-            <span class="text-xl" aria-hidden="true">🏘️</span>
-            <span>La confianza de comprar en tu mercado de barrio.</span>
+            <span class="text-xl" aria-hidden="true">📞</span>
+            <span>Si buscas algo concreto, llámanos antes.</span>
           </li>
         </ul>
-        <div class="mt-7">
+        <div class="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3">
           <Button href="/contacto/" variant="secondary">Visítanos en el mercado</Button>
+          <a class="text-sm font-bold text-berry hover:underline" href="/empresa/">Cómo trabajamos →</a>
         </div>
       </div>
 
@@ -122,18 +117,6 @@ const imagenEquipo = galeria.find((item) => item.id === 'equipo-negocio')!;
         <Blob class="-z-10 -right-6 -bottom-6 h-32 w-32 bg-berry/20" />
         <GalleryCard src={imagenPuesto.src} alt={imagenPuesto.alt} titulo={imagenPuesto.titulo} caption={imagenPuesto.caption} headingLevel="h3" />
       </div>
-    </div>
-  </Section>
-
-  <Section
-    eyebrow="Nuestro puesto"
-    title="Así es el día a día en Frutería Salud"
-    description="Preparación, atención y trato cercano dentro del Mercado de Abastos Tiro de Línea."
-  >
-    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-      <GalleryCard src={imagenPuesto.src} alt={imagenPuesto.alt} titulo={imagenPuesto.titulo} caption={imagenPuesto.caption} headingLevel="h3" />
-      <GalleryCard src={imagenPedidos.src} alt={imagenPedidos.alt} titulo={imagenPedidos.titulo} caption={imagenPedidos.caption} headingLevel="h3" />
-      <GalleryCard src={imagenEquipo.src} alt={imagenEquipo.alt} titulo={imagenEquipo.titulo} caption={imagenEquipo.caption} headingLevel="h3" />
     </div>
   </Section>
 
@@ -147,22 +130,10 @@ const imagenEquipo = galeria.find((item) => item.id === 'equipo-negocio')!;
   </Section>
 
   <Section
-    tone="lilac"
-    eyebrow="Empresa y reparto"
-    title="Hay una estructura real detrás del puesto"
-    description="Somos un negocio familiar organizado en tres puestos del mercado, con capacidad para atender pedidos de clientes habituales y de negocios. Conoce cómo trabajamos, cómo preparamos los encargos y qué sabemos hoy sobre reparto."
-  >
-    <div class="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-      <Button class="w-full sm:w-auto" href="/empresa/">Conoce la empresa</Button>
-      <Button class="w-full sm:w-auto" href={`tel:${negocio.contacto.telefonoTel}`} variant="secondary">Llamar ahora</Button>
-    </div>
-  </Section>
-
-  <Section
     tone="green"
     eyebrow="Encargos"
     title="¿Necesitas encargar producto?"
-    description={`Resolvemos encargos según disponibilidad. Llámanos al ${negocio.contacto.telefono} o pásate por el puesto para confirmar tu pedido.`}
+    description={`Llámanos antes al ${negocio.contacto.telefono} y te decimos si lo tenemos, o pásate directamente por el puesto.`}
   >
     <div class="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
       <Button class="w-full sm:w-auto" href="/encargos/">Consultar encargos</Button>
@@ -174,13 +145,10 @@ const imagenEquipo = galeria.find((item) => item.id === 'equipo-negocio')!;
     <CTABanner
       eyebrow="Te esperamos"
       title="Ven a conocernos al mercado"
-      description="Fruta y verdura fresca, seleccionada cada día en el Mercado de Abastos Tiro de Línea."
+      description="Puestos 47, 48 y 49, dentro del Mercado de Abastos Tiro de Línea."
     >
       <Button class="w-full sm:w-auto" href="/contacto/" variant="secondary">Visítanos en el mercado</Button>
-      <Button class="w-full sm:w-auto" href="/empresa/" variant="ghost-light">Empresa y reparto</Button>
-      <Button class="w-full sm:w-auto" href={negocio.facebook} variant="ghost-light" target="_blank" rel="noopener noreferrer">
-        Síguenos en Facebook
-      </Button>
+      <Button class="w-full sm:w-auto" href="/empresa/" variant="ghost-light">Quiénes somos</Button>
     </CTABanner>
   </Section>
 </Layout>
