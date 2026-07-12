@@ -19,12 +19,9 @@ const acentos: Record<string, string> = {
 const acento = acentos[categoria] ?? 'bg-cream';
 ---
 
-<article class="group flex flex-col items-center rounded-2xl border border-line bg-white p-5 text-center shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
+<article class="group flex flex-col items-center rounded-[var(--radius-card)] border border-line bg-white p-5 text-center shadow-[var(--shadow-card)] transition-colors duration-200 hover:border-berry/35 hover:shadow-[var(--shadow-card-hover)]">
   <div
-    class:list={[
-      'mb-3 flex h-16 w-16 items-center justify-center rounded-full text-3xl transition-transform duration-200 group-hover:scale-105',
-      acento,
-    ]}
+    class:list={['mb-3 flex h-16 w-16 items-center justify-center rounded-full text-3xl', acento]}
     aria-hidden="true"
   >
     {icono}

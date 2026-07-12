@@ -26,12 +26,10 @@ const badges = ['🏪 3 puestos en el mercado', '👨‍👩‍👧 Negocio fami
   canonical="/empresa/"
 >
   <section class="relative overflow-hidden px-5 pt-8 pb-10 sm:pt-16 sm:pb-20">
-    <Blob class="-top-24 -left-16 h-72 w-72 bg-leaf/15" />
-    <Blob class="top-10 -right-20 h-80 w-80 bg-berry/15" />
-    <Blob class="bottom-0 left-1/3 h-56 w-56 bg-lilac-deep/15" />
+    <Blob class="-top-16 -left-16 h-40 w-40 bg-leaf/10" />
 
     <div class="relative mx-auto max-w-3xl text-center">
-      <p class="m-0 inline-block rounded-full border border-line bg-white/70 px-4 py-1.5 text-sm font-bold text-leaf backdrop-blur">
+      <p class="m-0 inline-block rounded-[var(--radius-chip)] border border-line bg-white/95 px-4 py-1.5 text-sm font-bold text-leaf">
         {empresa.hero.eyebrow}
       </p>
       <h1 class="m-0 mt-4 text-3xl font-black leading-[1.1] text-ink sm:mt-5 sm:text-5xl sm:leading-[1.05]">
@@ -50,7 +48,7 @@ const badges = ['🏪 3 puestos en el mercado', '👨‍👩‍👧 Negocio fami
       <div class="mt-7 flex flex-wrap items-center justify-center gap-2.5 sm:mt-9">
         {
           badges.map((badge) => (
-            <span class="rounded-full border border-line bg-white/70 px-3.5 py-1.5 text-xs font-semibold text-muted backdrop-blur">
+            <span class="rounded-[var(--radius-chip)] border border-line bg-white/95 px-3.5 py-1.5 text-xs font-semibold text-muted">
               {badge}
             </span>
           ))
@@ -70,7 +68,7 @@ const badges = ['🏪 3 puestos en el mercado', '👨‍👩‍👧 Negocio fami
     <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
       {
         empresa.comoTrabajamos.map((paso, index) => (
-          <article class="relative flex flex-col rounded-2xl border border-line bg-white p-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
+          <article class="relative flex flex-col rounded-[var(--radius-card)] border border-line bg-white p-6 shadow-[var(--shadow-card)] transition-colors duration-200 hover:border-berry/35 hover:shadow-[var(--shadow-card-hover)]">
             <div class="flex items-center gap-3">
               <span class="flex h-10 w-10 items-center justify-center rounded-full bg-berry-soft text-sm font-black text-berry-dark">
                 {index + 1}
@@ -92,7 +90,7 @@ const badges = ['🏪 3 puestos en el mercado', '👨‍👩‍👧 Negocio fami
       <div class="grid gap-5 sm:grid-cols-2">
         {
           empresa.estructura.map((bloque) => (
-            <article class="flex flex-col rounded-2xl border border-white/60 bg-white/70 p-5 backdrop-blur">
+            <article class="flex flex-col rounded-[var(--radius-card)] border border-line bg-white/95 p-5">
               <span class="text-2xl" aria-hidden="true">
                 {bloque.icono}
               </span>

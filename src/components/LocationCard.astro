@@ -11,10 +11,10 @@ const { showCallButton = false, headingLevel = 'h3' } = Astro.props as Props;
 const HeadingTag = headingLevel;
 ---
 
-<div class="grid gap-0 overflow-hidden rounded-3xl border border-line bg-white shadow-sm md:grid-cols-2">
+<div class="grid gap-0 overflow-hidden rounded-[var(--radius-panel)] border border-line bg-white shadow-[var(--shadow-card)] md:grid-cols-2">
   <div class="relative flex min-h-56 items-center justify-center bg-leaf-soft bg-dot-grid p-8">
     <div class="absolute inset-0 bg-gradient-to-br from-leaf-soft via-leaf-soft/40 to-transparent"></div>
-    <div class="relative flex h-16 w-16 items-center justify-center rounded-full bg-berry text-2xl text-white shadow-lg" aria-hidden="true">
+    <div class="relative flex h-16 w-16 items-center justify-center rounded-full bg-berry text-2xl text-white shadow-[var(--shadow-button)]" aria-hidden="true">
       📍
     </div>
   </div>

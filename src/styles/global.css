@@ -29,6 +29,29 @@
 
 :root {
   color-scheme: light;
+
+  /*
+   * Sistema de radios propio, deliberadamente fuera de la escala
+   * rounded-xl/2xl/3xl/full de Tailwind: así ningún componente vuelve
+   * a caer en "todo píldora" o "todo super-redondeado" por defecto.
+   * Los valores están pensados para leerse como esquinas suavizadas
+   * con intención, no como el radio máximo de una plantilla SaaS.
+   */
+  --radius-button: 0.7rem;
+  --radius-chip: 0.55rem;
+  --radius-card: 0.85rem;
+  --radius-panel: 1.05rem;
+
+  /*
+   * Sombras secas y de corto alcance en vez del "glow" difuso genérico
+   * de plantilla. El estado hover de las tarjetas usa una sombra MÁS
+   * CONTENIDA que el reposo (se "asienta", no "flota"), para evitar el
+   * efecto típico de card-que-sube-y-brilla de IA.
+   */
+  --shadow-button: 0 1px 2px rgba(38, 27, 32, 0.18);
+  --shadow-card: 0 1px 0 rgba(38, 27, 32, 0.05), 0 10px 20px -14px rgba(38, 27, 32, 0.32);
+  --shadow-card-hover: 0 1px 0 rgba(38, 27, 32, 0.07), 0 4px 10px -6px rgba(38, 27, 32, 0.24);
+  --shadow-hero: 0 1px 0 rgba(38, 27, 32, 0.06), 0 18px 34px -20px rgba(38, 27, 32, 0.38);
 }
 
 html {
@@ -94,6 +117,8 @@ main {
   background-color: var(--color-berry);
   color: #fff !important;
   border: 2px solid transparent;
+  border-radius: var(--radius-button);
+  box-shadow: var(--shadow-button);
 }
 .btn-primary:hover {
   background-color: var(--color-berry-dark);
@@ -103,7 +128,8 @@ main {
   background-color: #fff;
   color: var(--color-berry-dark) !important;
   border: 2px solid color-mix(in srgb, var(--color-berry) 30%, transparent);
-  box-shadow: 0 1px 2px rgba(38, 27, 32, 0.08);
+  border-radius: var(--radius-button);
+  box-shadow: 0 1px 2px rgba(38, 27, 32, 0.1);
 }
 .btn-secondary:hover {
   background-color: var(--color-berry-soft);
@@ -114,6 +140,7 @@ main {
   background-color: rgba(255, 255, 255, 0.1);
   color: #fff !important;
   border: 2px solid #fff;
+  border-radius: var(--radius-button);
 }
 .btn-ghost-light:hover {
   background-color: rgba(255, 255, 255, 0.2);
