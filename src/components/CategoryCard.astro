@@ -27,8 +27,8 @@ const icono = iconos[id] ?? '🍏';
 const acento = acentos[id] ?? 'bg-cream text-leaf-dark';
 ---
 
-<article class="group flex flex-col rounded-3xl border border-line bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg">
-  <div class:list={['mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl', acento]} aria-hidden="true">
+<article class="group flex flex-col rounded-2xl border border-line bg-white p-6 shadow-card transition-all hover:-translate-y-0.5 hover:shadow-card-hover">
+  <div class:list={['mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl text-2xl', acento]} aria-hidden="true">
     {icono}
   </div>
   <HeadingTag class="m-0 text-lg font-black text-ink">{nombre}</HeadingTag>
