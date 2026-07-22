@@ -40,7 +40,7 @@ const pasos = [
   <Section
     eyebrow="Encargos"
     title="Encarga tu producto en cuatro pasos"
-    description="Resolvemos los encargos por teléfono o en el propio puesto, según el producto disponible cada día."
+    description="Resolvemos encargos de particulares y de negocios de hostelería, por teléfono o en el propio puesto, según el producto disponible cada día."
     headingLevel="h1"
   >
     <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -73,11 +73,13 @@ const pasos = [
 
   <Section tone="lilac" title="Encargos sujetos a disponibilidad">
     <p class="m-0 max-w-3xl text-ink/80">
-      Todos los encargos dependen del producto disponible cada día en el mercado. Llámanos al{' '}
+      Todos los encargos dependen del producto disponible cada día en el mercado, tanto si eres particular como si
+      compras para un negocio de hostelería. Normalmente el pedido se recoge en el puesto; si necesitas que te lo
+      hagamos llegar, lo valoramos caso por caso. Llámanos al{' '}
       <a class="font-bold text-berry-dark underline" href={`tel:${negocio.contacto.telefonoTel}`}>
         {negocio.contacto.telefono}
       </a>{' '}
-      para confirmar cantidades, plazos y condiciones antes de tu visita.
+      para confirmar producto, cantidades, plazos y forma de entrega antes de tu visita.
     </p>
   </Section>
 </Layout>

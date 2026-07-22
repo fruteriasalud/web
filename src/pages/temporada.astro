@@ -30,6 +30,17 @@ function productosDeTemporada(ids: readonly string[]) {
   >
   </Section>
 
+  <Section>
+    <CTABanner
+      eyebrow="Encargos"
+      title="¿Necesitas reservar producto de temporada?"
+      description="Los encargos quedan sujetos a disponibilidad. Podemos confirmarte cantidades y plazos por teléfono."
+    >
+      <Button class="w-full sm:w-auto" href={`tel:${negocio.contacto.telefonoTel}`} variant="secondary">Llamar ahora</Button>
+      <Button class="w-full sm:w-auto" href="/encargos/" variant="secondary">Ver encargos</Button>
+    </CTABanner>
+  </Section>
+
   {
     temporadas.map((temporada, index) => (
       <Section tone={tonos[index % tonos.length]} eyebrow={temporada.nombre} title={`${temporada.icono} Producto de ${temporada.nombre.toLowerCase()}`} description={temporada.texto}>
@@ -41,16 +52,4 @@ function productosDeTemporada(ids: readonly string[]) {
       </Section>
     ))
   }
-
-  <Section>
-    <CTABanner
-      eyebrow="Encargos"
-      title="¿Necesitas reservar producto de temporada?"
-      description="Los encargos quedan sujetos a disponibilidad. Podemos confirmarte cantidades y plazos por teléfono."
-    >
-      <Button class="w-full sm:w-auto" href={`tel:${negocio.contacto.telefonoTel}`} variant="secondary">Llamar ahora</Button>
-      <Button class="w-full sm:w-auto" href="/encargos/" variant="secondary">Ver encargos</Button>
-      <Button class="w-full sm:w-auto" href="/contacto/" variant="ghost-light">Cómo llegar</Button>
-    </CTABanner>
-  </Section>
 </Layout>
