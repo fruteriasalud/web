@@ -2,10 +2,10 @@ import type { APIRoute } from 'astro';
 import { navegacionPrincipal } from '../data/navegacion';
 import { absoluteUrl } from '../lib/seo';
 
-const legalPages = ['/aviso-legal/', '/privacidad/', '/cookies/'] as const;
+const secondaryPages = ['/trabaja-con-nosotros/', '/aviso-legal/', '/privacidad/', '/cookies/'] as const;
 
 export const GET: APIRoute = () => {
-  const urls = [...navegacionPrincipal.map((item) => item.href), ...legalPages].map(
+  const urls = [...navegacionPrincipal.map((item) => item.href), ...secondaryPages].map(
     (href) => `  <url><loc>${absoluteUrl(href)}</loc></url>`,
   );
 

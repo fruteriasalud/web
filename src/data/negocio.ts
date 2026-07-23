@@ -53,6 +53,7 @@ export const negocio = {
       titulo: 'Pedidos para hostelería',
       telefonos: [{ texto: '687 771 465', tel: '+34687771465' }],
     },
+    // Pendiente de añadir un número oficial en formato internacional, sin espacios (por ejemplo, 34600000000).
     whatsapp: null,
     email: 'fruteriasaludsl@gmail.com',
   },
