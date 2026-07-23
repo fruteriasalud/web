@@ -16,7 +16,7 @@ export const negocio = {
     codigo: '47.21',
     descripcion: 'Comercio al por menor de frutas y hortalizas en establecimientos especializados',
   },
-  claim: 'Fruta y verdura fresca en Sevilla',
+  claim: 'Tu frutería en Sevilla',
   descripcion:
     'Frutería local familiar en el Mercado de Abastos Tiro de Línea, con fruta, verdura y producto fresco de temporada.',
   idioma: 'es-ES',
@@ -24,7 +24,7 @@ export const negocio = {
   logo: '/logo/logo-principal.png',
   imagenSocial: '/logo/logo-fondo-blanco.png',
   facebook: 'https://www.facebook.com/FruteriaSaludCom?locale=es_ES',
-  instagram: 'https://www.instagram.com/fruteriasalud?igsh=MW5ka3M3Mnl5eDhqdQ==',
+  instagram: 'https://www.instagram.com/fruteriasalud',
   googleMaps: 'https://maps.app.goo.gl/MUbiuF8D8oKDHpGs9',
   direccion: {
     texto:
@@ -57,7 +57,7 @@ export const negocio = {
     email: 'fruteriasaludsl@gmail.com',
   },
   horario: {
-    texto: 'Horario habitual de mercado. Te recomendamos llamar antes de tu visita para confirmarlo.',
+    texto: 'De 7:00 a 15:00 h.',
     openingHoursSpecification: [],
   },
   sobreNosotros: {

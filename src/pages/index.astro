@@ -95,8 +95,8 @@ const imagenEquipo = galeria.find((item) => item.id === 'equipo-negocio')!;
     description="Fruta y verdura seleccionadas cada jornada, con disponibilidad variable según mercado y temporada."
   >
     <div class="grid gap-5 sm:grid-cols-2">
-      <GalleryCard src={imagenFruta.src} alt={imagenFruta.alt} titulo={imagenFruta.titulo} caption={imagenFruta.caption} headingLevel="h3" aspect={imagenFruta.aspect} objectPosition={imagenFruta.objectPosition} />
-      <GalleryCard src={imagenVerdura.src} alt={imagenVerdura.alt} titulo={imagenVerdura.titulo} caption={imagenVerdura.caption} headingLevel="h3" aspect={imagenVerdura.aspect} objectPosition={imagenVerdura.objectPosition} />
+      <GalleryCard src={imagenFruta.src} alt={imagenFruta.alt} titulo={imagenFruta.titulo} caption={imagenFruta.caption} headingLevel="h3" aspect={imagenFruta.aspect} objectPosition={imagenFruta.objectPosition} sizes="(min-width: 1200px) 566px, (min-width: 640px) calc(50vw - 30px), 100vw" />
+      <GalleryCard src={imagenVerdura.src} alt={imagenVerdura.alt} titulo={imagenVerdura.titulo} caption={imagenVerdura.caption} headingLevel="h3" aspect={imagenVerdura.aspect} objectPosition={imagenVerdura.objectPosition} sizes="(min-width: 1200px) 566px, (min-width: 640px) calc(50vw - 30px), 100vw" />
     </div>
   </Section>
 
@@ -139,7 +139,7 @@ const imagenEquipo = galeria.find((item) => item.id === 'equipo-negocio')!;
       </div>
 
       <div class="relative mx-auto w-full max-w-xs">
-        <GalleryCard src={imagenPuesto.src} alt={imagenPuesto.alt} titulo={imagenPuesto.titulo} caption={imagenPuesto.caption} headingLevel="h3" aspect={imagenPuesto.aspect} objectPosition={imagenPuesto.objectPosition} />
+        <GalleryCard src={imagenPuesto.src} alt={imagenPuesto.alt} titulo={imagenPuesto.titulo} caption={imagenPuesto.caption} headingLevel="h3" aspect={imagenPuesto.aspect} objectPosition={imagenPuesto.objectPosition} sizes="(max-width: 360px) 100vw, 320px" />
       </div>
     </div>
   </Section>
@@ -150,9 +150,9 @@ const imagenEquipo = galeria.find((item) => item.id === 'equipo-negocio')!;
     description="Preparación, atención y trato cercano dentro del Mercado de Abastos Tiro de Línea."
   >
     <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-      <GalleryCard src={imagenPuesto.src} alt={imagenPuesto.alt} titulo={imagenPuesto.titulo} caption={imagenPuesto.caption} headingLevel="h3" aspect={imagenPuesto.aspect} objectPosition={imagenPuesto.objectPosition} />
-      <GalleryCard src={imagenPedidos.src} alt={imagenPedidos.alt} titulo={imagenPedidos.titulo} caption={imagenPedidos.caption} headingLevel="h3" aspect={imagenPedidos.aspect} objectPosition={imagenPedidos.objectPosition} />
-      <GalleryCard src={imagenEquipo.src} alt={imagenEquipo.alt} titulo={imagenEquipo.titulo} caption={imagenEquipo.caption} headingLevel="h3" aspect={imagenEquipo.aspect} objectPosition={imagenEquipo.objectPosition} />
+      <GalleryCard src={imagenPuesto.src} alt={imagenPuesto.alt} titulo={imagenPuesto.titulo} caption={imagenPuesto.caption} headingLevel="h3" aspect={imagenPuesto.aspect} objectPosition={imagenPuesto.objectPosition} sizes="(min-width: 1024px) 371px, (min-width: 640px) calc(50vw - 30px), 100vw" />
+      <GalleryCard src={imagenPedidos.src} alt={imagenPedidos.alt} titulo={imagenPedidos.titulo} caption={imagenPedidos.caption} headingLevel="h3" aspect={imagenPedidos.aspect} objectPosition={imagenPedidos.objectPosition} sizes="(min-width: 1024px) 371px, (min-width: 640px) calc(50vw - 30px), 100vw" />
+      <GalleryCard src={imagenEquipo.src} alt={imagenEquipo.alt} titulo={imagenEquipo.titulo} caption={imagenEquipo.caption} headingLevel="h3" aspect={imagenEquipo.aspect} objectPosition={imagenEquipo.objectPosition} sizes="(min-width: 1024px) 371px, (min-width: 640px) calc(50vw - 30px), 100vw" />
     </div>
   </Section>
 

@@ -10,6 +10,12 @@ type Props = {
   aspect?: string;
   objectPosition?: string;
   priority?: boolean;
+  /**
+   * Debe reflejar el ancho CSS real que ocupa la tarjeta en cada breakpoint.
+   * Un valor por defecto demasiado optimista hace que el navegador pida una
+   * variante más pequeña de la que necesita y la estire por CSS (borroso).
+   */
+  sizes?: string;
 };
 
 const {
@@ -21,8 +27,19 @@ const {
   aspect = 'aspect-[4/3]',
   objectPosition = 'center',
   priority = false,
+  sizes = '(min-width: 1024px) 600px, 100vw',
 } = Astro.props as Props;
 const HeadingTag = headingLevel;
+
+// Sin width/height explícitos, astro:assets usa la resolución nativa del
+// original como base del <img src> (además de las variantes de `widths`),
+// lo que genera una variante extra sin redimensionar. Los originales llegan
+// a 4000px+ de móvil, así que capamos la base al mayor ancho realmente
+// servido por el sitio (1200px) manteniendo la proporción real de cada foto.
+const MAX_BASE_WIDTH = 1200;
+const baseWidth = Math.min(MAX_BASE_WIDTH, src.width);
+const baseHeight = Math.round(baseWidth * (src.height / src.width));
+const widths = [400, 640, 800, 1000, 1200].filter((w) => w <= src.width);
 ---
 
 <figure class="group m-0 flex flex-col overflow-hidden rounded-[var(--radius-card)] border border-line bg-white shadow-[var(--shadow-card)] transition-colors duration-200 hover:border-berry/35 hover:shadow-[var(--shadow-card-hover)]">
@@ -32,8 +49,11 @@ const HeadingTag = headingLevel;
       style={`object-position: ${objectPosition}`}
       src={src}
       alt={alt}
-      widths={[400, 800, 1200]}
-      sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
+      width={baseWidth}
+      height={baseHeight}
+      widths={widths}
+      sizes={sizes}
+      quality={90}
       loading={priority ? 'eager' : 'lazy'}
       fetchpriority={priority ? 'high' : 'auto'}
     />

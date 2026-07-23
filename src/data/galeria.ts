@@ -47,8 +47,8 @@ export const galeria = [
     titulo: 'Preparación de encargos',
     caption: 'Preparamos cada encargo con atención antes de la recogida o de una entrega a consultar.',
     categoria: 'puesto',
-    aspect: 'aspect-[3/4]',
-    objectPosition: 'center 20%',
+    aspect: 'aspect-[4/3]',
+    objectPosition: '30% center',
   },
   {
     id: 'reparto-vehiculo-1',
@@ -57,8 +57,8 @@ export const galeria = [
     titulo: 'Entregas a consultar',
     caption: 'La entrega de pedidos se valora caso por caso y está sujeta a disponibilidad.',
     categoria: 'logistica',
-    aspect: 'aspect-[3/4]',
-    objectPosition: 'top',
+    aspect: 'aspect-[16/9]',
+    objectPosition: 'center',
   },
   {
     id: 'reparto-vehiculo-2',
