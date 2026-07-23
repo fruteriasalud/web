@@ -1,41 +1,145 @@
 ---
-import Section from '../components/Section.astro';
 import { negocio } from '../data/negocio';
-import Layout from '../layouts/Layout.astro';
+import LegalLayout from '../layouts/LegalLayout.astro';
+
+const h2 = 'm-0 text-lg font-black text-ink';
+const p = 'm-0 mt-2';
+const ul = 'm-0 mt-2 list-disc space-y-1.5 pl-5';
+const a = 'font-semibold text-berry hover:underline';
 ---
 
-<Layout title="Aviso legal" description="Aviso legal provisional de Frutas y Verduras Salud, pendiente de completar con datos fiscales definitivos antes de publicar." canonical="/aviso-legal/" noindex>
-  <Section eyebrow="Información legal" title="Aviso legal" headingLevel="h1">
-    <div class="mb-8 rounded-[var(--radius-card)] border border-lilac-deep/40 bg-lilac/40 p-5 text-sm font-semibold text-ink">
-      Contenido provisional. Este texto debe completarse y revisarse con los datos fiscales y legales definitivos de
-      Frutas y Verduras Salud antes de la publicación final del sitio.
-    </div>
-
-    <div class="max-w-3xl space-y-5 text-sm leading-relaxed text-muted">
-      <h2 class="m-0 text-lg font-black text-ink">Titular del sitio web</h2>
-      <p class="m-0 mt-2">
-        {negocio.nombre}, con actividad en {negocio.direccion.mercado}, {negocio.direccion.calle},{' '}
-        {negocio.direccion.codigoPostal} {negocio.direccion.ciudad}. Los datos fiscales completos (razón social, NIF y
-        registro correspondiente) están pendientes de incorporar a este aviso legal.
+<LegalLayout
+  title="Aviso legal"
+  description="Aviso legal de Frutas y Verduras Salud: identificación del titular, condiciones de uso y régimen de responsabilidad del sitio web."
+  canonical="/aviso-legal/"
+  actualizado="23 de julio de 2026"
+>
+  <div>
+    <h2 class={h2}>1. Identificación del titular</h2>
+    <p class={p}>
+      En cumplimiento del deber de información recogido en el artículo 10 de la Ley 34/2002, de 11 de julio, de
+      Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se informa de los siguientes
+      datos del titular de este sitio web:
+    </p>
+    <address class="m-0 mt-3 grid gap-1 not-italic">
+      <p class="m-0"><strong class="text-ink">Razón social:</strong> {negocio.nombreLegal}</p>
+      <p class="m-0"><strong class="text-ink">Nombre comercial:</strong> {negocio.nombre}</p>
+      <p class="m-0"><strong class="text-ink">NIF:</strong> {negocio.nif}</p>
+      <p class="m-0"><strong class="text-ink">Forma jurídica:</strong> {negocio.formaJuridica}</p>
+      <p class="m-0"><strong class="text-ink">Datos registrales:</strong> {negocio.registroMercantil.texto}</p>
+      <p class="m-0">
+        <strong class="text-ink">Domicilio social:</strong> {negocio.direccion.calle}, {negocio.direccion.mercado},{' '}
+        {negocio.direccion.codigoPostal} {negocio.direccion.ciudad}, España
       </p>
-
-      <h2 class="m-0 text-lg font-black text-ink">Objeto</h2>
-      <p class="m-0 mt-2">
-        Este sitio web tiene carácter informativo sobre la actividad comercial de {negocio.nombre} y no incluye venta
-        online ni procesa pagos.
+      <p class="m-0">
+        <strong class="text-ink">Establecimiento comercial:</strong> {negocio.direccion.mercado}, puestos{' '}
+        {negocio.direccion.puestos}, {negocio.direccion.calle}, {negocio.direccion.codigoPostal}{' '}
+        {negocio.direccion.ciudad}
       </p>
-
-      <h2 class="m-0 text-lg font-black text-ink">Propiedad intelectual</h2>
-      <p class="m-0 mt-2">
-        Los contenidos, marca y logotipos de {negocio.nombre} son propiedad de su titular. Queda pendiente de
-        confirmar el detalle completo de condiciones de uso.
+      <p class="m-0">
+        <strong class="text-ink">Correo electrónico:</strong>{' '}
+        <a class={a} href={`mailto:${negocio.contacto.email}`}>{negocio.contacto.email}</a>
       </p>
-
-      <h2 class="m-0 text-lg font-black text-ink">Contacto</h2>
-      <p class="m-0 mt-2">
-        Puedes contactar con {negocio.nombre} llamando al {negocio.contacto.telefono} o visitando el puesto en el
-        Mercado de Abastos Tiro de Línea.
+      <p class="m-0">
+        <strong class="text-ink">Teléfonos:</strong>{' '}
+        <a class={a} href={`tel:${negocio.contacto.domicilio.telefonos[0].tel}`}>{negocio.contacto.domicilio.telefonos[0].texto}</a>,{' '}
+        <a class={a} href={`tel:${negocio.contacto.domicilio.telefonos[1].tel}`}>{negocio.contacto.domicilio.telefonos[1].texto}</a>,{' '}
+        <a class={a} href={`tel:${negocio.contacto.hosteleria.telefonos[0].tel}`}>{negocio.contacto.hosteleria.telefonos[0].texto}</a>
       </p>
-    </div>
-  </Section>
-</Layout>
+      <p class="m-0">
+        <strong class="text-ink">Dominio:</strong>{' '}
+        <a class={a} href={negocio.siteUrl}>fruteriasalud.es</a>
+      </p>
+      <p class="m-0">
+        <strong class="text-ink">Actividad (CNAE {negocio.cnae.codigo}):</strong> {negocio.cnae.descripcion}. La
+        actividad comprende la venta al por mayor y al por menor de verduras, frutas, frutos secos, vegetales, zumos y
+        productos alimenticios complementarios al sector.
+      </p>
+    </address>
+  </div>
+
+  <div>
+    <h2 class={h2}>2. Objeto del sitio web</h2>
+    <p class={p}>
+      Este sitio web tiene carácter informativo. Su finalidad es dar a conocer el negocio, los productos y servicios
+      de {negocio.nombre}, los encargos que pueden solicitarse, la ubicación del puesto en el {negocio.direccion.mercado}{' '}
+      y las distintas vías de contacto disponibles.
+    </p>
+    <p class={p}>
+      El sitio web no incorpora venta online, no procesa pagos ni permite formalizar pedidos a través de un
+      formulario web. Los encargos, consultas y pedidos se gestionan por teléfono, WhatsApp o de forma presencial en
+      el puesto del mercado.
+    </p>
+  </div>
+
+  <div>
+    <h2 class={h2}>3. Condiciones de uso</h2>
+    <p class={p}>El acceso y la navegación por este sitio web atribuyen la condición de persona usuaria, que acepta, desde ese acceso, las siguientes condiciones de uso. La persona usuaria se compromete a:</p>
+    <ul class={ul}>
+      <li>Hacer un uso lícito y correcto del sitio web, conforme a la legislación aplicable.</li>
+      <li>No dañar, inutilizar o sobrecargar el sitio web ni impedir su normal utilización.</li>
+      <li>No intentar acceder a áreas, sistemas o contenidos restringidos sin autorización.</li>
+      <li>No utilizar los contenidos del sitio con fines ilícitos, lesivos de derechos o intereses de terceros.</li>
+      <li>No introducir ni difundir virus informáticos ni cualquier otro código malicioso.</li>
+    </ul>
+  </div>
+
+  <div>
+    <h2 class={h2}>4. Propiedad intelectual e industrial</h2>
+    <p class={p}>
+      El diseño del sitio web, los textos, las fotografías, el logotipo, la marca y demás elementos gráficos, así
+      como el código fuente, son titularidad de {negocio.nombreLegal} o se utilizan con la debida autorización, y
+      están protegidos por la normativa de propiedad intelectual e industrial. Las fotografías reales del negocio,
+      del puesto, del equipo y de los vehículos no pueden reproducirse, distribuirse ni reutilizarse con fines
+      comerciales sin autorización previa y expresa de su titular.
+    </p>
+    <p class={p}>
+      Determinados recursos técnicos utilizados en el sitio web, como tipografías, iconos o componentes de código
+      abierto, pueden pertenecer a terceros y quedan sujetos a sus propias licencias de uso.
+    </p>
+  </div>
+
+  <div>
+    <h2 class={h2}>5. Responsabilidad</h2>
+    <p class={p}>
+      {negocio.nombre} realiza un esfuerzo razonable por mantener la información del sitio web actualizada y
+      correcta. No obstante, la disponibilidad concreta de producto puede variar según el mercado y la temporada, y
+      no se garantiza la ausencia de errores puntuales en los contenidos ni la disponibilidad continua o
+      ininterrumpida del sitio web, que puede verse afectada por labores de mantenimiento o por causas técnicas ajenas
+      a su control.
+    </p>
+    <p class={p}>
+      Al no existir venta online, los precios, la disponibilidad y las características del producto que puedan
+      mencionarse con carácter orientativo no constituyen una oferta comercial vinculante y se confirman siempre por
+      teléfono, WhatsApp o en el propio puesto.
+    </p>
+  </div>
+
+  <div>
+    <h2 class={h2}>6. Enlaces externos</h2>
+    <p class={p}>
+      Este sitio web incluye enlaces hacia plataformas gestionadas por terceros, como Google Maps, Facebook,
+      Instagram o WhatsApp. {negocio.nombre} no tiene control sobre esos sitios externos ni sobre sus contenidos, y no
+      asume responsabilidad sobre ellos. Al pulsar un enlace externo, la persona usuaria abandona este sitio web y
+      queda sujeta a las condiciones y políticas de privacidad de la plataforma correspondiente.
+    </p>
+  </div>
+
+  <div>
+    <h2 class={h2}>7. Protección de datos y cookies</h2>
+    <p class={p}>
+      La información sobre el tratamiento de datos personales se encuentra en la{' '}
+      <a class={a} href="/privacidad/">Política de privacidad</a>. La información sobre las cookies y tecnologías
+      similares utilizadas en este sitio web se encuentra en la <a class={a} href="/cookies/">Política de cookies</a>.
+    </p>
+  </div>
+
+  <div>
+    <h2 class={h2}>8. Legislación aplicable</h2>
+    <p class={p}>
+      Las presentes condiciones se rigen por la legislación española. Las controversias que pudieran derivarse del
+      acceso o uso de este sitio web se someterán a los juzgados y tribunales que resulten competentes conforme a la
+      normativa aplicable.
+    </p>
+  </div>
+</LegalLayout>

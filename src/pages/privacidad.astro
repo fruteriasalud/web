@@ -1,40 +1,183 @@
 ---
-import Section from '../components/Section.astro';
 import { negocio } from '../data/negocio';
-import Layout from '../layouts/Layout.astro';
+import LegalLayout from '../layouts/LegalLayout.astro';
+
+const h2 = 'm-0 text-lg font-black text-ink';
+const p = 'm-0 mt-2';
+const ul = 'm-0 mt-2 list-disc space-y-1.5 pl-5';
+const a = 'font-semibold text-berry hover:underline';
 ---
 
-<Layout
+<LegalLayout
   title="Política de privacidad"
-  description="Política de privacidad provisional de Frutas y Verduras Salud, pendiente de revisión legal antes de publicar."
+  description="Política de privacidad de Frutas y Verduras Salud: responsable, finalidades, base jurídica, conservación y derechos sobre los datos personales."
   canonical="/privacidad/"
-  noindex
+  actualizado="23 de julio de 2026"
 >
-  <Section eyebrow="Información legal" title="Política de privacidad" headingLevel="h1">
-    <div class="mb-8 rounded-[var(--radius-card)] border border-lilac-deep/40 bg-lilac/40 p-5 text-sm font-semibold text-ink">
-      Contenido provisional. Esta política debe completarse y revisarse conforme al RGPD y la LOPDGDD antes de la
-      publicación final del sitio.
-    </div>
-
-    <div class="max-w-3xl space-y-5 text-sm leading-relaxed text-muted">
-      <h2 class="m-0 text-lg font-black text-ink">Responsable</h2>
-      <p class="m-0 mt-2">
-        {negocio.nombre}, con actividad en {negocio.direccion.mercado}, {negocio.direccion.ciudad}. Puedes
-        contactarnos llamando al {negocio.contacto.telefono}.
+  <div>
+    <h2 class={h2}>1. Responsable del tratamiento</h2>
+    <address class="m-0 mt-2 grid gap-1 not-italic">
+      <p class="m-0">{negocio.nombreLegal} (NIF {negocio.nif})</p>
+      <p class="m-0">{negocio.direccion.calle}, {negocio.direccion.mercado}, {negocio.direccion.codigoPostal} {negocio.direccion.ciudad}, España</p>
+      <p class="m-0">
+        Correo electrónico: <a class={a} href={`mailto:${negocio.contacto.email}`}>{negocio.contacto.email}</a>
       </p>
-
-      <h2 class="m-0 text-lg font-black text-ink">Datos que trata este sitio web</h2>
-      <p class="m-0 mt-2">
-        Esta web es informativa y no dispone de formularios que recojan datos personales ni de sistemas de venta
-        online. Si en el futuro se incorpora algún formulario o canal de contacto que recoja datos, esta política se
-        actualizará para detallar la finalidad, la base legal y el plazo de conservación de esos datos.
+      <p class="m-0">
+        Teléfonos: <a class={a} href={`tel:${negocio.contacto.domicilio.telefonos[0].tel}`}>{negocio.contacto.domicilio.telefonos[0].texto}</a>,{' '}
+        <a class={a} href={`tel:${negocio.contacto.domicilio.telefonos[1].tel}`}>{negocio.contacto.domicilio.telefonos[1].texto}</a>,{' '}
+        <a class={a} href={`tel:${negocio.contacto.hosteleria.telefonos[0].tel}`}>{negocio.contacto.hosteleria.telefonos[0].texto}</a>
       </p>
+    </address>
+    <p class={p}>
+      No existe un delegado de protección de datos designado, al no resultar obligatorio para esta actividad conforme
+      al artículo 34 de la LOPDGDD.
+    </p>
+  </div>
 
-      <h2 class="m-0 text-lg font-black text-ink">Derechos de las personas usuarias</h2>
-      <p class="m-0 mt-2">
-        Cualquier persona puede ejercer sus derechos de acceso, rectificación, supresión y demás derechos reconocidos
-        por la normativa de protección de datos. El canal formal para ejercerlos está pendiente de confirmar.
-      </p>
-    </div>
-  </Section>
-</Layout>
+  <div>
+    <h2 class={h2}>2. ¿Qué datos pueden tratarse?</h2>
+    <p class={p}>
+      Este sitio web no dispone de formularios, registro de usuarios, área privada, tienda online ni newsletter, por
+      lo que no recoge datos personales de forma automática al navegar por él. No obstante, cuando una persona
+      contacta por teléfono, WhatsApp, correo electrónico o de forma presencial en el puesto, pueden tratarse datos
+      como:
+    </p>
+    <ul class={ul}>
+      <li>Datos identificativos: nombre y apellidos.</li>
+      <li>Teléfono de contacto.</li>
+      <li>Contenido de la consulta o del encargo.</li>
+      <li>Dirección de entrega, únicamente cuando sea necesaria para gestionar un pedido.</li>
+      <li>Datos profesionales o de facturación, en las relaciones con clientes de hostelería o negocios.</li>
+      <li>Datos técnicos mínimos generados por el funcionamiento de la infraestructura web (por ejemplo, dirección IP en los registros del proveedor de hosting y seguridad), sin que se elaboren perfiles con ellos.</li>
+    </ul>
+    <p class={p}>No se tratan datos de salud, biométricos, de geolocalización precisa ni otras categorías especiales de datos.</p>
+  </div>
+
+  <div>
+    <h2 class={h2}>3. Finalidades del tratamiento</h2>
+    <ul class={ul}>
+      <li>Responder a consultas planteadas por teléfono, WhatsApp, correo electrónico o de forma presencial.</li>
+      <li>Gestionar encargos y pedidos, tanto de particulares como de negocios de hostelería.</li>
+      <li>Organizar la recogida o, cuando se acuerde, la entrega de los pedidos.</li>
+      <li>Gestionar la relación comercial con clientes habituales y con negocios de hostelería.</li>
+      <li>Emitir la documentación comercial o fiscal que corresponda cuando exista una relación profesional.</li>
+      <li>Atender solicitudes relacionadas con esta política de privacidad.</li>
+      <li>Garantizar la seguridad y el correcto funcionamiento técnico del sitio web.</li>
+    </ul>
+    <p class={p}>
+      Este sitio web no realiza envío de comunicaciones comerciales por correo electrónico, no dispone de newsletter
+      ni de listas promocionales, y no elabora perfiles comerciales ni toma decisiones automatizadas sobre las
+      personas usuarias.
+    </p>
+  </div>
+
+  <div>
+    <h2 class={h2}>4. Base jurídica</h2>
+    <p class={p}>El tratamiento de los datos se basa, según el caso, en:</p>
+    <ul class={ul}>
+      <li>La aplicación de medidas precontractuales solicitadas por la persona interesada, por ejemplo al consultar disponibilidad antes de un encargo.</li>
+      <li>La ejecución de la relación contractual derivada de un pedido o encargo aceptado.</li>
+      <li>El cumplimiento de obligaciones legales, fiscales y contables aplicables a la actividad.</li>
+      <li>El interés legítimo del responsable en garantizar la seguridad técnica del sitio web y prevenir usos abusivos, cuando proceda.</li>
+      <li>El consentimiento de la persona interesada, únicamente en los supuestos concretos en que resulte necesario, por ejemplo al escribir voluntariamente por correo electrónico o WhatsApp.</li>
+    </ul>
+  </div>
+
+  <div>
+    <h2 class={h2}>5. Plazo de conservación</h2>
+    <ul class={ul}>
+      <li>Las consultas puntuales se conservan durante el tiempo necesario para atenderlas y, después, se eliminan.</li>
+      <li>Los datos vinculados a un encargo o pedido se conservan mientras dura la relación comercial y, posteriormente, pueden mantenerse bloqueados durante los plazos necesarios para atender eventuales responsabilidades.</li>
+      <li>La documentación fiscal y contable se conserva durante los plazos legalmente exigidos por la normativa tributaria y mercantil.</li>
+      <li>Las conversaciones mantenidas por WhatsApp no se conservan ni se utilizan de forma indefinida con fines promocionales.</li>
+    </ul>
+    <p class={p}>En todo caso, los datos se suprimen cuando dejan de ser necesarios para la finalidad que motivó su tratamiento y no exista obligación legal de conservarlos.</p>
+  </div>
+
+  <div>
+    <h2 class={h2}>6. Destinatarios</h2>
+    <p class={p}>No se venden datos personales a terceros. Podrán tener acceso a los datos, en la medida necesaria para prestar sus servicios:</p>
+    <ul class={ul}>
+      <li>Proveedores tecnológicos que dan soporte al funcionamiento del sitio web.</li>
+      <li>El proveedor de infraestructura, publicación y seguridad web, Cloudflare, en los términos descritos en la <a class={a} href="/cookies/">Política de cookies</a>.</li>
+      <li>El proveedor de mensajería WhatsApp, únicamente cuando la persona usuaria decide voluntariamente contactar a través de esa plataforma.</li>
+      <li>Administraciones públicas y autoridades, cuando exista una obligación legal.</li>
+      <li>Entidades bancarias, asesoría o profesionales colaboradores, cuando sea necesario para la gestión administrativa, fiscal o contable de la relación comercial.</li>
+    </ul>
+  </div>
+
+  <div>
+    <h2 class={h2}>7. Transferencias internacionales</h2>
+    <p class={p}>
+      Algunos proveedores tecnológicos de carácter global, como Cloudflare o WhatsApp, pueden tratar información
+      desde infraestructuras situadas fuera del Espacio Económico Europeo. En esos casos, dichos proveedores deben
+      aplicar los mecanismos y garantías exigidos por la normativa europea de protección de datos para este tipo de
+      transferencias.
+    </p>
+  </div>
+
+  <div>
+    <h2 class={h2}>8. Redes sociales y plataformas externas</h2>
+    <p class={p}>
+      Este sitio web incluye enlaces a los perfiles de {negocio.nombre} en Facebook e Instagram, alojados en
+      plataformas externas ajenas a este dominio. Cuando una persona interactúa directamente con esos perfiles
+      (por ejemplo, siguiéndolos, comentando o enviando un mensaje), esa interacción se produce dentro de la red
+      social y quedan sujetas a las condiciones y políticas de privacidad de esa plataforma, y no a esta política.
+    </p>
+    <p class={p}>
+      Del mismo modo, WhatsApp es un canal de mensajería externo: cuando la persona usuaria decide escribir por
+      WhatsApp, el tratamiento de esa conversación por parte de WhatsApp queda sujeto a la política de privacidad de
+      dicha aplicación.
+    </p>
+  </div>
+
+  <div>
+    <h2 class={h2}>9. Derechos de las personas usuarias</h2>
+    <p class={p}>Cualquier persona tiene derecho a:</p>
+    <ul class={ul}>
+      <li>Acceder a sus datos personales.</li>
+      <li>Rectificar los datos inexactos.</li>
+      <li>Solicitar la supresión de sus datos.</li>
+      <li>Oponerse al tratamiento.</li>
+      <li>Solicitar la limitación del tratamiento.</li>
+      <li>Solicitar la portabilidad de los datos, cuando proceda.</li>
+      <li>Retirar el consentimiento en cualquier momento, cuando el tratamiento se base en él, sin que ello afecte a la licitud del tratamiento previo.</li>
+      <li>No ser objeto de decisiones automatizadas, si bien este sitio web no realiza actualmente ningún tipo de decisión automatizada.</li>
+    </ul>
+    <p class={p}>
+      Estos derechos pueden ejercerse escribiendo a{' '}
+      <a class={a} href={`mailto:${negocio.contacto.email}`}>{negocio.contacto.email}</a>. Para gestionar la
+      solicitud, podrá pedirse información adicional razonable, solo cuando sea necesaria para confirmar la identidad
+      de la persona solicitante.
+    </p>
+    <p class={p}>
+      Asimismo, existe derecho a presentar una reclamación ante la Agencia Española de Protección de Datos (AEPD) si
+      se considera que el tratamiento no se ajusta a la normativa vigente.
+    </p>
+  </div>
+
+  <div>
+    <h2 class={h2}>10. Menores de edad</h2>
+    <p class={p}>
+      Este sitio web no está dirigido específicamente a menores de edad ni solicita deliberadamente datos de
+      menores. No se ofrecen servicios ni contenidos infantiles a través de este sitio.
+    </p>
+  </div>
+
+  <div>
+    <h2 class={h2}>11. Seguridad</h2>
+    <p class={p}>
+      {negocio.nombre} aplica medidas técnicas y organizativas razonables, adecuadas al tamaño y a la naturaleza de
+      la actividad, para proteger los datos personales frente a accesos no autorizados, pérdida o alteración. Ninguna
+      medida de seguridad es absoluta, por lo que no puede garantizarse la inexpugnabilidad total de los sistemas.
+    </p>
+  </div>
+
+  <div>
+    <h2 class={h2}>12. Cambios en esta política</h2>
+    <p class={p}>
+      Esta política de privacidad podrá actualizarse cuando cambien los servicios ofrecidos, los tratamientos
+      realizados, los proveedores utilizados o la normativa aplicable. Se recomienda consultarla periódicamente.
+    </p>
+  </div>
+</LegalLayout>

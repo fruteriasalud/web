@@ -1,33 +1,100 @@
 ---
-import Section from '../components/Section.astro';
 import { negocio } from '../data/negocio';
-import Layout from '../layouts/Layout.astro';
+import LegalLayout from '../layouts/LegalLayout.astro';
+
+const h2 = 'm-0 text-lg font-black text-ink';
+const p = 'm-0 mt-2';
+const a = 'font-semibold text-berry hover:underline';
 ---
 
-<Layout title="Política de cookies" description="Política de cookies provisional de Frutas y Verduras Salud, pendiente de revisión antes de publicar si se incorporan cookies." canonical="/cookies/" noindex>
-  <Section eyebrow="Información legal" title="Política de cookies" headingLevel="h1">
-    <div class="mb-8 rounded-[var(--radius-card)] border border-lilac-deep/40 bg-lilac/40 p-5 text-sm font-semibold text-ink">
-      Contenido provisional. Esta política debe revisarse y completarse antes de la publicación final del sitio,
-      especialmente si se incorporan cookies de analítica o publicidad en el futuro.
-    </div>
+<LegalLayout
+  title="Política de cookies"
+  description="Política de cookies de Frutas y Verduras Salud: tecnologías utilizadas, ausencia de cookies analíticas o publicitarias y gestión desde el navegador."
+  canonical="/cookies/"
+  actualizado="23 de julio de 2026"
+>
+  <div>
+    <h2 class={h2}>1. ¿Qué son las cookies?</h2>
+    <p class={p}>
+      Las cookies son pequeños archivos de texto que un sitio web puede guardar en el navegador de la persona que lo
+      visita, por ejemplo para recordar una preferencia o para reconocer su dispositivo en visitas posteriores.
+    </p>
+  </div>
 
-    <div class="max-w-3xl space-y-5 text-sm leading-relaxed text-muted">
-      <h2 class="m-0 text-lg font-black text-ink">¿Qué son las cookies?</h2>
-      <p class="m-0 mt-2">
-        Las cookies son pequeños archivos que un sitio web puede guardar en tu navegador para recordar información
-        sobre tu visita.
-      </p>
+  <div>
+    <h2 class={h2}>2. Tecnologías utilizadas en este sitio web</h2>
+    <p class={p}>
+      Se ha revisado el código y el funcionamiento técnico de este sitio web y, a fecha de esta actualización,{' '}
+      <strong class="text-ink">no instala cookies propias ni de terceros, ni utiliza almacenamiento local o de sesión
+      del navegador, ni carga píxeles, scripts de analítica o de publicidad, ni contenidos incrustados de redes
+      sociales.</strong> La navegación por este sitio web es puramente informativa y no requiere ninguna cookie para
+      funcionar.
+    </p>
+  </div>
 
-      <h2 class="m-0 text-lg font-black text-ink">Cookies utilizadas en este sitio</h2>
-      <p class="m-0 mt-2">
-        Esta versión de la web de {negocio.nombre} no instala cookies de analítica ni de publicidad. Si en el futuro
-        se incorporan, se solicitará el consentimiento correspondiente y se detallarán aquí su finalidad y duración.
-      </p>
+  <div>
+    <h2 class={h2}>3. Cookies necesarias o técnicas</h2>
+    <p class={p}>
+      Actualmente no se ha detectado ninguna cookie propia de carácter técnico o de seguridad en este sitio web. Si
+      en el futuro se incorporase alguna cookie estrictamente necesaria para el funcionamiento o la seguridad del
+      sitio, se documentaría en este apartado indicando su proveedor, finalidad, duración y carácter propio o de
+      terceros, sin que ello requiera consentimiento previo por tratarse de cookies exentas conforme al artículo 22.2
+      de la LSSI-CE.
+    </p>
+  </div>
 
-      <h2 class="m-0 text-lg font-black text-ink">Más información</h2>
-      <p class="m-0 mt-2">
-        Para cualquier duda sobre esta política puedes llamarnos al {negocio.contacto.telefono}.
-      </p>
-    </div>
-  </Section>
-</Layout>
+  <div>
+    <h2 class={h2}>4. Cookies analíticas o publicitarias</h2>
+    <p class={p}>
+      Este sitio web no utiliza herramientas de analítica web, medición de audiencia, publicidad ni personalización
+      basadas en cookies (por ejemplo, Google Analytics, píxeles de Meta o similares). Al no existir cookies de este
+      tipo, no es necesario mostrar un panel de configuración ni un banner de consentimiento de cookies. Si en algún
+      momento se incorporase alguna de estas tecnologías, esta política se actualizaría e implementaría previamente
+      el sistema de consentimiento correspondiente.
+    </p>
+  </div>
+
+  <div>
+    <h2 class={h2}>5. Cloudflare</h2>
+    <p class={p}>
+      Este sitio web se publica y distribuye a través de la infraestructura de Cloudflare, que actúa como proveedor
+      de alojamiento, red de distribución de contenidos (CDN), resolución DNS y protección frente a tráfico
+      malicioso. Esta infraestructura permite que las páginas se sirvan de forma rápida y segura, pero, conforme a la
+      revisión técnica realizada, <strong class="text-ink">no se ha detectado que Cloudflare Web Analytics ni ninguna
+      otra herramienta de analítica de Cloudflare esté activa en este sitio</strong>, ni se ha identificado ninguna
+      cookie de seguridad de Cloudflare instalada en el uso habitual del sitio. Si Cloudflare llegara a emitir de
+      forma automática una cookie estrictamente necesaria en un escenario concreto de seguridad (por ejemplo, ante un
+      intento de acceso abusivo), esa cookie quedaría igualmente exenta de consentimiento por su carácter técnico.
+    </p>
+  </div>
+
+  <div>
+    <h2 class={h2}>6. Enlaces externos</h2>
+    <p class={p}>
+      Este sitio web incluye enlaces hacia Facebook, Instagram, Google Maps y WhatsApp. Se trata de{' '}
+      <strong class="text-ink">enlaces</strong>, no de contenidos incrustados: al pulsarlos, la persona usuaria
+      abandona {negocio.nombre} y accede a otra plataforma. El simple hecho de que exista un enlace en esta web no
+      implica que Facebook, Instagram, Google Maps o WhatsApp instalen cookies en fruteriasalud.es; solo lo harían,
+      en su caso, en su propio sitio o aplicación una vez la persona usuaria acceda a él, conforme a sus propias
+      políticas de cookies.
+    </p>
+  </div>
+
+  <div>
+    <h2 class={h2}>7. Gestión de cookies desde el navegador</h2>
+    <p class={p}>
+      Aunque este sitio web no instala cookies propias, cualquier persona puede consultar, bloquear o eliminar en
+      cualquier momento las cookies almacenadas por otros sitios que haya visitado desde la configuración de
+      privacidad de su navegador.
+    </p>
+  </div>
+
+  <div>
+    <h2 class={h2}>8. Cambios y contacto</h2>
+    <p class={p}>
+      Esta política se revisará y actualizará si cambia el funcionamiento técnico del sitio web o se incorpora
+      alguna tecnología que la haga necesaria. Para cualquier duda sobre esta política puedes escribir a{' '}
+      <a class={a} href={`mailto:${negocio.contacto.email}`}>{negocio.contacto.email}</a>.
+    </p>
+  </div>
+</LegalLayout>

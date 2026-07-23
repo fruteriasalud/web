@@ -1,6 +1,21 @@
 export const negocio = {
   nombre: 'Frutas y Verduras Salud',
-  nombreLegal: 'Frutas y Verduras Salud',
+  nombreLegal: 'FRUTAS Y VERDURAS SALUD, S.L.',
+  nif: 'B90483520',
+  formaJuridica: 'Sociedad de responsabilidad limitada',
+  registroMercantil: {
+    texto: 'Registro Mercantil de Sevilla, Tomo 6911, Folio 21, Sección 8, Hoja SE-126831, Inscripción 1.ª.',
+    provincia: 'Sevilla',
+    tomo: '6911',
+    folio: '21',
+    seccion: '8',
+    hoja: 'SE-126831',
+    inscripcion: '1.ª',
+  },
+  cnae: {
+    codigo: '47.21',
+    descripcion: 'Comercio al por menor de frutas y hortalizas en establecimientos especializados',
+  },
   claim: 'Fruta y verdura fresca en Sevilla',
   descripcion:
     'Frutería local familiar en el Mercado de Abastos Tiro de Línea, con fruta, verdura y producto fresco de temporada.',
@@ -39,7 +54,7 @@ export const negocio = {
       telefonos: [{ texto: '687 771 465', tel: '+34687771465' }],
     },
     whatsapp: null,
-    email: null,
+    email: 'fruteriasaludsl@gmail.com',
   },
   horario: {
     texto: 'Horario habitual de mercado. Te recomendamos llamar antes de tu visita para confirmarlo.',
@@ -59,8 +74,6 @@ export const negocio = {
   // Uso interno del equipo, no debe renderizarse en páginas públicas.
   pendienteConfirmar: [
     'Dominio final de producción',
-    'WhatsApp',
-    'Email',
     'Horario exacto por día',
     'Servicios de encargos y condiciones',
     'Reparto a domicilio',
