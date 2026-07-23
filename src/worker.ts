@@ -1,12 +1,10 @@
 interface Env {
+  ASSETS: {
+    fetch(request: Request): Promise<Response>;
+  };
   RESEND_API_KEY?: string;
   TRABAJA_DESTINO_EMAIL?: string;
   RESEND_FROM_EMAIL?: string;
-}
-
-interface FunctionContext {
-  request: Request;
-  env: Env;
 }
 
 const MAX_CV_SIZE = 5 * 1024 * 1024;
@@ -69,7 +67,7 @@ const arrayBufferToBase64 = (buffer: ArrayBuffer) => {
   return btoa(binary);
 };
 
-export const onRequest = async ({ request, env }: FunctionContext): Promise<Response> => {
+const handleCandidatura = async (request: Request, env: Env): Promise<Response> => {
   if (request.method !== 'POST') {
     return json({ ok: false, error: 'Método no permitido.' }, 405);
   }
@@ -81,7 +79,6 @@ export const onRequest = async ({ request, env }: FunctionContext): Promise<Resp
     return json({ ok: false, error: 'No se ha podido leer el formulario.' }, 400);
   }
 
-  // Honeypot: respondemos correctamente para no dar pistas a envíos automatizados.
   if (getText(formData, 'website', 200)) {
     return json({ ok: true });
   }
@@ -189,4 +186,16 @@ export const onRequest = async ({ request, env }: FunctionContext): Promise<Resp
   }
 
   return json({ ok: true });
+};
+
+export default {
+  async fetch(request: Request, env: Env): Promise<Response> {
+    const url = new URL(request.url);
+
+    if (url.pathname === '/api/trabaja-con-nosotros') {
+      return handleCandidatura(request, env);
+    }
+
+    return env.ASSETS.fetch(request);
+  },
 };
