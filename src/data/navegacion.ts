@@ -5,5 +5,5 @@ export const navegacionPrincipal = [
   { label: 'Empresa', href: '/empresa/', desktop: true },
   { label: 'Encargos', href: '/encargos/', desktop: true },
   { label: 'Contacto', href: '/contacto/', desktop: true },
-  { label: 'Trabaja con nosotros', href: '/trabaja-con-nosotros/', desktop: false },
+  { label: 'Trabaja con nosotros', href: '/trabaja-con-nosotros/', desktop: true },
 ] as const;

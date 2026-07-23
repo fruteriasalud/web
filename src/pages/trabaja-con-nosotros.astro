@@ -22,7 +22,7 @@ const emailSubject = encodeURIComponent('Candidatura para trabajar en Frutería 
     headingLevel="h1"
   >
     <div class="grid gap-8 lg:grid-cols-[0.75fr_1.25fr] lg:items-start">
-      <div class="space-y-5 text-base leading-relaxed text-muted">
+      <div class="space-y-6 text-base leading-relaxed text-muted">
         <p class="m-0">
           Somos una frutería familiar situada en el Mercado de Abastos Tiro de Línea, en Sevilla. Cada día trabajamos
           con producto fresco, trato cercano y atención directa a nuestros clientes.
@@ -32,26 +32,22 @@ const emailSubject = encodeURIComponent('Candidatura para trabajar en Frutería 
           de trabajar y aprender, puedes enviarnos tu candidatura desde esta página.
         </p>
         <p class="m-0">
-          Rellena el formulario y adjunta tu currículum. Revisaremos tu información y contactaremos contigo si surge
-          una oportunidad que encaje con tu perfil.
+          Rellena el formulario y adjunta tu currículum.
         </p>
-        <p class="m-0">
-          También puedes contactar directamente con nosotros por teléfono o email si prefieres hablar con la
-          frutería.
-        </p>
-
-        <aside class="rounded-[var(--radius-card)] border border-leaf/20 bg-leaf-soft p-5 text-sm text-leaf-dark">
-          <p class="m-0 font-black">¿Cómo funciona el envío?</p>
-          <p class="m-0 mt-2 leading-relaxed">
-            Al enviar el formulario se abrirá un borrador en tu aplicación de correo con tus datos. Por seguridad, el
-            archivo no se sube a esta web: tendrás que adjuntar allí el currículum seleccionado antes de enviar el
-            mensaje.
-          </p>
-        </aside>
       </div>
 
       <div class="rounded-[var(--radius-panel)] border border-line bg-paper p-5 shadow-[var(--shadow-card)] sm:p-8">
-        <form id="candidatura-form" class="grid gap-5" novalidate>
+        <form
+          id="candidatura-form"
+          class="grid gap-5"
+          action="/api/trabaja-con-nosotros"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          <div class="absolute -left-[9999px] h-px w-px overflow-hidden" aria-hidden="true">
+            <label for="website">No rellenes este campo</label>
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+          </div>
           <div>
             <label class={labelClass} for="nombre">Nombre y apellidos</label>
             <input class={inputClass} id="nombre" name="nombre" type="text" autocomplete="name" required />
@@ -102,7 +98,7 @@ const emailSubject = encodeURIComponent('Candidatura para trabajar en Frutería 
               required
             />
             <p class="m-0 mt-2 text-xs leading-relaxed text-muted">
-              Formatos admitidos: PDF, DOC y DOCX. Tendrás que adjuntarlo de nuevo en el correo que se abrirá.
+              Formatos admitidos: PDF, DOC y DOCX. Tamaño máximo: 5 MB.
             </p>
           </div>
 
@@ -126,10 +122,10 @@ const emailSubject = encodeURIComponent('Candidatura para trabajar en Frutería 
               class="btn-primary inline-flex min-h-12 w-full cursor-pointer items-center justify-center px-5 py-3 text-base font-bold transition-colors sm:w-auto"
               type="submit"
             >
-              Preparar email de candidatura
+              Enviar candidatura
             </button>
-            <p id="form-help" class="m-0 mt-3 text-sm leading-relaxed text-muted" aria-live="polite">
-              No enviaremos ni guardaremos información desde esta página.
+            <p id="form-status" class="m-0 mt-3 text-sm leading-relaxed text-muted" role="status" aria-live="polite">
+              Los campos marcados son obligatorios.
             </p>
           </div>
         </form>
@@ -171,38 +167,82 @@ const emailSubject = encodeURIComponent('Candidatura para trabajar en Frutería 
   </Section>
 </Layout>
 
-<script define:vars={{ email: negocio.contacto.email }}>
+<script>
   const form = document.querySelector('#candidatura-form');
-  const help = document.querySelector('#form-help');
+  const status = document.querySelector('#form-status');
+  const submitButton = form?.querySelector('button[type="submit"]');
+  const curriculumInput = form?.querySelector('#curriculum');
+  const maxCvSize = 5 * 1024 * 1024;
 
-  form?.addEventListener('submit', (event) => {
+  form?.addEventListener('submit', async (event) => {
     event.preventDefault();
 
     if (!(form instanceof HTMLFormElement) || !form.reportValidity()) return;
 
-    const data = new FormData(form);
-    const curriculum = data.get('curriculum');
-    const fileName = curriculum instanceof File ? curriculum.name : '';
-    const subject = 'Candidatura para trabajar en Frutería Salud';
-    const body = [
-      `Nombre y apellidos: ${data.get('nombre') ?? ''}`,
-      `Teléfono: ${data.get('telefono') ?? ''}`,
-      `Email: ${data.get('email') ?? ''}`,
-      `Puesto que me interesa: ${data.get('puesto') ?? ''}`,
-      '',
-      'Experiencia:',
-      String(data.get('experiencia') ?? ''),
-      '',
-      `Currículum seleccionado: ${fileName}`,
-      'IMPORTANTE: adjuntaré manualmente el currículum a este correo antes de enviarlo.',
-      '',
-      'He leído y acepto la política de privacidad para el tratamiento de mi candidatura.',
-    ].join('\n');
+    const curriculum =
+      curriculumInput instanceof HTMLInputElement && curriculumInput.files ? curriculumInput.files[0] : undefined;
 
-    if (help) {
-      help.textContent = 'Abriendo tu aplicación de correo. Recuerda adjuntar allí el currículum antes de enviarlo.';
+    if (!curriculum) {
+      if (status) status.textContent = 'Adjunta tu currículum.';
+      return;
     }
 
-    window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    if (curriculum.size > maxCvSize) {
+      if (status) {
+        status.className = 'm-0 mt-3 text-sm font-semibold leading-relaxed text-berry';
+        status.textContent = 'El currículum no puede superar los 5 MB.';
+      }
+      curriculumInput.setCustomValidity('El currículum no puede superar los 5 MB.');
+      curriculumInput.reportValidity();
+      return;
+    }
+
+    curriculumInput.setCustomValidity('');
+    form.setAttribute('aria-busy', 'true');
+    if (submitButton instanceof HTMLButtonElement) {
+      submitButton.disabled = true;
+      submitButton.textContent = 'Enviando...';
+      submitButton.classList.add('cursor-wait', 'opacity-70');
+    }
+    if (status) {
+      status.className = 'm-0 mt-3 text-sm leading-relaxed text-muted';
+      status.textContent = 'Enviando tu candidatura...';
+    }
+
+    try {
+      const response = await fetch('/api/trabaja-con-nosotros', {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' },
+      });
+      const result = await response.json().catch(() => null);
+
+      if (!response.ok || !result?.ok) {
+        throw new Error(result?.error || 'No se ha podido enviar la candidatura.');
+      }
+
+      form.reset();
+      if (status) {
+        status.className = 'm-0 mt-3 text-sm font-semibold leading-relaxed text-leaf';
+        status.textContent = 'Candidatura enviada correctamente. Gracias por contactar con Frutería Salud.';
+      }
+    } catch {
+      if (status) {
+        status.className = 'm-0 mt-3 text-sm font-semibold leading-relaxed text-berry';
+        status.textContent =
+          'No hemos podido enviar tu candidatura. Inténtalo de nuevo o contacta por teléfono o email.';
+      }
+    } finally {
+      form.removeAttribute('aria-busy');
+      if (submitButton instanceof HTMLButtonElement) {
+        submitButton.disabled = false;
+        submitButton.textContent = 'Enviar candidatura';
+        submitButton.classList.remove('cursor-wait', 'opacity-70');
+      }
+    }
+  });
+
+  curriculumInput?.addEventListener('change', () => {
+    if (curriculumInput instanceof HTMLInputElement) curriculumInput.setCustomValidity('');
   });
 </script>
