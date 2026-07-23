@@ -67,7 +67,7 @@ export const galeria = [
     titulo: 'Logística y transporte',
     caption: 'Apoyo visual para explicar recogidas y entregas a consultar por teléfono.',
     categoria: 'logistica',
-    aspect: 'aspect-[4/3]',
+    aspect: 'aspect-[16/9]',
     objectPosition: 'center',
   },
   {

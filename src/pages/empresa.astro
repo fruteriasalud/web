@@ -119,13 +119,10 @@ const badges = ['🏪 5 puestos en el mercado', '👨‍👩‍👧 Negocio fami
 
   <Section tone="green" eyebrow={empresa.logistica.eyebrow} title={empresa.logistica.titulo}>
     <p class="m-0 max-w-3xl text-base leading-relaxed text-ink/80">{empresa.logistica.texto}</p>
-    <p class="m-0 mt-3 inline-block rounded-xl border border-leaf-dark/20 bg-white/70 px-4 py-3 text-sm font-semibold text-leaf-dark">
-      {empresa.logistica.nota}
-    </p>
 
     <div class="mt-8 grid gap-5 sm:grid-cols-2">
-      <GalleryCard src={imagenReparto1.src} alt={imagenReparto1.alt} titulo={imagenReparto1.titulo} caption={imagenReparto1.caption} headingLevel="h3" aspect={imagenReparto1.aspect} objectPosition={imagenReparto1.objectPosition} sizes="(min-width: 1200px) 566px, (min-width: 640px) calc(50vw - 30px), 100vw" />
-      <GalleryCard src={imagenReparto2.src} alt={imagenReparto2.alt} titulo={imagenReparto2.titulo} caption={imagenReparto2.caption} headingLevel="h3" aspect={imagenReparto2.aspect} objectPosition={imagenReparto2.objectPosition} sizes="(min-width: 1200px) 566px, (min-width: 640px) calc(50vw - 30px), 100vw" />
+      <GalleryCard src={imagenReparto1.src} alt={imagenReparto1.alt} titulo={imagenReparto1.titulo} headingLevel="h3" aspect={imagenReparto1.aspect} objectPosition={imagenReparto1.objectPosition} sizes="(min-width: 1200px) 566px, (min-width: 640px) calc(50vw - 30px), 100vw" />
+      <GalleryCard src={imagenReparto2.src} alt={imagenReparto2.alt} titulo={imagenReparto2.titulo} headingLevel="h3" aspect={imagenReparto2.aspect} objectPosition={imagenReparto2.objectPosition} sizes="(min-width: 1200px) 566px, (min-width: 640px) calc(50vw - 30px), 100vw" />
     </div>
 
     <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">

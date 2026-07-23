@@ -62,7 +62,6 @@ export const empresa = {
     titulo: 'Reparto y transporte',
     texto:
       'La recogida de encargos se realiza en el puesto del mercado. Para necesidades de entrega, consúltanos por teléfono la disponibilidad y la forma de hacerlo llegar: lo valoramos caso por caso según el pedido y la zona.',
-    nota: 'El servicio de entrega está en desarrollo. De momento, la vía más segura para confirmar cualquier detalle es llamarnos.',
   },
   ctaFinal: {
     eyebrow: 'Hablemos de tu pedido',
