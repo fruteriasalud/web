@@ -62,7 +62,18 @@ const imagenEquipo = galeria.find((item) => item.id === 'equipo-negocio')!;
       <div class="relative mx-auto w-full max-w-[220px] sm:max-w-sm">
         <div class="blob-shape relative flex aspect-square items-center justify-center bg-white p-6 shadow-[var(--shadow-hero)] ring-1 ring-line sm:p-10">
           <img class="h-24 w-24 sm:h-40 sm:w-40 lg:h-48 lg:w-48" src={negocio.logo} alt={negocio.nombre} width="360" height="360" />
+
+          <span
+            class="absolute -top-2 -right-1 flex h-14 w-14 flex-col items-center justify-center rounded-full bg-berry text-white shadow-[var(--shadow-button)] ring-4 ring-white sm:-top-3 sm:-right-2 sm:h-20 sm:w-20"
+            role="img"
+            aria-label="Más de 50 años"
+          >
+            <span class="text-lg font-black leading-none sm:text-2xl" aria-hidden="true">+50</span>
+            <span class="mt-0.5 text-[8px] font-semibold uppercase leading-none tracking-wide sm:text-[10px]" aria-hidden="true">Años</span>
+          </span>
         </div>
+
+        <p class="mt-3 text-center text-xs font-bold uppercase tracking-[0.2em] text-leaf-dark sm:text-sm">A su servicio</p>
       </div>
     </div>
   </section>
@@ -84,8 +95,8 @@ const imagenEquipo = galeria.find((item) => item.id === 'equipo-negocio')!;
     description="Fruta y verdura seleccionadas cada jornada, con disponibilidad variable según mercado y temporada."
   >
     <div class="grid gap-5 sm:grid-cols-2">
-      <GalleryCard src={imagenFruta.src} alt={imagenFruta.alt} titulo={imagenFruta.titulo} caption={imagenFruta.caption} headingLevel="h3" />
-      <GalleryCard src={imagenVerdura.src} alt={imagenVerdura.alt} titulo={imagenVerdura.titulo} caption={imagenVerdura.caption} headingLevel="h3" />
+      <GalleryCard src={imagenFruta.src} alt={imagenFruta.alt} titulo={imagenFruta.titulo} caption={imagenFruta.caption} headingLevel="h3" aspect={imagenFruta.aspect} objectPosition={imagenFruta.objectPosition} />
+      <GalleryCard src={imagenVerdura.src} alt={imagenVerdura.alt} titulo={imagenVerdura.titulo} caption={imagenVerdura.caption} headingLevel="h3" aspect={imagenVerdura.aspect} objectPosition={imagenVerdura.objectPosition} />
     </div>
   </Section>
 
@@ -128,20 +139,20 @@ const imagenEquipo = galeria.find((item) => item.id === 'equipo-negocio')!;
       </div>
 
       <div class="relative mx-auto w-full max-w-xs">
-        <GalleryCard src={imagenPuesto.src} alt={imagenPuesto.alt} titulo={imagenPuesto.titulo} caption={imagenPuesto.caption} headingLevel="h3" />
+        <GalleryCard src={imagenPuesto.src} alt={imagenPuesto.alt} titulo={imagenPuesto.titulo} caption={imagenPuesto.caption} headingLevel="h3" aspect={imagenPuesto.aspect} objectPosition={imagenPuesto.objectPosition} />
       </div>
     </div>
   </Section>
 
   <Section
     eyebrow="Nuestro puesto"
-    title="Así es el día a día en Frutería Salud"
+    title="Así es el día a día en Frutas y Verduras Salud"
     description="Preparación, atención y trato cercano dentro del Mercado de Abastos Tiro de Línea."
   >
     <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-      <GalleryCard src={imagenPuesto.src} alt={imagenPuesto.alt} titulo={imagenPuesto.titulo} caption={imagenPuesto.caption} headingLevel="h3" />
-      <GalleryCard src={imagenPedidos.src} alt={imagenPedidos.alt} titulo={imagenPedidos.titulo} caption={imagenPedidos.caption} headingLevel="h3" />
-      <GalleryCard src={imagenEquipo.src} alt={imagenEquipo.alt} titulo={imagenEquipo.titulo} caption={imagenEquipo.caption} headingLevel="h3" />
+      <GalleryCard src={imagenPuesto.src} alt={imagenPuesto.alt} titulo={imagenPuesto.titulo} caption={imagenPuesto.caption} headingLevel="h3" aspect={imagenPuesto.aspect} objectPosition={imagenPuesto.objectPosition} />
+      <GalleryCard src={imagenPedidos.src} alt={imagenPedidos.alt} titulo={imagenPedidos.titulo} caption={imagenPedidos.caption} headingLevel="h3" aspect={imagenPedidos.aspect} objectPosition={imagenPedidos.objectPosition} />
+      <GalleryCard src={imagenEquipo.src} alt={imagenEquipo.alt} titulo={imagenEquipo.titulo} caption={imagenEquipo.caption} headingLevel="h3" aspect={imagenEquipo.aspect} objectPosition={imagenEquipo.objectPosition} />
     </div>
   </Section>
 
@@ -158,7 +169,7 @@ const imagenEquipo = galeria.find((item) => item.id === 'equipo-negocio')!;
     tone="lilac"
     eyebrow="Empresa y reparto"
     title="Hay una estructura real detrás del puesto"
-    description="Somos un negocio familiar organizado en tres puestos del mercado, con capacidad para atender pedidos de clientes habituales y de negocios. Conoce cómo trabajamos, cómo preparamos los encargos y qué sabemos hoy sobre reparto."
+    description="Somos un negocio familiar organizado en cinco puestos del mercado, con capacidad para atender pedidos de clientes habituales y de negocios. Conoce cómo trabajamos, cómo preparamos los encargos y qué sabemos hoy sobre reparto."
   >
     <div class="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
       <Button class="w-full sm:w-auto" href="/empresa/">Conoce la empresa</Button>
@@ -188,6 +199,16 @@ const imagenEquipo = galeria.find((item) => item.id === 'equipo-negocio')!;
       <Button class="w-full sm:w-auto" href="/empresa/" variant="ghost-light">Empresa y reparto</Button>
       <Button class="w-full sm:w-auto" href={negocio.facebook} variant="ghost-light" target="_blank" rel="noopener noreferrer">
         Síguenos en Facebook
+      </Button>
+      <Button
+        class="w-full sm:w-auto"
+        href={negocio.instagram}
+        variant="ghost-light"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`Instagram de ${negocio.nombre}`}
+      >
+        Síguenos en Instagram
       </Button>
     </CTABanner>
   </Section>

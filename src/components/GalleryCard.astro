@@ -1,27 +1,42 @@
 ---
+import { Image } from 'astro:assets';
+
 type Props = {
-  src: string;
+  src: ImageMetadata;
   alt: string;
   titulo: string;
   caption?: string;
-  provisional?: boolean;
   headingLevel?: 'h2' | 'h3' | 'p';
+  aspect?: string;
+  objectPosition?: string;
+  priority?: boolean;
 };
 
-const { src, alt, titulo, caption, provisional = false, headingLevel = 'p' } = Astro.props as Props;
+const {
+  src,
+  alt,
+  titulo,
+  caption,
+  headingLevel = 'p',
+  aspect = 'aspect-[4/3]',
+  objectPosition = 'center',
+  priority = false,
+} = Astro.props as Props;
 const HeadingTag = headingLevel;
 ---
 
 <figure class="group m-0 flex flex-col overflow-hidden rounded-[var(--radius-card)] border border-line bg-white shadow-[var(--shadow-card)] transition-colors duration-200 hover:border-berry/35 hover:shadow-[var(--shadow-card-hover)]">
-  <div class="relative aspect-[4/3] overflow-hidden bg-cream">
-    <img class="h-full w-full object-cover" src={src} alt={alt} width="800" height="600" loading="lazy" />
-    {
-      provisional && (
-        <span class="absolute top-3 right-3 rounded-[var(--radius-chip)] bg-white/95 px-3 py-1 text-[11px] font-bold text-muted shadow-[var(--shadow-button)]">
-          Imagen provisional
-        </span>
-      )
-    }
+  <div class:list={['relative overflow-hidden bg-cream', aspect]}>
+    <Image
+      class="h-full w-full object-cover"
+      style={`object-position: ${objectPosition}`}
+      src={src}
+      alt={alt}
+      widths={[400, 800, 1200]}
+      sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
+      loading={priority ? 'eager' : 'lazy'}
+      fetchpriority={priority ? 'high' : 'auto'}
+    />
   </div>
   <figcaption class="p-5">
     <HeadingTag class="m-0 text-sm font-black text-ink">{titulo}</HeadingTag>

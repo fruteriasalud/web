@@ -5,11 +5,11 @@ export const empresa = {
     eyebrow: 'Empresa y reparto',
     titulo: 'Detrás del puesto: quiénes somos y cómo trabajamos',
     descripcion:
-      'Frutería Salud es un negocio familiar del Mercado de Abastos Tiro de Línea. Te contamos cómo organizamos el puesto, cómo preparamos los encargos y cómo resolvemos la logística de los pedidos.',
+      'Frutas y Verduras Salud es un negocio familiar del Mercado de Abastos Tiro de Línea. Te contamos cómo organizamos el puesto, cómo preparamos los encargos y cómo resolvemos la logística de los pedidos.',
   },
   quienesSomos: {
     texto:
-      'Somos una frutería familiar con actividad en los puestos 47, 48 y 49 del Mercado de Abastos Tiro de Línea, en Sevilla. Cada jornada seleccionamos fruta y verdura fresca, atendemos encargos y resolvemos las necesidades concretas de quienes compran en el mercado, desde clientes habituales hasta negocios de la zona.',
+      'Somos una frutería familiar con actividad en los puestos 47, 48, 49, 50 y 51 del Mercado de Abastos Tiro de Línea, en Sevilla. Cada jornada seleccionamos fruta y verdura fresca, atendemos encargos y resolvemos las necesidades concretas de quienes compran en el mercado, desde clientes habituales hasta negocios de la zona.',
   },
   comoTrabajamos: [
     {
@@ -36,14 +36,14 @@ export const empresa = {
   estructura: [
     {
       icono: '🏪',
-      titulo: 'Puestos 47, 48 y 49',
+      titulo: 'Puestos 47, 48, 49, 50 y 51',
       texto:
-        'Nuestra actividad se reparte en tres puestos contiguos dentro del mercado, lo que nos permite tener más variedad de producto expuesto.',
+        'Nuestra actividad se reparte en cinco puestos contiguos dentro del mercado, lo que nos permite tener más variedad de producto expuesto.',
     },
     {
       icono: '👨‍👩‍👧',
       titulo: 'Negocio familiar',
-      texto: 'Frutería Salud es un negocio de gestión familiar, con la cercanía propia del comercio de mercado de siempre.',
+      texto: 'Frutas y Verduras Salud es un negocio de gestión familiar, con la cercanía propia del comercio de mercado de siempre.',
     },
     {
       icono: '📍',

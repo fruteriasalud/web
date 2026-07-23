@@ -1,62 +1,84 @@
-// Recursos visuales provisionales (ilustraciones SVG locales, sin fotos externas).
-// Pensados para sustituirse por fotografías reales del puesto, producto y reparto
-// en cuanto estén disponibles. El campo "src" apunta siempre a public/images/galeria.
+// Fotografías reales del negocio, optimizadas por Astro (astro:assets) desde
+// src/assets/images/fruteria. Los originales sin procesar viven en
+// material/fotos-originales (fuera del sistema de assets de producción).
+import equipoNegocio from '../assets/images/fruteria/equipo-frutas-verduras-salud.jpg';
+import flotaTransporte from '../assets/images/fruteria/flota-transporte.jpg';
+import frutaTemporada from '../assets/images/fruteria/fruta-temporada.jpg';
+import furgonetaEntregas from '../assets/images/fruteria/furgoneta-entregas.jpg';
+import preparacionEncargos from '../assets/images/fruteria/preparacion-encargos.jpg';
+import puestoMercado from '../assets/images/fruteria/puesto-frutas-verduras-salud.jpg';
+import verdurasFrescas from '../assets/images/fruteria/verdura-hortalizas.jpg';
+
 export const galeria = [
   {
     id: 'fruta-surtida',
-    src: '/images/galeria/fruta-surtida.svg',
-    alt: 'Ilustración de una caja con fruta variada: manzanas, naranjas, plátano y uvas',
+    src: frutaTemporada,
+    alt: 'Selección de fruta fresca de temporada expuesta en el puesto de Frutas y Verduras Salud',
     titulo: 'Fruta fresca de temporada',
     caption: 'Selección diaria de fruta en el puesto según mercado y temporada.',
     categoria: 'producto',
+    aspect: 'aspect-[16/9]',
+    objectPosition: 'center',
   },
   {
     id: 'verduras-frescas',
-    src: '/images/galeria/verduras-frescas.svg',
-    alt: 'Ilustración de una caja con verduras: lechuga, tomates, zanahorias y pimiento',
+    src: verdurasFrescas,
+    alt: 'Verduras y hortalizas frescas variadas dispuestas en el puesto del mercado',
     titulo: 'Verdura y hortaliza fresca',
     caption: 'Verdura fresca seleccionada cada día según la temporada y el mercado.',
     categoria: 'producto',
+    aspect: 'aspect-[16/9]',
+    objectPosition: 'center',
   },
   {
     id: 'puesto-mercado',
-    src: '/images/galeria/puesto-mercado.svg',
-    alt: 'Ilustración del puesto de mercado con toldo a rayas y estanterías de producto',
+    src: puestoMercado,
+    alt: 'Puesto de Frutas y Verduras Salud en el Mercado de Abastos Tiro de Línea, con el rótulo del negocio',
     titulo: 'Nuestro puesto en el mercado',
-    caption: 'Puestos 47, 48 y 49 del Mercado de Abastos Tiro de Línea.',
+    caption: 'Puestos 47, 48, 49, 50 y 51 del Mercado de Abastos Tiro de Línea.',
     categoria: 'puesto',
+    aspect: 'aspect-[16/9]',
+    objectPosition: 'center 30%',
   },
   {
     id: 'preparacion-pedidos',
-    src: '/images/galeria/preparacion-pedidos.svg',
-    alt: 'Ilustración de una caja de encargo preparándose junto a una lista de comprobación',
+    src: preparacionEncargos,
+    alt: 'Preparación de un encargo en Frutas y Verduras Salud, embolsando fruta fresca',
     titulo: 'Preparación de encargos',
     caption: 'Preparamos cada encargo con atención antes de la recogida o de una entrega a consultar.',
     categoria: 'puesto',
+    aspect: 'aspect-[3/4]',
+    objectPosition: 'center 20%',
   },
   {
     id: 'reparto-vehiculo-1',
-    src: '/images/galeria/reparto-vehiculo-1.svg',
-    alt: 'Ilustración de apoyo logístico para pedidos con una furgoneta vista de lado',
+    src: furgonetaEntregas,
+    alt: 'Furgoneta rotulada de Frutas y Verduras Salud, con los teléfonos de pedidos y el distintivo de más de 50 años',
     titulo: 'Entregas a consultar',
     caption: 'La entrega de pedidos se valora caso por caso y está sujeta a disponibilidad.',
     categoria: 'logistica',
+    aspect: 'aspect-[3/4]',
+    objectPosition: 'top',
   },
   {
     id: 'reparto-vehiculo-2',
-    src: '/images/galeria/reparto-vehiculo-2.svg',
-    alt: 'Ilustración de un triciclo de carga con caja de producto',
+    src: flotaTransporte,
+    alt: 'Flota de furgonetas utilizadas por Frutas y Verduras Salud para la logística y el transporte',
     titulo: 'Logística y transporte',
     caption: 'Apoyo visual para explicar recogidas y entregas a consultar por teléfono.',
     categoria: 'logistica',
+    aspect: 'aspect-[4/3]',
+    objectPosition: 'center',
   },
   {
     id: 'equipo-negocio',
-    src: '/images/galeria/equipo-negocio.svg',
-    alt: 'Ilustración del equipo de Frutería Salud tras el mostrador del puesto',
-    titulo: 'Equipo de Frutería Salud',
+    src: equipoNegocio,
+    alt: 'Equipo de trabajo de Frutas y Verduras Salud posando junto a las furgonetas del negocio',
+    titulo: 'Equipo de Frutas y Verduras Salud',
     caption: 'Detrás del puesto, un equipo familiar dedicado al mercado cada día.',
     categoria: 'equipo',
+    aspect: 'aspect-[16/9]',
+    objectPosition: 'top',
   },
 ] as const;
 

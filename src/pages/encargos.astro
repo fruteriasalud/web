@@ -15,7 +15,7 @@ const pasos = [
     numero: '2',
     icono: '📞',
     titulo: 'Llama o visita el puesto',
-    texto: 'Cuéntanos tu encargo por teléfono o directamente en los puestos 47, 48 y 49.',
+    texto: 'Cuéntanos tu encargo por teléfono o directamente en los puestos 47, 48, 49, 50 y 51.',
   },
   {
     numero: '3',
@@ -34,7 +34,7 @@ const pasos = [
 
 <Layout
   title="Encargos"
-  description="Cómo hacer un encargo en Frutería Salud: consulta por teléfono o en el puesto, confirmamos disponibilidad y recoges en el mercado."
+  description="Cómo hacer un encargo en Frutas y Verduras Salud: consulta por teléfono o en el puesto, confirmamos disponibilidad y recoges en el mercado."
   canonical="/encargos/"
 >
   <Section
@@ -67,6 +67,16 @@ const pasos = [
       <Button class="w-full sm:w-auto" href="/contacto/" variant="secondary">Cómo llegar</Button>
       <Button class="w-full sm:w-auto" href={negocio.facebook} variant="secondary" target="_blank" rel="noopener noreferrer">
         Escríbenos por Facebook
+      </Button>
+      <Button
+        class="w-full sm:w-auto"
+        href={negocio.instagram}
+        variant="secondary"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`Instagram de ${negocio.nombre}`}
+      >
+        Síguenos en Instagram
       </Button>
     </div>
   </Section>

@@ -44,7 +44,7 @@ export function createLocalBusinessJsonLd() {
     url: siteUrl,
     image: absoluteUrl(negocio.imagenSocial),
     logo: absoluteUrl(negocio.logo),
-    sameAs: [negocio.facebook],
+    sameAs: [negocio.facebook, negocio.instagram],
     address: {
       '@type': 'PostalAddress',
       streetAddress: `${negocio.direccion.mercado}, puestos ${negocio.direccion.puestos}, ${negocio.direccion.calle}`,

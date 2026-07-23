@@ -8,11 +8,28 @@ import { negocio } from '../data/negocio';
 
   <dl class="m-0 grid gap-4 text-sm">
     <div>
-      <dt class="font-bold text-ink">Teléfono</dt>
+      <dt class="font-bold text-ink">{contacto.domicilio.titulo}</dt>
+      <dd class="m-0 mt-1 flex flex-wrap gap-x-4 gap-y-1">
+        {
+          contacto.domicilio.telefonos.map((telefono) => (
+            <a class="text-base font-bold text-berry hover:underline" href={`tel:${telefono.tel}`}>
+              {telefono.texto}
+            </a>
+          ))
+        }
+      </dd>
+    </div>
+
+    <div>
+      <dt class="font-bold text-ink">{contacto.hosteleria.titulo}</dt>
       <dd class="m-0 mt-1">
-        <a class="text-base font-bold text-berry hover:underline" href={`tel:${contacto.telefonoTel}`}>
-          {contacto.telefono}
-        </a>
+        {
+          contacto.hosteleria.telefonos.map((telefono) => (
+            <a class="text-base font-bold text-berry hover:underline" href={`tel:${telefono.tel}`}>
+              {telefono.texto}
+            </a>
+          ))
+        }
       </dd>
     </div>
 
@@ -26,12 +43,27 @@ import { negocio } from '../data/negocio';
     </div>
 
     <div>
+      <dt class="font-bold text-ink">Instagram</dt>
+      <dd class="m-0 mt-1">
+        <a
+          class="font-semibold text-berry hover:underline"
+          href={contacto.instagram}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Instagram de ${negocio.nombre}`}
+        >
+          {negocio.nombre} en Instagram
+        </a>
+      </dd>
+    </div>
+
+    <div>
       <dt class="font-bold text-ink">Horario</dt>
       <dd class="m-0 mt-1 text-muted">{contacto.horarioTexto}</dd>
     </div>
   </dl>
 
   <p class="mt-5 mb-0 text-xs leading-relaxed text-muted">
-    ¿Prefieres escribir? Puedes contactarnos por Facebook o visitarnos directamente en el mercado.
+    ¿Prefieres escribir? Puedes contactarnos por Facebook o Instagram, o visitarnos directamente en el mercado.
   </p>
 </div>

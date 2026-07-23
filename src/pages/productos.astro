@@ -12,7 +12,7 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout
   title="Productos"
-  description="Frutas, verduras y producto fresco de temporada en Frutería Salud, Mercado de Abastos Tiro de Línea de Sevilla."
+  description="Frutas, verduras y producto fresco de temporada en Frutas y Verduras Salud, Mercado de Abastos Tiro de Línea de Sevilla."
   canonical="/productos/"
 >
   <Section
@@ -34,6 +34,37 @@ import Layout from '../layouts/Layout.astro';
   >
     <div class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       {catalogo.map((producto) => <CatalogCard {...producto} />)}
+    </div>
+  </Section>
+
+  <Section tone="paper" eyebrow="Más producto" title="¿Buscas algo más?" description="Además de fruta y verdura, también podemos ayudarte con esto.">
+    <div class="grid gap-5 sm:grid-cols-2">
+      <article class="flex flex-col rounded-[var(--radius-card)] border border-line bg-white p-6 shadow-[var(--shadow-card)]">
+        <span class="mb-3 flex h-12 w-12 items-center justify-center rounded-[var(--radius-chip)] bg-berry-soft text-2xl" aria-hidden="true">
+          🌰
+        </span>
+        <h3 class="m-0 text-lg font-black text-ink">Frutos secos</h3>
+        <p class="mb-0 mt-2 text-sm leading-relaxed text-muted">
+          También ponemos a tu disposición una amplia variedad de frutos secos. Consúltanos y te ayudaremos a encontrar
+          la opción que necesitas.
+        </p>
+      </article>
+
+      <article class="flex flex-col rounded-[var(--radius-card)] border border-line bg-white p-6 shadow-[var(--shadow-card)]">
+        <span class="mb-3 flex h-12 w-12 items-center justify-center rounded-[var(--radius-chip)] bg-leaf-soft text-2xl" aria-hidden="true">
+          🌿
+        </span>
+        <h3 class="m-0 text-lg font-black text-ink">Otros productos</h3>
+        <p class="mb-0 mt-2 text-sm leading-relaxed text-muted">
+          ¿Buscas algo diferente? También trabajamos con delicatessen, brotes, flores comestibles, micromesclun, dátiles
+          y otros productos especiales. Cuéntanos qué necesitas y consultaremos su disponibilidad para ayudarte a
+          conseguirlo.
+        </p>
+      </article>
+    </div>
+    <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+      <Button class="w-full sm:w-auto" href={`tel:${negocio.contacto.telefonoTel}`}>Consúltanos por teléfono</Button>
+      <Button class="w-full sm:w-auto" href="/contacto/" variant="secondary">Ir a contacto</Button>
     </div>
   </Section>
 

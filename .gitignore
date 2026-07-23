@@ -11,3 +11,6 @@ pnpm-debug.log*
 *.local
 .vscode/
 !.vscode/extensions.json
+
+# Fotografias originales pendientes de procesar
+material/fotos-originales/

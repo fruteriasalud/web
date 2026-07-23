@@ -17,12 +17,12 @@ const imagenReparto2 = galeria.find((item) => item.id === 'reparto-vehiculo-2')!
 const imagenFruta = galeria.find((item) => item.id === 'fruta-surtida')!;
 const imagenVerdura = galeria.find((item) => item.id === 'verduras-frescas')!;
 
-const badges = ['🏪 3 puestos en el mercado', '👨‍👩‍👧 Negocio familiar', '🧾 Encargos a consultar'];
+const badges = ['🏪 5 puestos en el mercado', '👨‍👩‍👧 Negocio familiar', '🧾 Encargos a consultar'];
 ---
 
 <Layout
   title="Empresa, pedidos y encargos en Sevilla"
-  description="Frutería Salud en Sevilla: negocio familiar del Mercado de Abastos Tiro de Línea, preparación de pedidos, encargos y atención a clientes y negocios."
+  description="Frutas y Verduras Salud en Sevilla: negocio familiar del Mercado de Abastos Tiro de Línea, preparación de pedidos, encargos y atención a clientes y negocios."
   canonical="/empresa/"
 >
   <section class="relative overflow-hidden px-5 pt-8 pb-10 sm:pt-16 sm:pb-20">
@@ -60,7 +60,7 @@ const badges = ['🏪 3 puestos en el mercado', '👨‍👩‍👧 Negocio fami
   <Section tone="paper" eyebrow="Quiénes somos" title="Un negocio familiar dentro del mercado">
     <div class="grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
       <p class="m-0 text-base leading-relaxed text-ink/80">{empresa.quienesSomos.texto}</p>
-      <GalleryCard src={imagenPuesto.src} alt={imagenPuesto.alt} titulo={imagenPuesto.titulo} caption={imagenPuesto.caption} headingLevel="h3" />
+      <GalleryCard src={imagenPuesto.src} alt={imagenPuesto.alt} titulo={imagenPuesto.titulo} caption={imagenPuesto.caption} headingLevel="h3" aspect={imagenPuesto.aspect} objectPosition={imagenPuesto.objectPosition} />
     </div>
   </Section>
 
@@ -100,13 +100,13 @@ const badges = ['🏪 3 puestos en el mercado', '👨‍👩‍👧 Negocio fami
           ))
         }
       </div>
-      <GalleryCard src={imagenEquipo.src} alt={imagenEquipo.alt} titulo={imagenEquipo.titulo} caption={imagenEquipo.caption} headingLevel="h3" />
+      <GalleryCard src={imagenEquipo.src} alt={imagenEquipo.alt} titulo={imagenEquipo.titulo} caption={imagenEquipo.caption} headingLevel="h3" aspect={imagenEquipo.aspect} objectPosition={imagenEquipo.objectPosition} />
     </div>
   </Section>
 
   <Section tone="paper" eyebrow={empresa.pedidos.eyebrow} title={empresa.pedidos.titulo}>
     <div class="grid gap-8 lg:grid-cols-[0.9fr_1fr] lg:items-center">
-      <GalleryCard src={imagenPedidos.src} alt={imagenPedidos.alt} titulo={imagenPedidos.titulo} caption={imagenPedidos.caption} headingLevel="h3" />
+      <GalleryCard src={imagenPedidos.src} alt={imagenPedidos.alt} titulo={imagenPedidos.titulo} caption={imagenPedidos.caption} headingLevel="h3" aspect={imagenPedidos.aspect} objectPosition={imagenPedidos.objectPosition} />
       <div>
         <p class="m-0 text-base leading-relaxed text-ink/80">{empresa.pedidos.texto}</p>
         <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
@@ -124,8 +124,8 @@ const badges = ['🏪 3 puestos en el mercado', '👨‍👩‍👧 Negocio fami
     </p>
 
     <div class="mt-8 grid gap-5 sm:grid-cols-2">
-      <GalleryCard src={imagenReparto1.src} alt={imagenReparto1.alt} titulo={imagenReparto1.titulo} caption={imagenReparto1.caption} headingLevel="h3" />
-      <GalleryCard src={imagenReparto2.src} alt={imagenReparto2.alt} titulo={imagenReparto2.titulo} caption={imagenReparto2.caption} headingLevel="h3" />
+      <GalleryCard src={imagenReparto1.src} alt={imagenReparto1.alt} titulo={imagenReparto1.titulo} caption={imagenReparto1.caption} headingLevel="h3" aspect={imagenReparto1.aspect} objectPosition={imagenReparto1.objectPosition} />
+      <GalleryCard src={imagenReparto2.src} alt={imagenReparto2.alt} titulo={imagenReparto2.titulo} caption={imagenReparto2.caption} headingLevel="h3" aspect={imagenReparto2.aspect} objectPosition={imagenReparto2.objectPosition} />
     </div>
 
     <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
@@ -136,8 +136,8 @@ const badges = ['🏪 3 puestos en el mercado', '👨‍👩‍👧 Negocio fami
 
   <Section tone="paper" eyebrow="Producto" title="Así es nuestro día a día">
     <div class="grid gap-5 sm:grid-cols-2">
-      <GalleryCard src={imagenFruta.src} alt={imagenFruta.alt} titulo={imagenFruta.titulo} caption={imagenFruta.caption} headingLevel="h3" />
-      <GalleryCard src={imagenVerdura.src} alt={imagenVerdura.alt} titulo={imagenVerdura.titulo} caption={imagenVerdura.caption} headingLevel="h3" />
+      <GalleryCard src={imagenFruta.src} alt={imagenFruta.alt} titulo={imagenFruta.titulo} caption={imagenFruta.caption} headingLevel="h3" aspect={imagenFruta.aspect} objectPosition={imagenFruta.objectPosition} />
+      <GalleryCard src={imagenVerdura.src} alt={imagenVerdura.alt} titulo={imagenVerdura.titulo} caption={imagenVerdura.caption} headingLevel="h3" aspect={imagenVerdura.aspect} objectPosition={imagenVerdura.objectPosition} />
     </div>
   </Section>
 
