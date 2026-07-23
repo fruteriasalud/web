@@ -18,7 +18,7 @@ const isActivePath = (href: string) => (href === '/' ? currentPath === '/' : cur
     <nav aria-label="Navegación principal" class="hidden md:block">
       <ul class="m-0 flex list-none items-center gap-1 p-0 text-sm font-semibold text-muted">
         {
-          navegacionPrincipal.map((item) => (
+          navegacionPrincipal.filter((item) => item.desktop).map((item) => (
             <li>
               <a
                 class:list={[
