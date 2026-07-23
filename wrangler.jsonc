@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
-  "name": "fruteria-salud-web",
+  "name": "web",
   "main": "src/worker.ts",
   "compatibility_date": "2026-07-23",
   "assets": {
