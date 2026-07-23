@@ -4,6 +4,7 @@ import { negocio } from '../data/negocio';
 
 const currentPath = Astro.url.pathname;
 const isActivePath = (href: string) => (href === '/' ? currentPath === '/' : currentPath.startsWith(href));
+const isWorkPage = (href: string) => href === '/trabaja-con-nosotros/';
 ---
 
 <header class="sticky top-0 z-50 border-b border-line bg-paper">
@@ -16,14 +17,18 @@ const isActivePath = (href: string) => (href === '/' ? currentPath === '/' : cur
     </a>
 
     <nav aria-label="Navegación principal" class="hidden md:block">
-      <ul class="m-0 flex list-none items-center gap-1 p-0 text-sm font-semibold text-muted">
+      <ul class="m-0 flex list-none items-center gap-0.5 p-0 text-sm font-semibold text-muted">
         {
           navegacionPrincipal.filter((item) => item.desktop).map((item) => (
             <li>
               <a
                 class:list={[
-                  'rounded-[var(--radius-chip)] px-4 py-2 no-underline transition-colors',
-                  isActivePath(item.href) ? 'bg-leaf-soft text-leaf' : 'hover:bg-cream hover:text-berry',
+                  'whitespace-nowrap rounded-[var(--radius-chip)] px-3 py-2 no-underline transition-colors lg:px-4',
+                  isActivePath(item.href) && !isWorkPage(item.href)
+                    ? 'bg-leaf-soft text-leaf'
+                    : isActivePath(item.href)
+                      ? 'text-leaf hover:bg-cream hover:text-berry'
+                      : 'hover:bg-cream hover:text-berry',
                 ]}
                 href={item.href}
                 aria-current={isActivePath(item.href) ? 'page' : undefined}
